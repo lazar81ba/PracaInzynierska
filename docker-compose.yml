@@ -1,0 +1,11 @@
+version: "3.1"
+services:
+  main_database:
+      image: postgres:9
+      container_name: main_database
+      volumes:
+          - ./DatabaseScripts/create_database.sql:/docker-entrypoint-initdb.d/1-schema.sql
+          - ./DatabaseScripts/initialize_database.sql:/docker-entrypoint-initdb.d/2-schema.sql
+      ports:
+          - "5432:5432"
+
