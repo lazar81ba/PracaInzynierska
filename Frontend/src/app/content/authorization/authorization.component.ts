@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
+import {UserAuthService} from '../../shared/user-auth.service';
 
 @Component({
   selector: 'app-authorization',
@@ -12,7 +13,7 @@ export class AuthorizationComponent implements OnInit {
   authorized: boolean;
   error = false;
 
-  constructor(private router: Router) { }
+  constructor(private userAuth: UserAuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,5 +21,11 @@ export class AuthorizationComponent implements OnInit {
   onSignIn(f: NgForm) {
     const email = f.value.email;
     const pass = f.value.password;
+    this.userAuth.authorize(email, pass);
+    if (this.userAuth.isAuthorized()) {
+      this.router.navigate(['/mainboard']);
+    } else {
+      this.error = true;
+    }
   }
 }
