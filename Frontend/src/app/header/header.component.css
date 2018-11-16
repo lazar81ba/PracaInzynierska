@@ -1,0 +1,19 @@
+.background-fullimage{
+  /*background: url(../assets/images/background.jpg) center fixed no-repeat;*/
+  /*!* Set a specific height *!*/
+  /*height: 100%;*/
+  /*!* Create the parallax scrolling effect *!*/
+  /*background-attachment: fixed;*/
+  /*background-position: center;*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+}
+
+.nav-wrapper{
+  background-color: #192231;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.nav-wrapper ul li:hover {
+  background-color: #494E6B;
+}
