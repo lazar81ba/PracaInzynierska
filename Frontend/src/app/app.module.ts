@@ -14,7 +14,7 @@ import {UserAuthService} from './shared/user-auth.service';
 import {AuthGuardService} from './content/authorization/auth-guard.service';
 import {ProjectBoardComponent} from './content/project-board/project-board.component';
 import {UserProfileBoardComponent} from './content/user-profile-board/user-profile-board.component';
-import {MainBoardComponent} from './content/mainboard/main-board.component';
+import {MainBoardComponent} from './content/main-board/main-board.component';
 
 
 @NgModule({
