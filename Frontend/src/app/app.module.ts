@@ -10,6 +10,7 @@ import { RegistrationComponent } from './content/registration/registration.compo
 import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import {FormsModule} from '@angular/forms';
+import {UserAuthService} from './shared/user-auth.service';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import {FormsModule} from '@angular/forms';
     AppRouteModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
