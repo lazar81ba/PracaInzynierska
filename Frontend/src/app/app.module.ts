@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import {FormsModule} from '@angular/forms';
 import {UserAuthService} from './shared/user-auth.service';
+import {AuthGuardService} from './content/authorization/auth-guard.service';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import {UserAuthService} from './shared/user-auth.service';
     AppRouteModule,
     FormsModule
   ],
-  providers: [UserAuthService],
+  providers: [UserAuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
