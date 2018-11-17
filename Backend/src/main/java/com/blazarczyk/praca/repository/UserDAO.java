@@ -14,6 +14,5 @@ public interface UserDAO extends CrudRepository<User, Long> {
     public List<User> findAllBySpecialization(Specialization specialization);
     public User findByEmail(String email);
     public List<User> findAllByNameAndSurname(String name, String surname);
-    @Query("select u from User u where ?1 in elements(u.participatedProjects)")
     public List<User> findAllByParticipatedProjectsContaining(Project project);
 }
