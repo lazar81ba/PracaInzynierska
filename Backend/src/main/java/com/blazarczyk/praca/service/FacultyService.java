@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.service;
 
-import com.blazarczyk.praca.model.Faculty;
+import com.blazarczyk.praca.model.databse.Faculty;
 
 import java.util.List;
 

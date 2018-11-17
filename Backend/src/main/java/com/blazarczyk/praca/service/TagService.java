@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.service;
 
-import com.blazarczyk.praca.model.Tag;
+import com.blazarczyk.praca.model.databse.Tag;
 
 import java.util.List;
 

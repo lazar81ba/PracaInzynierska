@@ -1,4 +1,4 @@
-package com.blazarczyk.praca.model;
+package com.blazarczyk.praca.model.databse;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -8,6 +8,7 @@ import java.util.Set;
 public class Country {
 
     @Id
+    @GeneratedValue
     private long id;
 
     @Column
@@ -16,6 +17,13 @@ public class Country {
     @OneToMany(mappedBy = "country")
     private Set<University> universities;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.repository;
 
-import com.blazarczyk.praca.model.Tag;
+import com.blazarczyk.praca.model.databse.Tag;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

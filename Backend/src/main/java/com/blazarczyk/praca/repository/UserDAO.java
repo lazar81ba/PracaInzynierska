@@ -1,11 +1,9 @@
 package com.blazarczyk.praca.repository;
 
-import com.blazarczyk.praca.model.*;
-import org.springframework.data.jpa.repository.Query;
+import com.blazarczyk.praca.model.databse.*;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
-import java.util.Set;
 
 public interface UserDAO extends CrudRepository<User, Long> {
     public User findById(Long id);

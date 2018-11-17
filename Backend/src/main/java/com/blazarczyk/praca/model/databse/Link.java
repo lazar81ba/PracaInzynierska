@@ -1,4 +1,4 @@
-package com.blazarczyk.praca.model;
+package com.blazarczyk.praca.model.databse;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -7,6 +7,7 @@ import java.util.Set;
 @Table(name = "link", schema = "public")
 public class Link {
     @Id
+    @GeneratedValue
     private long id;
     @Column
     private String address;
@@ -14,7 +15,13 @@ public class Link {
     @ManyToMany(mappedBy = "links")
     private Set<Project> projectEntries;
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getAddress() {
         return address;

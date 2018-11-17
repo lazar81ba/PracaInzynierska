@@ -1,12 +1,13 @@
-package com.blazarczyk.praca.model;
+package com.blazarczyk.praca.model.databse;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "project_tag", schema = "public")
+@Table(name = "tag", schema = "public")
 public class Tag {
     @Id
+    @GeneratedValue
     private long id;
 
     @Column
@@ -14,6 +15,14 @@ public class Tag {
 
     @ManyToMany(mappedBy = "tags")
     private Set<Project> projectEntries;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.service.implementation;
 
-import com.blazarczyk.praca.model.Specialization;
+import com.blazarczyk.praca.model.databse.Specialization;
 import com.blazarczyk.praca.repository.FacultyDAO;
 import com.blazarczyk.praca.repository.SpecializationDAO;
 import com.blazarczyk.praca.repository.UserDAO;

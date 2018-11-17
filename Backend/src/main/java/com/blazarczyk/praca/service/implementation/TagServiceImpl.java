@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.service.implementation;
 
-import com.blazarczyk.praca.model.Tag;
+import com.blazarczyk.praca.model.databse.Tag;
 import com.blazarczyk.praca.repository.TagDAO;
 import com.blazarczyk.praca.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;

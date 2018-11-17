@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.service.implementation;
 
-import com.blazarczyk.praca.model.*;
+import com.blazarczyk.praca.model.databse.User;
 import com.blazarczyk.praca.repository.*;
 import com.blazarczyk.praca.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +33,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> getUsersByUniversityName(String name) {
+        return userDAO.findAllByUniversity(universityDAO.findByName(name));
+    }
+
+    @Override
     public List<User> getUsersByFacultyId(long faculty_id) {
         return userDAO.findAllByFaculty(facultyDAO.findById(faculty_id));
     }
@@ -56,4 +61,10 @@ public class UserServiceImpl implements UserService {
     public List<User> getUsersParticipatingInProjectById(long project_id) {
         return userDAO.findAllByParticipatedProjectsContaining(projectDAO.findById(project_id));
     }
+
+    @Override
+    public void createUser(User user){
+        userDAO.save(user);
+    }
+
 }

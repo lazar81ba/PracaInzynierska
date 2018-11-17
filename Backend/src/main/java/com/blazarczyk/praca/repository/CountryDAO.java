@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.repository;
 
-import com.blazarczyk.praca.model.Country;
+import com.blazarczyk.praca.model.databse.Country;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

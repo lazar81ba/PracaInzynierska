@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.service.implementation;
 
-import com.blazarczyk.praca.model.Country;
+import com.blazarczyk.praca.model.databse.Country;
 import com.blazarczyk.praca.repository.CountryDAO;
 import com.blazarczyk.praca.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;

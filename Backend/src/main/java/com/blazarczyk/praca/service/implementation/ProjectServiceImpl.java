@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.service.implementation;
 
-import com.blazarczyk.praca.model.Project;
+import com.blazarczyk.praca.model.databse.Project;
 import com.blazarczyk.praca.repository.ProjectDAO;
 import com.blazarczyk.praca.repository.UserDAO;
 import com.blazarczyk.praca.service.ProjectService;

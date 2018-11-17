@@ -1,4 +1,4 @@
-package com.blazarczyk.praca.model;
+package com.blazarczyk.praca.model.databse;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -8,6 +8,7 @@ import java.util.Set;
 public class Specialization {
 
     @Id
+    @GeneratedValue
     private long id;
 
     @Column
@@ -18,6 +19,14 @@ public class Specialization {
 
     @ManyToMany(mappedBy = "specializations")
     private Set<Faculty> faculties;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

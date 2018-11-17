@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.service;
 
-import com.blazarczyk.praca.model.Country;
+import com.blazarczyk.praca.model.databse.Country;
 
 import java.util.List;
 

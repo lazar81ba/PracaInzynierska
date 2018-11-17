@@ -1,6 +1,6 @@
 package com.blazarczyk.praca.service.implementation;
 
-import com.blazarczyk.praca.model.University;
+import com.blazarczyk.praca.model.databse.University;
 import com.blazarczyk.praca.repository.CountryDAO;
 import com.blazarczyk.praca.repository.UniversityDAO;
 import com.blazarczyk.praca.repository.UserDAO;
