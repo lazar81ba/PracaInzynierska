@@ -10,17 +10,17 @@ public class Tag {
     private long id;
 
     @Column
-    private String content;
+    private String name;
 
     @ManyToMany(mappedBy = "tags")
     private Set<Project> projectEntries;
 
-    public String getContent() {
-        return content;
+    public String getName() {
+        return name;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setName(String content) {
+        this.name = content;
     }
 
     public Set<Project> getProjectEntries() {
