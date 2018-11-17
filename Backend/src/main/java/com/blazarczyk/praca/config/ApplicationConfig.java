@@ -1,4 +1,4 @@
-package config;
+package com.blazarczyk.praca.config;
 
 
 import org.springframework.context.annotation.Bean;

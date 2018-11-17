@@ -86,6 +86,7 @@ CREATE TABLE IF NOT EXISTS public.project_link
   id_link integer not null
 );
 
+
 CREATE TABLE IF NOT EXISTS public.project_details
 (
   id serial not null
@@ -95,6 +96,7 @@ CREATE TABLE IF NOT EXISTS public.project_details
   content varchar(255) not null
 );
 
+
 CREATE TABLE IF NOT EXISTS public.project
 (
   id serial not null
@@ -103,7 +105,7 @@ CREATE TABLE IF NOT EXISTS public.project
   name varchar(255) not null,
   description text not null,
   image_url text not null,
-  public boolean not null
+  public boolean not null,
 );
 
 CREATE TABLE IF NOT EXISTS public.project_user
