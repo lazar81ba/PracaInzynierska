@@ -1,7 +1,6 @@
 package com.blazarczyk.praca.controller;
 
-import com.blazarczyk.praca.model.json.ProjectJson;
-import com.blazarczyk.praca.model.json.UserJson;
+import com.blazarczyk.praca.model.json.*;
 import com.blazarczyk.praca.service.ProjectService;
 import com.blazarczyk.praca.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,9 @@ import java.util.List;
 public class ProjectController {
     @Autowired
     ProjectService projectService;
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping(path = "/project/{id}", method = RequestMethod.GET)
     @ResponseBody
@@ -32,6 +34,32 @@ public class ProjectController {
             projectService.getProjectsWithName(name).forEach(x -> response.add(new ProjectJson(x)));
 
         return response;
+    }
+
+    @RequestMapping(path = "/project/{id}/projectDetails", method = RequestMethod.GET)
+    @ResponseBody
+    public List<ProjectDetailJson> getProjectDetails(@PathVariable(value = "id") Long id){
+        return (new ProjectJson(projectService.getProjectWithId(id))).getProjectDetails();
+    }
+
+    @RequestMapping(path = "/project/{id}/links", method = RequestMethod.GET)
+    @ResponseBody
+    public List<LinkJson> getProjectLinks(@PathVariable(value = "id") Long id){
+        return (new ProjectJson(projectService.getProjectWithId(id))).getLinks();
+    }
+
+    @RequestMapping(path = "/project/{id}/tags", method = RequestMethod.GET)
+    @ResponseBody
+    public List<TagJson> getProjectTags(@PathVariable(value = "id") Long id){
+        return (new ProjectJson(projectService.getProjectWithId(id))).getTags();
+    }
+
+    @RequestMapping(path = "/project/{id}/participators", method = RequestMethod.GET)
+    @ResponseBody
+    public List<UserGeneralJson> getUsersByProjectId(@PathVariable(value = "id") Long project_id){
+        List<UserGeneralJson> users = new LinkedList<>();
+        userService.getUsersParticipatingInProjectById(project_id).forEach(x -> users.add(new UserGeneralJson(x)));
+        return users;
     }
 
 }
