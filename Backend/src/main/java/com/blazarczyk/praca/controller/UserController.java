@@ -54,7 +54,7 @@ public class UserController {
         return users;
     }
 
-    @RequestMapping(path = "/project/{id}/users", method = RequestMethod.GET)
+    @RequestMapping(path = "/project/{id}/participators", method = RequestMethod.GET)
     @ResponseBody
     public List<UserJson> getUsersByProjectId(@PathVariable(value = "id") Long project_id){
         List<UserJson> users = new LinkedList<>();
