@@ -1,11 +1,25 @@
+
 <div class="navbar-fixed">
-  <nav>
+  <nav >
     <div class="nav-wrapper">
       <a routerLink="/" class="brand-logo">ProjectSHARE</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a routerLink="/login">Login</a></li>
-        <li><a routerLink="/register">Register</a></li>
-      </ul>
+      <div *ngIf="userLoggedIn()">
+        <ul class="right hide-on-med-and-down">
+        <li><a routerLinkActive="active" routerLink="/project" >Main Board</a></li>
+        <li><a routerLinkActive="active" routerLink="/project/view">Project</a></li>
+        <li><a routerLinkActive="active" routerLink="/project/search">Search</a></li>
+        <li><a routerLinkActive="active" routerLink="/project/create">Create</a></li>
+        <li><a routerLinkActive="active" routerLink="/user/view">View profile</a></li>
+        <li><a routerLinkActive="active" routerLink="/user/account">Account</a></li>
+        </ul>
+      </div>
+      <div *ngIf="!userLoggedIn()">
+        <ul  class="right hide-on-med-and-down">
+          <li><a routerLinkActive="active" routerLink="/login">Login</a></li>
+          <li><a routerLinkActive="active" routerLink="/register">Register</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 </div>
+

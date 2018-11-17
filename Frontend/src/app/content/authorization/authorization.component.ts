@@ -21,9 +21,9 @@ export class AuthorizationComponent implements OnInit {
   onSignIn(f: NgForm) {
     const email = f.value.email;
     const pass = f.value.password;
-    this.userAuth.authorize(email, pass);
-    if (this.userAuth.isAuthorized()) {
-      this.router.navigate(['/project-main-board']);
+    this.authorized = this.userAuth.authorize(email, pass);
+    if (this.authorized) {
+      this.router.navigate(['/project']);
     } else {
       this.error = true;
     }
