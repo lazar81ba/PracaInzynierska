@@ -26,10 +26,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     ProjectDAO projectDAO;
 
-    @Override
-    public User getUserById(long id) {
-        return userDAO.findById(id);
-    }
 
     @Override
     public List<User> getUsersByUniversityId(long university_id) {
@@ -47,12 +43,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByEmail(String email) {
+    public User getUserWithEmail(String email) {
         return userDAO.findByEmail(email);
     }
 
     @Override
-    public List<User> getUsersByNameAndSurname(String name, String surname) {
+    public List<User> getUsersWithNameAndSurname(String name, String surname) {
         return userDAO.findAllByNameAndSurname(name,surname);
     }
 
