@@ -1,6 +1,5 @@
 package com.blazarczyk.praca.controller;
 
-import com.blazarczyk.praca.model.databse.User;
 import com.blazarczyk.praca.model.json.UserJson;
 import com.blazarczyk.praca.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

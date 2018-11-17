@@ -8,7 +8,7 @@ import com.blazarczyk.praca.model.databse.Tag;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ProjectJson {
+public class ProjectGeneralJson {
     private long id;
     private String name;
     private String description;
@@ -18,10 +18,10 @@ public class ProjectJson {
     private List<LinkJson> links = new LinkedList<>();
     private List<TagJson> tags = new LinkedList<>();
 
-    public ProjectJson() {
+    public ProjectGeneralJson() {
     }
 
-    public ProjectJson(Project project) {
+    public ProjectGeneralJson(Project project) {
         id = project.getId();
         name = project.getName();
         description = project.getDescription();

@@ -22,8 +22,8 @@ public class UserJson {
         this.specialization = new SpecializationGeneralJson(user.getSpecialization());
         participatedProjects = new LinkedList<>();
         observedProjects = new LinkedList<>();
-        user.getParticipatedProjects().forEach(x -> participatedProjects.add(new ProjectJson(x)));
-        user.getObservedProjects().forEach(x -> observedProjects.add(new ProjectJson(x)));
+        user.getParticipatedProjects().forEach(x -> participatedProjects.add(new ProjectGeneralJson(x)));
+        user.getObservedProjects().forEach(x -> observedProjects.add(new ProjectGeneralJson(x)));
 
     }
 
@@ -45,9 +45,9 @@ public class UserJson {
 
     private SpecializationGeneralJson specialization;
 
-    private List<ProjectJson> participatedProjects = new LinkedList<>();
+    private List<ProjectGeneralJson> participatedProjects = new LinkedList<>();
 
-    private List<ProjectJson> observedProjects = new LinkedList<>();
+    private List<ProjectGeneralJson> observedProjects = new LinkedList<>();
 
     public long getId() {
         return id;
@@ -121,19 +121,19 @@ public class UserJson {
         this.specialization = specialization;
     }
 
-    public List<ProjectJson> getParticipatedProjects() {
+    public List<ProjectGeneralJson> getParticipatedProjects() {
         return participatedProjects;
     }
 
-    public void setParticipatedProjects(List<ProjectJson> participatedProjects) {
+    public void setParticipatedProjects(List<ProjectGeneralJson> participatedProjects) {
         this.participatedProjects = participatedProjects;
     }
 
-    public List<ProjectJson> getObservedProjects() {
+    public List<ProjectGeneralJson> getObservedProjects() {
         return observedProjects;
     }
 
-    public void setObservedProjects(List<ProjectJson> observedProjects) {
+    public void setObservedProjects(List<ProjectGeneralJson> observedProjects) {
         this.observedProjects = observedProjects;
     }
 }
