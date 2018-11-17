@@ -12,9 +12,8 @@ import { ContentComponent } from './content/content.component';
 import {FormsModule} from '@angular/forms';
 import {UserAuthService} from './shared/user-auth.service';
 import {AuthGuardService} from './content/authorization/auth-guard.service';
-import {ProjectBoardComponent} from './content/project-board/project-board.component';
 import {UserProfileBoardComponent} from './content/user-profile-board/user-profile-board.component';
-import {MainBoardComponent} from './content/main-board/main-board.component';
+import {ProjectMainBoardComponent} from './content/project-main-board/project-main-board.component';
 import {ProjectCreateBoardComponent} from './content/project-create-board/project-create-board.component';
 import {ProjectSearchBoardComponent} from './content/project-search-board/project-search-board.component';
 import {ProjectViewBoardComponent} from './content/project-view-board/project-view-board.component';
@@ -29,9 +28,8 @@ import {UserAccountBoardComponent} from './content/user-account-board/user-accou
     RegistrationComponent,
     HeaderComponent,
     ContentComponent,
-    ProjectBoardComponent,
     UserProfileBoardComponent,
-    MainBoardComponent,
+    ProjectMainBoardComponent,
     ProjectCreateBoardComponent,
     ProjectSearchBoardComponent,
     ProjectViewBoardComponent,

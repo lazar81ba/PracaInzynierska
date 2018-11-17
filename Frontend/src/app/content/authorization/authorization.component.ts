@@ -23,7 +23,7 @@ export class AuthorizationComponent implements OnInit {
     const pass = f.value.password;
     this.userAuth.authorize(email, pass);
     if (this.userAuth.isAuthorized()) {
-      this.router.navigate(['/main-board']);
+      this.router.navigate(['/project-main-board']);
     } else {
       this.error = true;
     }
