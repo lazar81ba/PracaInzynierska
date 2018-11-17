@@ -1,4 +1,4 @@
-package com.blazarczyk.praca.model;
+package com.blazarczyk.praca.model.databse;
 
 import javax.persistence.*;
 
@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "project_details", schema = "public")
 public class ProjectDetail {
     @Id
+    @GeneratedValue
     private long id;
 
     @Column
@@ -14,6 +15,14 @@ public class ProjectDetail {
     @ManyToOne
     @JoinColumn(name = "id_project")
     private Project project;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getContent() {
         return content;

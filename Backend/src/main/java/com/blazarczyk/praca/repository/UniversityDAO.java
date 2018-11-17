@@ -1,8 +1,8 @@
 package com.blazarczyk.praca.repository;
 
-import com.blazarczyk.praca.model.Country;
-import com.blazarczyk.praca.model.University;
-import com.blazarczyk.praca.model.User;
+import com.blazarczyk.praca.model.databse.Country;
+import com.blazarczyk.praca.model.databse.University;
+import com.blazarczyk.praca.model.databse.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.blazarczyk.praca.model;
+package com.blazarczyk.praca.model.databse;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -7,6 +7,7 @@ import java.util.Set;
 @Table(name = "user", schema = "public")
 public class User {
     @Id
+    @GeneratedValue
     private long id;
 
     @Column
@@ -21,8 +22,8 @@ public class User {
     @Column
     private String email;
 
-    @Column
-    private String image_url;
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @Column
     private String sex;
@@ -57,6 +58,14 @@ public class User {
     )
     private Set<Project> observedProjects;
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -89,12 +98,12 @@ public class User {
         this.email = email;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String image_url) {
+        this.imageUrl = image_url;
     }
 
     public String getSex() {
@@ -144,4 +153,6 @@ public class User {
     public void setObservedProjects(Set<Project> observedProjects) {
         this.observedProjects = observedProjects;
     }
+
+
 }
