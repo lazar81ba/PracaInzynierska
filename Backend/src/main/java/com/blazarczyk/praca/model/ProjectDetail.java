@@ -8,11 +8,20 @@ public class ProjectDetail {
     @Id
     private long id;
 
+    @Column
+    private String content;
+
     @ManyToOne
     @JoinColumn(name = "id_project")
     private Project project;
 
+    public String getContent() {
+        return content;
+    }
 
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public Project getProject() {
         return project;
