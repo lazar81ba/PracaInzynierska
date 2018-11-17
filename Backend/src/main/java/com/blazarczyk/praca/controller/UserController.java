@@ -1,5 +1,6 @@
 package com.blazarczyk.praca.controller;
 
+import com.blazarczyk.praca.model.json.UserGeneralJson;
 import com.blazarczyk.praca.model.json.UserJson;
 import com.blazarczyk.praca.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,9 +57,9 @@ public class UserController {
 
     @RequestMapping(path = "/project/{id}/participators", method = RequestMethod.GET)
     @ResponseBody
-    public List<UserJson> getUsersByProjectId(@PathVariable(value = "id") Long project_id){
-        List<UserJson> users = new LinkedList<>();
-        userService.getUsersParticipatingInProjectById(project_id).forEach(x -> users.add(new UserJson(x)));
+    public List<UserGeneralJson> getUsersByProjectId(@PathVariable(value = "id") Long project_id){
+        List<UserGeneralJson> users = new LinkedList<>();
+        userService.getUsersParticipatingInProjectById(project_id).forEach(x -> users.add(new UserGeneralJson(x)));
         return users;
     }
 

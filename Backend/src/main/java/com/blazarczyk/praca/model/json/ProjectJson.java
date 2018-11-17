@@ -101,4 +101,12 @@ public class ProjectJson {
     public void setTags(List<TagJson> tags) {
         this.tags = tags;
     }
+
+    public List<UserGeneralJson> getParticipators() {
+        return participators;
+    }
+
+    public void setParticipators(List<UserGeneralJson> participators) {
+        this.participators = participators;
+    }
 }
