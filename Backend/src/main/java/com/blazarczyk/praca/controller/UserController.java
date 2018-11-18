@@ -49,7 +49,11 @@ public class UserController {
     @ResponseBody
     public ProjectGeneralJson getUserParticipatedProject(@PathVariable(value = "email") String email,
                                                          @PathVariable(value = "project_id")Long id){
-        return (new UserJson(userService.getUserWithEmail(email))).getParticipatedProjects().stream().filter(x -> x.getId() == id).findFirst().get();
+        return (new UserJson(userService.getUserWithEmail(email))).getParticipatedProjects()
+                .stream()
+                .filter(x -> x.getId() == id)
+                .findFirst()
+                .get();
     }
 
     @RequestMapping(path = "/user/{email:.+}/observedProjects", method = RequestMethod.GET)
@@ -62,18 +66,13 @@ public class UserController {
     @ResponseBody
     public ProjectGeneralJson getUserObservedProject(@PathVariable(value = "email") String email,
                                                      @PathVariable(value = "project_id")Long id){
-        return (new UserJson(userService.getUserWithEmail(email))).getObservedProjects().stream().filter(x -> x.getId() == id).findFirst().get();
+        return (new UserJson(userService.getUserWithEmail(email))).getObservedProjects()
+                .stream()
+                .filter(x -> x.getId() == id)
+                .findFirst()
+                .get();
     }
-
-
-
-    @RequestMapping(path = "/university/{id}/users", method = RequestMethod.GET)
-    @ResponseBody
-    public List<UserJson> getUniversityUsersById(@PathVariable(value = "id") Long university_id){
-        List<UserJson> users = new LinkedList<>();
-        userService.getUsersByUniversityId(university_id).forEach(x -> users.add(new UserJson(x)));
-        return users;
-    }
+    
 
     @RequestMapping(path = "/faculty/{id}/users", method = RequestMethod.GET)
     @ResponseBody
