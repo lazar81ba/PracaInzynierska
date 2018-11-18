@@ -3,3 +3,12 @@
   padding-right: 15%;
   padding-left:  15%;
 }
+.container {
+  margin: 0 auto;
+  max-width: 1920px;
+  width: 95%;
+}
+
+.margins {
+  margin: 1%;
+}

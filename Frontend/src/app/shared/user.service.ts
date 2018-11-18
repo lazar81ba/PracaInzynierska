@@ -18,8 +18,8 @@ export class UserService {
   private endpointUsers = '/users';
 
 
-  public getUser(user: UserGeneral) {
-    this.httpClient.get(this.endpointPrefix + this.endpointUser + '/' + user.email)
+  public getUser(userEmail: string) {
+    this.httpClient.get(this.endpointPrefix + this.endpointUser + '/' + userEmail)
       .subscribe((data: User) => {
         this.userSubject.next(data);
       });

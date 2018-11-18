@@ -1,3 +1,18 @@
-<div class="sub-body">
-  <router-outlet></router-outlet>
+<div class="row">
+  <ng-template [ngIf]="!authorized" class=" sub-body">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </ng-template>
+  <ng-template [ngIf]="authorized" >
+    <div class="margins">
+      <div class="col s12 m4 l3">
+        <app-project-observed-board></app-project-observed-board>
+      </div>
+      <div class="col s12 m8 l9">
+        <router-outlet ></router-outlet>
+      </div>
+    </div>
+  </ng-template>
+
 </div>

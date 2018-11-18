@@ -1,3 +1,18 @@
-<p>
-  user-profile-board works!
-</p>
+
+<div class="row">
+    <div class="basicCard left-space">
+
+        <div class="col s4">
+          <div *ngIf="currentUser != null">
+            <img [src]="currentUser.imageUrl" class="materialboxed circle" width="100%"/>
+          </div>
+        </div>
+        <div class="col s8">
+          <p>
+            user-profile-board works!
+          </p>
+        </div>
+
+
+    </div>
+</div>
