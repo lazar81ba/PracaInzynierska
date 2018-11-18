@@ -18,6 +18,11 @@ public class ProjectServiceImpl implements ProjectService {
     UserDAO userDAO;
 
     @Override
+    public Project getProjectWithId(long id) {
+        return projectDAO.findById(id);
+    }
+
+    @Override
     public List<Project> getProjectsWithName(String name) {
         return projectDAO.findAllByName(name);
     }

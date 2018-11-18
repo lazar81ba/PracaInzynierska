@@ -21,6 +21,11 @@ public class UniversityServiceImpl implements UniversityService {
     CountryDAO countryDAO;
 
     @Override
+    public University getUniversityWithId(Long id) {
+        return universityDAO.findById(id);
+    }
+
+    @Override
     public University getUniversityWithName(String name) {
         return universityDAO.findByName(name);
     }
@@ -33,5 +38,10 @@ public class UniversityServiceImpl implements UniversityService {
     @Override
     public List<University> getAllUniversitiesInCountry(long country_id) {
         return universityDAO.findAllByCountry(countryDAO.findById(country_id));
+    }
+
+    @Override
+    public List<University> getAllUniversities() {
+        return (List<University>) universityDAO.findAll();
     }
 }

@@ -23,6 +23,11 @@ public class SpecializationServiceImpl implements SpecializationService {
     FacultyDAO facultyDAO;
 
     @Override
+    public Specialization getSpecializationWithId(Long id) {
+        return specializationDAO.findById(id);
+    }
+
+    @Override
     public List<Specialization> getAllSpecializationsWithName(String name) {
         return specializationDAO.findAllByName(name);
     }
