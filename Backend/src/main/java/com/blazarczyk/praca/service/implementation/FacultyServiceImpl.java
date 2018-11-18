@@ -26,6 +26,11 @@ public class FacultyServiceImpl implements FacultyService {
     UniversityDAO universityDAO;
 
     @Override
+    public Faculty getFacultyWithId(long id) {
+        return facultyDAO.findById(id);
+    }
+
+    @Override
     public List<Faculty> getFacultiesWithName(String name) {
         return facultyDAO.findAllByName(name);
     }

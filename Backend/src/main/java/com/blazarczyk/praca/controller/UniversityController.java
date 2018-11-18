@@ -53,6 +53,23 @@ public class UniversityController {
                 .getSpecializations();
     }
 
+    @RequestMapping(path = "/university/{id}/faculties/{faculty_id}/specializations/{specialization_id}", method = RequestMethod.GET)
+    @ResponseBody
+    public SpecializationGeneralJson getUniversityFacultySpecialization(@PathVariable(value = "id") Long university_id,
+                                                                              @PathVariable(value = "faculty_id") Long faculty_id,
+                                                                              @PathVariable(value = "specialization_id") Long specialization_id){
+        return (new UniversityJson(universityService.getUniversityWithId(university_id))).getFaculties()
+                .stream()
+                .filter(x -> x.getId() == faculty_id)
+                .findFirst()
+                .get()
+                .getSpecializations()
+                .stream()
+                .filter(x -> x.getId() == specialization_id)
+                .findFirst()
+                .get();
+    }
+
 
     @RequestMapping(path = "/university/{id}/country", method = RequestMethod.GET)
     @ResponseBody

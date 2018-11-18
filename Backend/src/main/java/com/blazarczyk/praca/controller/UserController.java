@@ -72,15 +72,9 @@ public class UserController {
                 .findFirst()
                 .get();
     }
-    
 
-    @RequestMapping(path = "/faculty/{id}/users", method = RequestMethod.GET)
-    @ResponseBody
-    public List<UserJson> getFacultyUsers(@PathVariable(value = "id") Long faculty_id){
-        List<UserJson> users = new LinkedList<>();
-        userService.getUsersByFacultyId(faculty_id).forEach(x -> users.add(new UserJson(x)));
-        return users;
-    }
+
+
 
     @RequestMapping(path = "/specialization/{id}/users", method = RequestMethod.GET)
     @ResponseBody
@@ -93,7 +87,7 @@ public class UserController {
     @RequestMapping(path = "/users", method = RequestMethod.GET)
     @ResponseBody
     public List<UserJson> getUsersByNameAndSurname(@RequestParam(value = "name")String name,
-                                               @RequestParam(value = "surname")String surname){
+                                                   @RequestParam(value = "surname")String surname){
         List<UserJson> users = new LinkedList<>();
         userService.getUsersWithNameAndSurname(name, surname).forEach(x -> users.add(new UserJson(x)));
         return users;
