@@ -73,17 +73,6 @@ public class UserController {
                 .get();
     }
 
-
-
-
-    @RequestMapping(path = "/specialization/{id}/users", method = RequestMethod.GET)
-    @ResponseBody
-    public List<UserJson> getSpecializationUsers(@PathVariable(value = "id") Long specialization_id){
-        List<UserJson> users = new LinkedList<>();
-        userService.getUsersBySpecializationId(specialization_id).forEach(x -> users.add(new UserJson(x)));
-        return users;
-    }
-
     @RequestMapping(path = "/users", method = RequestMethod.GET)
     @ResponseBody
     public List<UserJson> getUsersByNameAndSurname(@RequestParam(value = "name")String name,

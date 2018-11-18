@@ -1,9 +1,6 @@
 package com.blazarczyk.praca.controller;
 
-import com.blazarczyk.praca.model.json.FacultyGeneralJson;
-import com.blazarczyk.praca.model.json.FacultyJson;
-import com.blazarczyk.praca.model.json.SpecializationGeneralJson;
-import com.blazarczyk.praca.model.json.UserJson;
+import com.blazarczyk.praca.model.json.*;
 import com.blazarczyk.praca.service.FacultyService;
 import com.blazarczyk.praca.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +20,9 @@ public class FacultyController {
 
     @RequestMapping(path = "/faculty/{id}/users", method = RequestMethod.GET)
     @ResponseBody
-    public List<UserJson> getFacultyUsers(@PathVariable(value = "id") Long faculty_id){
-        List<UserJson> users = new LinkedList<>();
-        userService.getUsersByFacultyId(faculty_id).forEach(x -> users.add(new UserJson(x)));
+    public List<UserGeneralJson> getFacultyUsers(@PathVariable(value = "id") Long faculty_id){
+        List<UserGeneralJson> users = new LinkedList<>();
+        userService.getUsersByFacultyId(faculty_id).forEach(x -> users.add(new UserGeneralJson(x)));
         return users;
     }
 

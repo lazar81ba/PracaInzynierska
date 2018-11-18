@@ -79,9 +79,9 @@ public class UniversityController {
 
     @RequestMapping(path = "/university/{id}/users", method = RequestMethod.GET)
     @ResponseBody
-    public List<UserJson> getUniversityUsersById(@PathVariable(value = "id") Long university_id){
-        List<UserJson> users = new LinkedList<>();
-        userService.getUsersByUniversityId(university_id).forEach(x -> users.add(new UserJson(x)));
+    public List<UserGeneralJson> getUniversityUsersById(@PathVariable(value = "id") Long university_id){
+        List<UserGeneralJson> users = new LinkedList<>();
+        userService.getUsersByUniversityId(university_id).forEach(x -> users.add(new UserGeneralJson(x)));
         return users;
     }
 
