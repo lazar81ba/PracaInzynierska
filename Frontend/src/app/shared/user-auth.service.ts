@@ -1,14 +1,14 @@
-import {User} from '../model/User';
 import {Injectable} from '@angular/core';
+import {AuthorizationData} from '../model/AuthorizationData';
 
 @Injectable()
 export class UserAuthService {
 
-  users: User[] = [
-    new User('Andrzej', 'Kot', 'test', 'test@gmail.com')
+  authorization: AuthorizationData[] = [
+    new AuthorizationData('test@gmail.com', 'test')
   ];
 
-  private loggedUser: User;
+  private authorizedData: AuthorizationData;
   private authorized = false;
 
    isAuthorized(): boolean {
@@ -16,9 +16,9 @@ export class UserAuthService {
   }
 
   authorize(email: string, password: string): boolean {
-    for (const user of this.users) {
-      if (user.email === email && user.password === password) {
-        this.loggedUser = user;
+    for (const data of this.authorization) {
+      if (data.email === email && data.password === password) {
+        this.authorizedData = data;
         this.authorized = true;
         return true;
       }
