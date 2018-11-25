@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewChecked, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {UserService} from '../../shared/user.service';
+import {User} from '../../model/User';
+import {UserGeneral} from '../../model/UserGeneral';
+import {UserAuthService} from '../../shared/user-auth.service';
+declare var $: any;
+
 
 @Component({
   selector: 'app-user-profile-board',
@@ -7,9 +13,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileBoardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService, private authService: UserAuthService) { }
+
+  public currentUser: User;
+  public generalUser: UserGeneral;
+
+
+   materialbox_jquery() {
+     $(document).ready(function() {
+       $('.materialboxed').materialbox();
+     });
+   }
+
 
   ngOnInit() {
+    this.userService.userSubject.subscribe(
+      (data: User) => {
+        this.currentUser = data;
+        console.log(this.currentUser.participatedProjects[0].imageUrl);
+        this.materialbox_jquery();
+      }
+    );
+    if (this.generalUser != null) {
+      this.userService.getUser(this.generalUser.email);
+    } else {
+      this.userService.getUser(this.authService.getAuthorizedEmail());
+    }
+
   }
+
+
+
+
+
 
 }

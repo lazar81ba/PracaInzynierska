@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AuthorizationData} from '../model/AuthorizationData';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class UserAuthService {
@@ -10,9 +11,14 @@ export class UserAuthService {
 
   private authorizedData: AuthorizationData;
   private authorized = false;
+  public authorizationSubject = new Subject<boolean>();
 
    isAuthorized(): boolean {
     return this.authorized;
+  }
+
+  getAuthorizedEmail(): string {
+     return this.authorizedData.email;
   }
 
   authorize(email: string, password: string): boolean {
@@ -20,6 +26,7 @@ export class UserAuthService {
       if (data.email === email && data.password === password) {
         this.authorizedData = data;
         this.authorized = true;
+        this.authorizationSubject.next(true);
         return true;
       }
     }

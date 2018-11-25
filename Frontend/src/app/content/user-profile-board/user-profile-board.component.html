@@ -1,3 +1,84 @@
-<p>
-  user-profile-board works!
-</p>
+
+<div class="row">
+    <div class="basicCard left-space">
+      <div>
+        <div class="col s12 m4">
+          <div *ngIf="currentUser != null" class="valign-wrapper">
+            <img [src]="currentUser.imageUrl" class="materialboxed circle" width="100%"/>
+          </div>
+        </div>
+        <div class="col s12 m8">
+          <div *ngIf="currentUser != null">
+            <h4 class="left-align" [innerText]="currentUser.name + ' ' + currentUser.surname"></h4>
+            <div style="display: flex">
+              <i style="padding-right: 10px" class="material-icons">email</i> <span class="left-align" [innerText]="currentUser.email"></span>
+            </div>
+            <br><br>
+            <div id="userInfo">
+              <div>
+              <div class="col s4">
+                <h6 class="left-align">Country:</h6>
+              </div>
+              <div class="col s8">
+                <h6 class="left-align" [innerText]="currentUser.university.country.name"></h6>
+              </div>
+            </div>
+              <div>
+              <div class="col s4">
+                <h6 class="left-align">University:</h6>
+              </div>
+              <div class="col s8">
+                <h6 class="left-align" [innerText]="currentUser.university.name"></h6>
+              </div>
+            </div>
+              <div>
+              <div class="col s4">
+                <h6 class="left-align">Faculty:</h6>
+              </div>
+              <div class="col s8">
+                <h6 class="left-align" [innerText]="currentUser.faculty.name"></h6>
+              </div>
+            </div>
+              <div>
+              <div class="col s4">
+                <h6 class="left-align">Specialization:</h6>
+              </div>
+              <div class="col s8">
+                <h6 class="left-align" [innerText]="currentUser.specialization.name"></h6>
+              </div>
+            </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="projects" *ngIf="currentUser != null">
+        <div class="col s12">
+          <h4 class="left-align">Participated projects:</h4>
+        </div>
+      <ul >
+        <li *ngFor="let project of currentUser.participatedProjects">
+          <div class="col s12">
+            <div class="card horizontal">
+              <div class="col s4 card-image" style="padding-top: 10px;" >
+                <img class="materialboxed" [src]="project.imageUrl">
+              </div>
+              <div class="col s8 card-stacked">
+                <span class="card-title" style="padding-top: 5px;" [innerText]="project.name"></span>
+                <div class="card-content " style="max-height: 150px; overflow: scroll;
+                  padding-left: 0px;" >
+                  <p [innerText]="project.description"></p>
+                </div>
+                <div class="card-action" style="padding-left: 0px;">
+                  <a routerLink="/project/view">Show details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      </div>
+
+    </div>
+</div>

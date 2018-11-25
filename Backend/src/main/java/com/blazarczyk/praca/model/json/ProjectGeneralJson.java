@@ -1,9 +1,6 @@
 package com.blazarczyk.praca.model.json;
 
-import com.blazarczyk.praca.model.databse.Link;
 import com.blazarczyk.praca.model.databse.Project;
-import com.blazarczyk.praca.model.databse.ProjectDetail;
-import com.blazarczyk.praca.model.databse.Tag;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,7 +9,7 @@ public class ProjectGeneralJson {
     private long id;
     private String name;
     private String description;
-    private String imageURL;
+    private String imageUrl;
     private boolean publicProject;
     private List<ProjectDetailJson> projectDetails = new LinkedList<>();
     private List<LinkJson> links = new LinkedList<>();
@@ -25,7 +22,7 @@ public class ProjectGeneralJson {
         id = project.getId();
         name = project.getName();
         description = project.getDescription();
-        imageURL = project.getImageURL();
+        imageUrl = project.getImageURL();
         publicProject = project.isPublicProject();
         projectDetails = new LinkedList<>();
         links = new LinkedList<>();
@@ -60,12 +57,12 @@ public class ProjectGeneralJson {
         this.description = description;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public boolean isPublicProject() {

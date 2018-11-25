@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserAuthService} from '../shared/user-auth.service';
 
 @Component({
   selector: 'app-content',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: UserAuthService) { }
+
+  public authorized = false;
 
   ngOnInit() {
+    this.authService.authorizationSubject.subscribe(
+      (data: boolean) => {
+        this.authorized = data;
+      }
+    );
   }
 
 }

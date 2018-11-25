@@ -18,6 +18,10 @@ import {ProjectCreateBoardComponent} from './content/project-create-board/projec
 import {ProjectSearchBoardComponent} from './content/project-search-board/project-search-board.component';
 import {ProjectViewBoardComponent} from './content/project-view-board/project-view-board.component';
 import {UserAccountBoardComponent} from './content/user-account-board/user-account-board.component';
+import {UserService} from './shared/user.service';
+import {HttpClientModule} from '@angular/common/http';
+import {MaterializeModule} from 'angular2-materialize';
+import {ProjectObservedBoardComponent} from './content/project-observed-board/project-observed-board.component';
 
 
 @NgModule({
@@ -33,14 +37,16 @@ import {UserAccountBoardComponent} from './content/user-account-board/user-accou
     ProjectCreateBoardComponent,
     ProjectSearchBoardComponent,
     ProjectViewBoardComponent,
-    UserAccountBoardComponent
+    UserAccountBoardComponent,
+    ProjectObservedBoardComponent
   ],
   imports: [
     BrowserModule,
     AppRouteModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [UserAuthService, AuthGuardService],
+  providers: [UserAuthService, AuthGuardService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
