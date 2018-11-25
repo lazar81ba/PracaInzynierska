@@ -32,6 +32,8 @@ public class ProjectController {
             projectService.getProjectsByParticipantId(id).forEach(x -> response.add(new ProjectJson(x)));
         else if (name != null)
             projectService.getProjectsWithName(name).forEach(x -> response.add(new ProjectJson(x)));
+        else
+            projectService.getAllProjects().forEach(x -> response.add(new ProjectJson(x)));
 
         return response;
     }

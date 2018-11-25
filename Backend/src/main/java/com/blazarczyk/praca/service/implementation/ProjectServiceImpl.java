@@ -31,4 +31,9 @@ public class ProjectServiceImpl implements ProjectService {
     public List<Project> getProjectsByParticipantId(long id) {
         return projectDAO.findAllByProjectParticipantsContaining(userDAO.findById(id));
     }
+
+    @Override
+    public List<Project> getAllProjects() {
+        return (List<Project>) projectDAO.findAll();
+    }
 }

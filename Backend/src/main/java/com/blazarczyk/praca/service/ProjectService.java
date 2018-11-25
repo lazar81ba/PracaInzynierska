@@ -9,5 +9,6 @@ public interface ProjectService {
     Project getProjectWithId(long id);
     List<Project> getProjectsWithName(String name);
     List<Project> getProjectsByParticipantId(long id);
+    List<Project> getAllProjects();
 
 }
