@@ -52,8 +52,32 @@
 
         </div>
       </div>
-      <div id="projects">
 
+      <div id="projects" *ngIf="currentUser != null">
+        <div class="col s12">
+          <h4 class="left-align">Participated projects:</h4>
+        </div>
+      <ul >
+        <li *ngFor="let project of currentUser.participatedProjects">
+          <div class="col s12">
+            <div class="card horizontal">
+              <div class="col s4 card-image" style="padding-top: 10px;" >
+                <img class="materialboxed" [src]="project.imageUrl">
+              </div>
+              <div class="col s8 card-stacked">
+                <span class="card-title" style="padding-top: 5px;" [innerText]="project.name"></span>
+                <div class="card-content " style="max-height: 150px; overflow: scroll;
+                  padding-left: 0px;" >
+                  <p [innerText]="project.description"></p>
+                </div>
+                <div class="card-action" style="padding-left: 0px;">
+                  <a routerLink="/project/view">Show details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
       </div>
 
     </div>
