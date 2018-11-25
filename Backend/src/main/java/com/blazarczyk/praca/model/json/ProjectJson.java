@@ -10,7 +10,7 @@ public class ProjectJson {
     private long id;
     private String name;
     private String description;
-    private String imageURL;
+    private String imageUrl;
     private boolean publicProject;
     private List<ProjectDetailJson> projectDetails = new LinkedList<>();
     private List<LinkJson> links = new LinkedList<>();
@@ -25,7 +25,7 @@ public class ProjectJson {
         id = project.getId();
         name = project.getName();
         description = project.getDescription();
-        imageURL = project.getImageURL();
+        imageUrl = project.getImageURL();
         publicProject = project.isPublicProject();
         projectDetails = new LinkedList<>();
         links = new LinkedList<>();
@@ -62,12 +62,12 @@ public class ProjectJson {
         this.description = description;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public boolean isPublicProject() {
