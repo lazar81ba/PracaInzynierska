@@ -30,7 +30,6 @@ export class UserProfileBoardComponent implements OnInit {
     this.userService.userSubject.subscribe(
       (data: User) => {
         this.currentUser = data;
-        console.log(this.currentUser.participatedProjects[0].imageUrl);
         this.materialbox_jquery();
       }
     );
