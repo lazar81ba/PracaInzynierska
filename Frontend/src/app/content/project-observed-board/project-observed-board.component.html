@@ -1,8 +1,22 @@
 
 <div class="row">
   <div class="basicCard right-space">
-    <p>
-      project-observed-board works!
-    </p>
+    <div *ngIf="projectList!=null">
+      <ul class="collapsible col s12 collection with-header" style="padding-left: 0px; padding-right: 0px">
+        <li class="collection-header"><h6>Observed Projects</h6></li>
+        <li *ngFor="let project of projectList" class="collection-item" style="padding: 0px" >
+              <div class="collapsible-header" >
+                <img [src]="project.imageUrl" style="max-width: 50px; max-height: 50px; padding-right: 5px" class="circle">
+                {{project.name}}
+              </div>
+              <div class="collapsible-body center-align"  >
+                <span [innerText]="project.description" class="truncate"></span>
+                <a  id="showLink" routerLink="/project/view" style="padding-top: 5px">
+                  SHOW
+                </a>
+              </div>
+          </li>
+      </ul>
+    </div>
   </div>
 </div>
