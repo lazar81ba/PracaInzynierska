@@ -16,6 +16,10 @@ export class ProjectObservedBoardComponent implements OnInit {
 
   public projectList: ProjectGeneral[];
 
+  showProject(id: number) {
+    this.projectService.getProject(id);
+  }
+
   collapsible_jquery() {
     $(document).ready(function() {
       $('.collapsible').collapsible();

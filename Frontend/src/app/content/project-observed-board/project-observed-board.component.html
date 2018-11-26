@@ -11,8 +11,8 @@
               </div>
               <div class="collapsible-body center-align"  >
                 <span [innerText]="project.description" class="truncate"></span>
-                <a  id="showLink" routerLink="/project/view" style="padding-top: 5px">
-                  SHOW
+                <a (click)="showProject(project.id)" id="showLink" routerLink="/project/view" style="padding-top: 5px">
+                  MORE
                 </a>
               </div>
           </li>

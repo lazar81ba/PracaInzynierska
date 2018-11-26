@@ -3,6 +3,7 @@ import {UserService} from '../../shared/user.service';
 import {User} from '../../model/User';
 import {UserGeneral} from '../../model/UserGeneral';
 import {UserAuthService} from '../../shared/user-auth.service';
+import {ProjectService} from '../../shared/project.service';
 declare var $: any;
 
 
@@ -13,7 +14,7 @@ declare var $: any;
 })
 export class UserProfileBoardComponent implements OnInit {
 
-  constructor(private userService: UserService, private authService: UserAuthService) { }
+  constructor(private projectService: ProjectService, private userService: UserService, private authService: UserAuthService) { }
 
   public currentUser: User;
   public generalUser: UserGeneral;
@@ -25,6 +26,10 @@ export class UserProfileBoardComponent implements OnInit {
      });
    }
 
+
+   showProject(id: number) {
+      this.projectService.getProject(id);
+   }
 
   ngOnInit() {
     this.userService.userSubject.subscribe(
