@@ -15,7 +15,7 @@
                   <p [innerText]="project.description"></p>
                 </div>
                 <div class="card-action" style="padding-left: 0px;">
-                  <a routerLink="/project/view">Show details</a>
+                  <a (click)="showProject(project.id)" routerLink="/project/view">Show details</a>
                 </div>
               </div>
             </div>
