@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {ProjectService} from '../../shared/project.service';
+import {Project} from '../../model/Project';
+
+declare var $: any;
+
 
 @Component({
   selector: 'app-project-view-board',
@@ -7,9 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectViewBoardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private projectService: ProjectService) { }
+
+  public currentProject: Project;
+
+  materialbox_jquery() {
+    $(document).ready(function() {
+      $('.materialboxed').materialbox();
+    });
+  }
 
   ngOnInit() {
+    this.projectService.projectToViewSubject.subscribe(
+      (data: Project) => {
+        this.currentProject = data;
+        this.materialbox_jquery();
+      }
+    );
   }
 
 }
