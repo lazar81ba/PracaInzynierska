@@ -3,6 +3,7 @@
   <nav >
     <div class="nav-wrapper">
       <a routerLink="/" class="brand-logo">ProjectSHARE</a>
+      <a  data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <div *ngIf="userLoggedIn()">
         <ul class="right hide-on-med-and-down">
         <li><a routerLinkActive="active" routerLink="/project" >Main Board</a></li>
@@ -22,4 +23,15 @@
     </div>
   </nav>
 </div>
+
+<ul class="sidenav" id="mobile-demo">
+  <li *ngIf="userLoggedIn()"><a class="sidenav-close" routerLink="/project" >Main Board</a></li>
+  <li *ngIf="userLoggedIn()"><a class="sidenav-close" routerLink="/project/view">Project</a></li>
+  <li *ngIf="userLoggedIn()"><a class="sidenav-close" routerLink="/project/search">Search</a></li>
+  <li *ngIf="userLoggedIn()"><a class="sidenav-close" routerLink="/project/create">Create</a></li>
+  <li *ngIf="userLoggedIn()"><a class="sidenav-close" routerLink="/user/view">View profile</a></li>
+  <li *ngIf="userLoggedIn()"><a class="sidenav-close" routerLink="/user/account">Account</a></li>
+  <li *ngIf="!userLoggedIn()"><a class="sidenav-close" routerLink="/login">Login</a></li>
+  <li *ngIf="!userLoggedIn()"><a class="sidenav-close" routerLink="/register">Register</a></li>
+</ul>
 
