@@ -1,14 +1,14 @@
 
 <div class="row">
     <div class="basicCard left-space">
-      <div>
-        <div class="col s12 m4">
-          <div *ngIf="currentUser != null" class="valign-wrapper">
+      <div *ngIf="currentUser != null">
+        <div class="col s12 m4" style="height: 100%">
+          <div class="valign-wrapper" style="height: 100%">
             <img [src]="currentUser.imageUrl" class="materialboxed circle" width="100%"/>
           </div>
         </div>
         <div class="col s12 m8">
-          <div *ngIf="currentUser != null">
+          <div>
             <h4 class="left-align" [innerText]="currentUser.name + ' ' + currentUser.surname"></h4>
             <div style="display: flex">
               <i style="padding-right: 10px" class="material-icons">email</i> <span class="left-align" [innerText]="currentUser.email"></span>
