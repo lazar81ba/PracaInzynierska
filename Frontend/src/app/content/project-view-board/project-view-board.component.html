@@ -3,7 +3,7 @@
     <div *ngIf="currentProject != null; else noSelect">
       <div>
         <div class="col s12 m6">
-          <img [src]="currentProject.imageUrl" class="materialboxed" width="100%"/>
+          <img [src]="currentProject.imageUrl" class="materialboxed" width="100%" style="max-height: 200px"/>
         </div>
         <div class="col s12 m6">
           <div class="valign-wrapper" style="justify-content: center">
@@ -29,6 +29,22 @@
           <h4>Description</h4>
           <hr class="style-one">
           <span [innerText]="currentProject.description"></span>
+        </div>
+        <div>
+          <h4>Details</h4>
+          <hr class="style-one">
+          <ul>
+            <li *ngFor="let detail of currentProject.projectDetails">
+              <div >
+                <div class="col s1">
+                  <i class="material-icons" style="font-size: 14px; padding-top: 5px;">lens</i>
+                </div>
+                <div class="col s11" style="padding-bottom: 5px">
+                  <span [innerText]="detail.content"></span>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
 
