@@ -79,6 +79,20 @@
           </ul>
         </div>
 
+        <div>
+          <h4>Tags</h4>
+          <hr class="style-one">
+          <div >
+            <ul>
+              <li style="display: inline" *ngFor="let tag of currentProject.tags">
+                  <div class="chip" style="margin-right: 5px">
+                    <span>{{tag.name}}</span>
+                  </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
 
 
       </div>
