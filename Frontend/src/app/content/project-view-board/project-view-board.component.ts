@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProjectService} from '../../shared/project.service';
 import {Project} from '../../model/Project';
 import {ProjectGeneral} from '../../model/ProjectGeneral';
+import {UserService} from '../../shared/user.service';
 
 declare var $: any;
 
@@ -13,7 +14,7 @@ declare var $: any;
 })
 export class ProjectViewBoardComponent implements OnInit {
 
-  constructor(private projectService: ProjectService ) { }
+  constructor(private projectService: ProjectService, private userService: UserService) { }
 
   public currentProject: Project;
   public observedProjects: ProjectGeneral[];
@@ -49,5 +50,9 @@ export class ProjectViewBoardComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  showUser(email: string) {
+    this.userService.getUser(email);
   }
 }

@@ -46,8 +46,42 @@
             </li>
           </ul>
         </div>
-      </div>
 
+        <div>
+          <h4>Links</h4>
+          <hr class="style-one">
+          <ul>
+            <li *ngFor="let link of currentProject.links">
+              <div >
+                <div class="col s1">
+                  <i class="material-icons" style="font-size: 14px; padding-top: 5px;">link</i>
+                </div>
+                <div class="col s11" style="padding-bottom: 5px">
+                  <a id="adressLink" [href]="link.address">{{link.address}}</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="currentProject.publicProject">
+          <h4>Participators</h4>
+          <hr class="style-one">
+          <ul class="collection">
+            <li *ngFor="let participator of currentProject.participators" class="collection-item avatar">
+              <div class="col s12">
+                <img [src]="participator.imageUrl" alt="" class="circle">
+                <span class="title" [innerText]="participator.name + ' ' + participator.surname"></span>
+                <p>{{participator.email}}</p>
+                <a (click)="showUser(participator.email)" class="secondary-content" routerLink="/user/view">Show details</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+
+
+      </div>
     </div>
     <ng-template #noSelect>
       <div class="center">
