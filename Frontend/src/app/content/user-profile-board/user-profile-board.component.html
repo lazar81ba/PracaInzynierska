@@ -1,17 +1,23 @@
 
 <div class="row">
-    <div class="basicCard left-space">
+  <div class="basicCard" style="background-color: #26a69a; padding: 5px ">
+    <div class="basicCard left-space" style="margin: 0; box-shadow: 0 0 0 0">
       <div *ngIf="currentUser != null">
-        <div class="col s12 m4" style="height: 100%">
-          <div class="valign-wrapper" style="height: 100%">
-            <img [src]="currentUser.imageUrl" class="materialboxed circle" width="100%"/>
+        <div class="col s12 m4" style="padding-left: 5px">
+          <div class="card" style="height: 100%; border-radius: 50%;">
+            <div class="card-content" style="padding: 3px" >
+              <div class="valign-wrapper" style="height: 100%">
+                <img [src]="currentUser.imageUrl" class="materialboxed circle" width="100%"/>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col s12 m8">
-          <div>
-            <h4 class="left-align" [innerText]="currentUser.name + ' ' + currentUser.surname"></h4>
+        <div class="col s12 m8 card" style="padding-bottom: 10px;">
+          <div class="card-content" style="padding-top: 0px">
+            <h4 class="left-align" [innerText]="currentUser.name + ' ' + currentUser.surname" style="color: #26a69a;"></h4>
+            <hr class="style-one">
             <div style="display: flex">
-              <i style="padding-right: 10px" class="material-icons">email</i> <span class="left-align" [innerText]="currentUser.email"></span>
+              <i style="padding-right: 10px; color: #26a69a" class="material-icons">email</i> <span class="left-align" [innerText]="currentUser.email"></span>
             </div>
             <br><br>
             <div id="userInfo">
@@ -49,36 +55,41 @@
             </div>
             </div>
           </div>
-
         </div>
       </div>
+      </div>
+  </div>
+</div>
 
+<div class="row">
+  <div class="basicCard" style="background-color: #26a69a; padding: 5px ">
+    <div class="basicCard left-space" style="margin: 0; box-shadow: 0 0 0 0; padding-top: 0px">
       <div id="projects" *ngIf="currentUser != null">
-        <div class="col s12">
-          <h4 class="left-align">Participated projects:</h4>
-        </div>
-      <ul >
-        <li *ngFor="let project of currentUser.participatedProjects">
           <div class="col s12">
-            <div class="card horizontal">
-              <div class="col s4 card-image" style="padding-top: 10px;" >
-                <img class="materialboxed" [src]="project.imageUrl">
-              </div>
-              <div class="col s8 card-stacked">
-                <span class="card-title" style="padding-top: 5px;" [innerText]="project.name"></span>
-                <div class="card-content " style="max-height: 150px; overflow: scroll;
-                  padding-left: 0px;" >
-                  <p [innerText]="project.description"></p>
+              <h4 class="left-align" style="margin-top: 0px; color: white;">Participated projects:</h4>
+          </div>
+        <ul >
+          <li *ngFor="let project of currentUser.participatedProjects">
+            <div class="col s12">
+              <div class="card horizontal" style="display: flex">
+                <div class="col s4 card-image" style="padding-top: 10px; display: flex; justify-content: center; align-items: center" >
+                  <img class="materialboxed" [src]="project.imageUrl">
                 </div>
-                <div class="card-action" style="padding-left: 0px;">
-                  <a (click)="showProject(project.id)" routerLink="/project/view">Show details</a>
+                <div class="col s8 card-stacked">
+                  <span class="card-title" style="padding-top: 5px; color: #26a69a" [innerText]="project.name"></span>
+                  <div class="card-content " style="max-height: 150px; overflow: scroll;
+                    padding-left: 0px;" >
+                    <p [innerText]="project.description"></p>
+                  </div>
+                  <div class="card-action" style="padding-left: 0px;">
+                    <a (click)="showProject(project.id)" routerLink="/project/view">Show details</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </li>
-      </ul>
-      </div>
-
+          </li>
+        </ul>
+        </div>
     </div>
+  </div>
 </div>

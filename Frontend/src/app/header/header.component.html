@@ -2,7 +2,9 @@
 <div class="navbar-fixed">
   <nav >
     <div class="nav-wrapper">
-      <a routerLink="/" class="brand-logo">ProjectSHARE</a>
+      <div>
+        <a routerLink="/" class="brand-logo" style="display: flex;">Project<div style="color: #26a69a">SHARE</div></a>
+      </div>
       <a  data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <div *ngIf="userLoggedIn()">
         <ul class="right hide-on-med-and-down">

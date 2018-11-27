@@ -38,8 +38,8 @@ export class UserProfileBoardComponent implements OnInit {
         this.materialbox_jquery();
       }
     );
-    if (this.generalUser != null) {
-      this.userService.getUser(this.generalUser.email);
+    if (this.currentUser != null) {
+      this.userService.getUser(this.currentUser.email);
     } else {
       this.userService.getUser(this.authService.getAuthorizedEmail());
     }

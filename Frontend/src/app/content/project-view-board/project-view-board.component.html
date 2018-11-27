@@ -1,106 +1,135 @@
 <div class="row">
-  <div class="basicCard left-space">
-    <div *ngIf="currentProject != null; else noSelect">
-      <div>
-        <div class="col s12 m6">
-          <img [src]="currentProject.imageUrl" class="materialboxed" width="100%" style="max-height: 200px"/>
-        </div>
-        <div class="col s12 m6">
-          <div class="valign-wrapper" style="justify-content: center">
-            <div class="center" style="padding-top: 10px">
-              <h4 [innerText]="currentProject.name" style="margin-bottom: 2px"></h4>
-              <span *ngIf="currentProject.publicProject == true">Public Project</span>
-              <span  *ngIf="currentProject.publicProject == false">Private Project</span>
+  <div class="basicCard" style="background-color: #26a69a; padding: 5px ">
+    <div class="basicCard left-space" style="margin: 0; box-shadow: 0 0 0 0">
+      <div *ngIf="currentProject != null; else noSelect">
+        <div style="padding-bottom: 15px; overflow: hidden">
+          <div class="col s12 m6" style="display:flex; justify-content: center; align-items: center">
+            <img [src]="currentProject.imageUrl" class="materialboxed" width="100%" style="max-height: 200px"/>
+          </div>
+          <div class="col s12 m6">
+            <div class="valign-wrapper" style="justify-content: center">
+              <div class="center" style="padding-top: 10px">
+                <h2 [innerText]="currentProject.name" style="margin-bottom: 2px; color: white"></h2>
+                <span *ngIf="currentProject.publicProject == true">Public Project</span>
+                <span  *ngIf="currentProject.publicProject == false">Private Project</span>
+              </div>
+            </div>
+            <div class="center" style="padding-top: 25px">
+              <div *ngIf="!isProjectInObservable; else unsubscribe">
+                <a class="waves-effect waves-light btn"><i class="material-icons left">favorite_border</i>subscribe</a>
+              </div>
+              <ng-template #unsubscribe>
+                <a class="waves-effect waves-light btn"><i class="material-icons left">favorite</i>unsubscribe</a>
+              </ng-template>
             </div>
           </div>
-          <div class="center" style="padding-top: 25px">
-            <div *ngIf="!isProjectInObservable; else unsubscribe">
-              <a class="waves-effect waves-light btn"><i class="material-icons left">favorite_border</i>subscribe</a>
+        </div>
+
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <div style="display: flex">
+                <i class="material-icons" style="font-size: 30px; padding-top: 5px; color: #26a69a; margin: 1.52rem 0 0.912rem 0; padding-right: 2px" >edit</i>
+                <h4>Description</h4>
+              </div>
+              <hr class="style-one">
+              <span [innerText]="currentProject.description"></span>
             </div>
-            <ng-template #unsubscribe>
-              <a class="waves-effect waves-light btn"><i class="material-icons left">favorite</i>unsubscribe</a>
-            </ng-template>
           </div>
-        </div>
-      </div>
-
-      <div class="col s12">
-        <div>
-          <h4>Description</h4>
-          <hr class="style-one">
-          <span [innerText]="currentProject.description"></span>
-        </div>
-        <div>
-          <h4>Details</h4>
-          <hr class="style-one">
-          <ul>
-            <li *ngFor="let detail of currentProject.projectDetails">
-              <div >
-                <div class="col s1">
-                  <i class="material-icons" style="font-size: 14px; padding-top: 5px;">lens</i>
-                </div>
-                <div class="col s11" style="padding-bottom: 5px">
-                  <span [innerText]="detail.content"></span>
-                </div>
+          <div class="card">
+            <div class="card-content">
+              <div style="display: flex">
+                <i class="material-icons" style="font-size: 30px; padding-top: 5px; color: #26a69a; margin: 1.52rem 0 0.912rem 0; padding-right: 2px" >search</i>
+                <h4>Details</h4>
               </div>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Links</h4>
-          <hr class="style-one">
-          <ul>
-            <li *ngFor="let link of currentProject.links">
-              <div >
-                <div class="col s1">
-                  <i class="material-icons" style="font-size: 14px; padding-top: 5px;">link</i>
-                </div>
-                <div class="col s11" style="padding-bottom: 5px">
-                  <a id="adressLink" [href]="link.address">{{link.address}}</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div *ngIf="currentProject.publicProject">
-          <h4>Participators</h4>
-          <hr class="style-one">
-          <ul class="collection">
-            <li *ngFor="let participator of currentProject.participators" class="collection-item avatar">
-              <div class="col s12">
-                <img [src]="participator.imageUrl" alt="" class="circle">
-                <span class="title" [innerText]="participator.name + ' ' + participator.surname"></span>
-                <p>{{participator.email}}</p>
-                <a (click)="showUser(participator.email)" class="secondary-content" routerLink="/user/view">Show details</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Tags</h4>
-          <hr class="style-one">
-          <div >
-            <ul>
-              <li style="display: inline" *ngFor="let tag of currentProject.tags">
-                  <div class="chip" style="margin-right: 5px">
-                    <span>{{tag.name}}</span>
+              <hr class="style-one">
+              <ul style="overflow: hidden">
+                <li *ngFor="let detail of currentProject.projectDetails">
+                  <div >
+                    <div class="col s1">
+                      <i class="material-icons" style="font-size: 14px; padding-top: 5px; color: #26a69a">lens</i>
+                    </div>
+                    <div class="col s11" style="padding-bottom: 5px">
+                      <span [innerText]="detail.content"></span>
+                    </div>
                   </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div style="display: flex">
+                <i class="material-icons" style="font-size: 30px; padding-top: 5px; color: #26a69a; margin: 1.52rem 0 0.912rem 0; padding-right: 2px" >link</i>
+                <h4>Links</h4>
+              </div>
+              <hr class="style-one">
+              <ul style="overflow: hidden" >
+                  <li *ngFor="let link of currentProject.links ">
+                    <div >
+                      <div class="col s1">
+                        <i class="material-icons" style="font-size: 14px; padding-top: 5px; color: #26a69a">lens</i>
+                      </div>
+                      <div class="col s11" style="padding-bottom: 5px">
+                        <a id="adressLink" [href]="link.address">{{link.address}}</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+            </div>
+          </div>
+
+          <div *ngIf="currentProject.publicProject" class="card">
+            <div class="card-content">
+              <div style="display: flex">
+                <i class="material-icons" style="font-size: 30px; padding-top: 5px; color: #26a69a; margin: 1.52rem 0 0.912rem 0; padding-right: 2px" >person_outline</i>
+                <h4>Participators</h4>
+              </div>
+              <hr class="style-one">
+              <ul class="collection">
+                <li *ngFor="let participator of currentProject.participators" class="collection-item avatar">
+                  <div class="col s12">
+                    <img [src]="participator.imageUrl" alt="" class="circle">
+                    <span class="title" [innerText]="participator.name + ' ' + participator.surname"></span>
+                    <p>{{participator.email}}</p>
+                    <a (click)="showUser(participator.email)" class="secondary-content" routerLink="/user/view">Show details</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div style="display: flex">
+                <i class="material-icons" style="font-size: 30px; padding-top: 5px; color: #26a69a; margin: 1.52rem 0 0.912rem 0; padding-right: 5px" >label_outline</i>
+                <h4>Tags</h4>
+              </div>
+              <hr class="style-one">
+              <div >
+                <ul>
+                  <li style="display: inline" *ngFor="let tag of currentProject.tags">
+                      <div class="chip" style="margin-right: 5px; color: white; background-color: #26a69a">
+                        <span>{{tag.name}}</span>
+                      </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      <ng-template #noSelect>
+        <div  class="card center">
+          <div class="card-content">
+            <h4>Project was not selected</h4>
           </div>
         </div>
-
-
-
-      </div>
+      </ng-template>
     </div>
-    <ng-template #noSelect>
-      <div class="center">
-        <h4>Project was not selected</h4>
-      </div>
-    </ng-template>
   </div>
 </div>
