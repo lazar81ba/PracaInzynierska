@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {ProjectGeneral} from '../model/ProjectGeneral';
 import {User} from '../model/User';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {UserAuthService} from './user-auth.service';
 import {Project} from '../model/Project';
 
@@ -33,6 +33,14 @@ export class ProjectService {
 
   public getAllProjects() {
     this.httpClient.get(this.projectEndpoint)
+      .subscribe((data: ProjectGeneral[]) => {
+        this.projectsGeneralSubject.next(data);
+      });
+  }
+
+  public getProjectsByName(name: string) {
+    const params = new HttpParams().set('name', name);
+    this.httpClient.get(this.projectEndpoint, {params})
       .subscribe((data: ProjectGeneral[]) => {
         this.projectsGeneralSubject.next(data);
       });
