@@ -24,7 +24,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public List<Project> getProjectsWithName(String name) {
-        return projectDAO.findAllByName(name);
+        return projectDAO.findByNameContainingIgnoreCase(name);
     }
 
     @Override
