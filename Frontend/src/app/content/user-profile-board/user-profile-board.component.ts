@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {UserService} from '../../shared/user.service';
 import {User} from '../../model/User';
 import {UserGeneral} from '../../model/UserGeneral';
@@ -36,15 +36,11 @@ export class UserProfileBoardComponent implements OnInit {
       (data: User) => {
         this.currentUser = data;
         this.materialbox_jquery();
+        return;
       }
     );
-    if (this.currentUser != null) {
-      this.userService.getUser(this.currentUser.email);
-    } else {
-      this.userService.getUser(this.authService.getAuthorizedEmail());
-    }
-
   }
+
 
 
 
