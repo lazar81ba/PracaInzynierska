@@ -103,9 +103,9 @@ CREATE TABLE IF NOT EXISTS public.project
     constraint project_pkey
     primary key,
   name varchar(255) not null,
-  description text not null,
+  description varchar(1024) not null,
   image_url text not null,
-  public boolean not null,
+  public boolean not null
 );
 
 CREATE TABLE IF NOT EXISTS public.project_user

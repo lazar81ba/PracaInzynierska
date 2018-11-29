@@ -4,6 +4,7 @@ import {ProjectGeneral} from '../model/ProjectGeneral';
 import {User} from '../model/User';
 import {HttpClient} from '@angular/common/http';
 import {UserAuthService} from './user-auth.service';
+import {Project} from '../model/Project';
 
 @Injectable()
 export class ProjectService {
@@ -14,12 +15,19 @@ export class ProjectService {
 
   public projectsGeneralSubject = new Subject<ProjectGeneral[]>();
   public observedProjectsSubject = new Subject<ProjectGeneral[]>();
-
+  public projectToViewSubject = new Subject<Project>();
 
   public getObservedProjects() {
     this.httpClient.get(this.observedProjectsEndpoint)
       .subscribe((data: ProjectGeneral[]) => {
         this.observedProjectsSubject.next(data);
+      });
+  }
+
+  public getProject(id: number) {
+    this.httpClient.get(this.projectEndpoint + '/' + id)
+      .subscribe( (data: Project) => {
+        this.projectToViewSubject.next(data);
       });
   }
 

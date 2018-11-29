@@ -1,21 +1,22 @@
 <div class="row">
-  <div class="basicCard left-space">
+  <div class="basicCard" style="background-color: #26a69a; padding: 5px ">
+    <div class="basicCard left-space" style="margin: 0; box-shadow: 0 0 0 0">
     <div *ngIf="projectList!=null">
       <ul >
         <li *ngFor="let project of projectList">
           <div class="col s12">
-            <div class="card horizontal">
-              <div class="col s4 card-image" style="padding-top: 10px;" >
+            <div class="card horizontal" style="display: flex">
+              <div class="col s4 card-image" style="padding-top: 10px; display: flex; justify-content: center; align-items: center" >
                 <img class="materialboxed" [src]="project.imageUrl">
               </div>
               <div class="col s8 card-stacked">
-                <span class="card-title" style="padding-top: 5px;" [innerText]="project.name"></span>
+                <span class="card-title" style="padding-top: 5px; color: #26a69a;" [innerText]="project.name"></span>
                 <div class="card-content " style="max-height: 150px; overflow: scroll;
                       padding-left: 0px;" >
                   <p [innerText]="project.description"></p>
                 </div>
                 <div class="card-action" style="padding-left: 0px;">
-                  <a routerLink="/project/view">Show details</a>
+                  <a (click)="showProject(project.id)" routerLink="/project/view">Show details</a>
                 </div>
               </div>
             </div>
@@ -24,5 +25,6 @@
       </ul>
 
     </div>
+  </div>
   </div>
 </div>

@@ -33,4 +33,7 @@ export class ProjectMainBoardComponent implements OnInit {
     this.projectService.getAllProjects();
   }
 
+  showProject(id: number) {
+    this.projectService.getProject(id);
+  }
 }

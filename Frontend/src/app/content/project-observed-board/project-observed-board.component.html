@@ -1,22 +1,24 @@
 
 <div class="row">
-  <div class="basicCard right-space">
-    <div *ngIf="projectList!=null">
-      <ul class="collapsible col s12 collection with-header" style="padding-left: 0px; padding-right: 0px">
-        <li class="collection-header"><h6>Observed Projects</h6></li>
-        <li *ngFor="let project of projectList" class="collection-item" style="padding: 0px" >
-              <div class="collapsible-header" >
-                <img [src]="project.imageUrl" style="max-width: 50px; max-height: 50px; padding-right: 5px" class="circle">
-                {{project.name}}
-              </div>
-              <div class="collapsible-body center-align"  >
-                <span [innerText]="project.description" class="truncate"></span>
-                <a  id="showLink" routerLink="/project/view" style="padding-top: 5px">
-                  SHOW
-                </a>
-              </div>
-          </li>
-      </ul>
+  <div class="basicCard" style="background-color: #26a69a; padding: 5px ">
+    <div class="basicCard right-space" style="margin: 0; box-shadow: 0 0 0 0">
+      <div *ngIf="projectList!=null">
+        <ul class="collapsible col s12 collection with-header" style="padding-left: 0px; padding-right: 0px; margin: 0px">
+          <li class="collection-header"><h6 style="color: #26a69a">Observed Projects</h6></li>
+          <li *ngFor="let project of projectList" class="collection-item" style="padding: 0px" >
+                <div class="collapsible-header" >
+                  <img [src]="project.imageUrl" style="max-width: 50px; max-height: 50px; padding-right: 5px" class="circle">
+                  <span  [innerText]="project.name"></span>
+                </div>
+                <div class="collapsible-body center-align"  >
+                  <span [innerText]="project.description" class="truncate"></span>
+                  <a (click)="showProject(project.id)" id="showLink" routerLink="/project/view" style="padding-top: 5px">
+                    MORE
+                  </a>
+                </div>
+            </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

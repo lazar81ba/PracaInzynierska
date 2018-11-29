@@ -1,0 +1,32 @@
+
+.row {
+  width: 100%;
+}
+
+.basicCard {
+  margin-right: 1%;
+  margin-left: 1%;
+  padding: 2%;
+  position: center;
+  z-index: 1;
+  background: #65657b;
+  border-radius: 5px;
+  max-width: 100%;
+  overflow: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+hr.style-one {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.card {
+  border-radius: 15px;
+}
+
+#adressLink {
+  color: black;
+}

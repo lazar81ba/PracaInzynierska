@@ -10,10 +10,10 @@
 }
 
 .nav-wrapper{
-  background-color: #192231;
+  background-color: #000033;
   padding-left: 3%;
   padding-right: 3%;
 }
-.nav-wrapper ul li:hover {
-  background-color: #494E6B;
+.nav-wrapper ul li:hover a {
+  color: #26a69a;
 }

@@ -8,7 +8,7 @@
 .basicCard {
   position: relative;
   z-index: 1;
-  background: #98878F;
+  background: #65657b;
   border-radius: 5px;
   max-width: 500px;
   margin: 0 auto 100px;
@@ -22,12 +22,21 @@
   color: white;
 }
 
+button:hover {
+  color: #26a69a;
+}
+
+a:hover {
+  color: #26a69a;
+}
+
+
 .custom-button{
   width: 100%;
   min-width: 85px;
   margin-right: 2%;
   margin-left: 2%;
-  background-color: #192231;
+  background-color: #000033;
   color: white;
   font-weight: bold;
 }

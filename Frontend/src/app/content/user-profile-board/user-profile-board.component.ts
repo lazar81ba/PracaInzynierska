@@ -1,8 +1,9 @@
-import {AfterViewChecked, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {UserService} from '../../shared/user.service';
 import {User} from '../../model/User';
 import {UserGeneral} from '../../model/UserGeneral';
 import {UserAuthService} from '../../shared/user-auth.service';
+import {ProjectService} from '../../shared/project.service';
 declare var $: any;
 
 
@@ -13,7 +14,7 @@ declare var $: any;
 })
 export class UserProfileBoardComponent implements OnInit {
 
-  constructor(private userService: UserService, private authService: UserAuthService) { }
+  constructor(private projectService: ProjectService, private userService: UserService, private authService: UserAuthService) { }
 
   public currentUser: User;
   public generalUser: UserGeneral;
@@ -26,20 +27,20 @@ export class UserProfileBoardComponent implements OnInit {
    }
 
 
+   showProject(id: number) {
+      this.projectService.getProject(id);
+   }
+
   ngOnInit() {
     this.userService.userSubject.subscribe(
       (data: User) => {
         this.currentUser = data;
         this.materialbox_jquery();
+        return;
       }
     );
-    if (this.generalUser != null) {
-      this.userService.getUser(this.generalUser.email);
-    } else {
-      this.userService.getUser(this.authService.getAuthorizedEmail());
-    }
-
   }
+
 
 
 
