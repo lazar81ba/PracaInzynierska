@@ -23,6 +23,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MaterializeModule} from 'angular2-materialize';
 import {ProjectObservedBoardComponent} from './content/project-observed-board/project-observed-board.component';
 import {ProjectService} from './shared/project.service';
+import {TagService} from './shared/tag.service';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import {ProjectService} from './shared/project.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserAuthService, AuthGuardService, UserService, ProjectService],
+  providers: [UserAuthService, AuthGuardService, UserService, ProjectService, TagService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
