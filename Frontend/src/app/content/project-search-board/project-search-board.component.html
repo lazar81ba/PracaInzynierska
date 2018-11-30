@@ -1,3 +1,50 @@
-<p>
-  project-search-board works!
-</p>
+<div class="row">
+  <div class="basicCard" style="background-color: #26a69a; padding: 5px ">
+    <div class="basicCard left-space" style="margin: 0; box-shadow: 0 0 0 0">
+
+      <nav style="background-color: #26a69a">
+        <div class="nav-wrapper">
+          <form>
+            <div class="input-field">
+              <input id="search" type="search" #searchInput required placeholder="Search other projects" (keyup.enter)="search(searchInput.value)">
+              <label class="label-icon" for="search" (click)="search(searchInput.value)"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
+
+
+            <div id="chipsDiv" class="chips chips-autocomplete" ></div>
+
+
+      <div *ngIf="projectList!=null">
+        <ul >
+          <li *ngFor="let project of projectList">
+            <div class="col s12">
+              <div class="card horizontal" style="display: flex">
+                <div class="col s4 card-image" style="padding-top: 10px; display: flex; justify-content: center; align-items: center" >
+                  <img class="materialboxed" [src]="project.imageUrl">
+                </div>
+                <div class="col s8 card-stacked">
+                  <span class="card-title" style="padding-top: 5px; color: #26a69a;" [innerText]="project.name"></span>
+                  <div class="card-content " style="max-height: 150px; overflow: scroll;
+                      padding-left: 0px;" >
+                    <p [innerText]="project.description"></p>
+                  </div>
+                  <div class="card-action" style="padding-left: 0px;">
+                    <a (click)="showProject(project.id)" routerLink="/project/view">Show details</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
