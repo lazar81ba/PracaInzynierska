@@ -53,7 +53,7 @@ export class ProjectSearchBoardComponent implements OnInit {
         }
       });
     });
-    return listTag
+    return listTag;
   }
 
 
@@ -88,7 +88,6 @@ export class ProjectSearchBoardComponent implements OnInit {
   }
 
   search(value: string) {
-    const data = $('#chipsDiv').chips();
     this.projectService.getProjectsByName(value);
   }
 

@@ -3,6 +3,7 @@ import {ProjectService} from '../../shared/project.service';
 import {Project} from '../../model/Project';
 import {ProjectGeneral} from '../../model/ProjectGeneral';
 import {UserService} from '../../shared/user.service';
+import {UserAuthService} from '../../shared/user-auth.service';
 
 declare var $: any;
 
@@ -14,11 +15,12 @@ declare var $: any;
 })
 export class ProjectViewBoardComponent implements OnInit {
 
-  constructor(private projectService: ProjectService, private userService: UserService) { }
+  constructor(private projectService: ProjectService, private userService: UserService, private userAuthService: UserAuthService) { }
 
   public currentProject: Project;
   public observedProjects: ProjectGeneral[];
   public isProjectInObservable = false;
+  public isCurrentUserParticipator;
 
   materialbox_jquery() {
     $(document).ready(function() {
@@ -32,6 +34,7 @@ export class ProjectViewBoardComponent implements OnInit {
         this.currentProject = data;
         this.materialbox_jquery();
         this.isProjectInObservable = this.isProjectInUserObservedList();
+        this.isCurrentUserParticipator = this.isCurrentUserInParticipatorList();
       }
     );
     this.projectService.observedProjectsSubject.subscribe(
@@ -46,6 +49,16 @@ export class ProjectViewBoardComponent implements OnInit {
     if (this.observedProjects != null) {
       const object = this.observedProjects.find( (x) => x.id === this.currentProject.id );
       if (object !== null) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  isCurrentUserInParticipatorList() {
+    if (this.currentProject != null) {
+      const object = this.currentProject.participators.find((x) => x.email === this.userAuthService.getAuthorizedEmail());
+      if (object != null) {
         return true;
       }
     }

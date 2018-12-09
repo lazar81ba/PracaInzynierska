@@ -1,3 +1,130 @@
-<p>
-  project-create-board works!
-</p>
+<div class="row">
+  <div class="basicCard" style="background-color: #26a69a; padding: 5px ">
+    <div class="basicCard left-space" style="margin: 0; box-shadow: 0 0 0 0">
+      <div class="col s12">
+        <form #projectForm >
+
+          <div class="col s12 m5">
+            <div style="display: flex; justify-content: center; align-items: center; padding-top: 10px">
+              <div *ngIf="imageUrl!==''">
+                <img [src]="imageUrl" class="materialboxed" width="100%" style="max-height: 200px"/>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m7 card" style="padding-bottom: 10px;">
+          <div class="card-content" style="padding-top: 0px">
+
+            <div class="row" style="padding-top: 20px">
+              <div class="input-field col s12">
+                <input id="project_name" type="text" class="validate" data-length="255">
+                <label for="project_name">Project Name</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea #descriptionText id="description" class="materialize-textarea validate"  data-length="1024"></textarea>
+                    <label for="description">Description</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s11">
+                <input id="image_url" type="text" #imageUrlText>
+                <label for="image_url">Image URL</label>
+              </div>
+              <div class="col s1" style="padding-top: 25px;">
+                <div (click)="addImage(imageUrlText.value)" class="waves-effect waves-light btn-small" style="padding-left: 5px; padding-right: 5px"><i class="material-icons left" style="margin-right: 0px">add</i></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <p>
+                <label>
+                  <input type="checkbox" class="filled-in" checked="checked" />
+                  <span>Public</span>
+                </label>
+              </p>
+            </div>
+          </div>
+        </div>
+
+          <div class="col s12 card">
+            <div class="card-content">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input #projectDetailsText id="projectDetailsText" type="search"  required class="validate" data-length="255" (keyup.enter)="addDetail(projectDetailsText.value);projectDetailsText.value=''">
+                  <label for="projectDetailsText">Project Details</label>
+                </div>
+              </div>
+              <div class="row">
+                <ul style="overflow: hidden">
+                  <li *ngFor="let detail of projectDetails">
+                    <div >
+                      <div class="col s1">
+                        <i class="material-icons" style="font-size: 14px; padding-top: 5px; color: #26a69a">lens</i>
+                      </div>
+                      <div class="col s11" style="padding-bottom: 5px">
+                        <span [innerText]="detail.content"></span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 card">
+            <div class="card-content">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input #projectLinkText id="projectLinkText" type="search"  required class="validate" data-length="255" (keyup.enter)="addLink(projectLinkText.value);projectLinkText.value=''">
+                  <label for="projectLinkText">Project Links</label>
+                </div>
+              </div>
+              <div class="row">
+                <ul style="overflow: hidden" >
+                  <li *ngFor="let link of projectLinks ">
+                    <div >
+                      <div class="col s1">
+                        <i class="material-icons" style="font-size: 14px; padding-top: 5px; color: #26a69a">lens</i>
+                      </div>
+                      <div class="col s11" style="padding-bottom: 5px;">
+                        <a id="adressLink" [href]="link.address">{{link.address}}</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col s12 card">
+            <div class="card-content">
+              <div class="row">
+                <div id="chipsDiv" class="chips chips-autocomplete" ></div>
+              </div>
+            </div>
+          </div>
+
+
+              <div class="row" style="display: flex">
+                <div class="col s6 center" >
+                  <input type="submit" class="waves-effect waves-light btn" value="CREATE" (click)="onClickSubmit(projectForm.value)">
+                </div>
+                <div class="col s6 center" >
+                  <input type="reset" class="waves-effect waves-light btn" value="RESET" (click)="resetCustomForm(); descriptionText.value =''">
+                </div>
+              </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
