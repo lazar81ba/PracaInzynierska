@@ -15,20 +15,25 @@ declare var $: any;
 export class ProjectSearchBoardComponent implements OnInit {
   public projectList: ProjectGeneral[];
   public tagList: Tag[];
-  public selectedTags: Tag[];
+  public selectedTags: Tag[] = [];
 
   constructor(private projectService: ProjectService, private tagService: TagService) { }
 
 
 
-  autocomplete_chips_jquery() {
+  private autocomplete_chips_jquery() {
     const test = (x) => {
-      this.addToTagList(x[0].M_Chips.chipsData, this.tagList).forEach(
+      this.addToTagList(x[0].M_Chips.chipsData).forEach(
         (tag) => {
-          this.selectedTags.push(tag);
+           if (!this.selectedTags.includes(tag)) {
+             this.selectedTags.push(tag);
+           }
         }
       );
+      this.filterProjectList();
     };
+
+
     const chipData = this.convertTagListToChipbject();
     $( document ).ready(function() {
       $('.chips-autocomplete').chips({
@@ -44,10 +49,38 @@ export class ProjectSearchBoardComponent implements OnInit {
 
   }
 
-  addToTagList(x, list): Tag[] {
+  filterProjectList() {
+    if (this.selectedTags.length > 0) {
+      const newProjectList: ProjectGeneral[] = [];
+
+      this.projectList.forEach(
+        (project) => {
+          let numberOfTagOccurrence = 0;
+          this.selectedTags.forEach(
+            (selectedTag) => {
+              project.tags.forEach(
+                (projectTag) => {
+                  if (selectedTag.id === projectTag.id
+                    && selectedTag.name === projectTag.name) {
+                    numberOfTagOccurrence++;
+                  }
+                }
+              );
+            }
+          );
+          if (numberOfTagOccurrence === this.selectedTags.length) {
+            newProjectList.push(project);
+          }
+        }
+      );
+      this.projectList = newProjectList;
+    }
+  }
+
+  addToTagList(x): Tag[] {
     const listTag: Tag[] = [];
     x.map((chip) => {
-      list.forEach((tag) => {
+      this.tagList.forEach((tag) => {
         if (tag.name === chip.tag) {
           listTag.push(tag);
         }
@@ -76,7 +109,9 @@ export class ProjectSearchBoardComponent implements OnInit {
       (data: ProjectGeneral[]) => {
       this.projectList = data;
       this.materialbox_jquery();
-    }
+        this.filterProjectList();
+
+      }
   );
     this.tagService.tagSubject.subscribe(
       (data: Tag[]) => {
@@ -85,6 +120,7 @@ export class ProjectSearchBoardComponent implements OnInit {
       }
     );
     this.tagService.getAllTags();
+
   }
 
   search(value: string) {
