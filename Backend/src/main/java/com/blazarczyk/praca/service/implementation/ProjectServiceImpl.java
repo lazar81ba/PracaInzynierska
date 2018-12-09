@@ -1,8 +1,10 @@
 package com.blazarczyk.praca.service.implementation;
 
 import com.blazarczyk.praca.model.databse.Project;
+import com.blazarczyk.praca.model.databse.Tag;
 import com.blazarczyk.praca.model.databse.User;
 import com.blazarczyk.praca.repository.ProjectDAO;
+import com.blazarczyk.praca.repository.TagDAO;
 import com.blazarczyk.praca.repository.UserDAO;
 import com.blazarczyk.praca.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ public class ProjectServiceImpl implements ProjectService {
     ProjectDAO projectDAO;
     @Autowired
     UserDAO userDAO;
+    @Autowired
+    TagDAO tagDAO;
 
     @Override
     public Project getProjectWithId(long id) {
@@ -52,5 +56,19 @@ public class ProjectServiceImpl implements ProjectService {
         Project projectToSubscribe = projectDAO.findById(projectId);
         user.removeObservedProject(projectToSubscribe);
         userDAO.save(user);
+    }
+
+    @Override
+    public void createProject(Project project) {
+        project.getTags().forEach(
+                (tag) -> {
+                    Tag tagFromDB = tagDAO.findByName(tag.getName());
+                    if(tagFromDB != null){
+                        project.removeTag(tag);
+                        project.addTag(tagFromDB);
+                    }
+                }
+        );
+        projectDAO.save(project);
     }
 }

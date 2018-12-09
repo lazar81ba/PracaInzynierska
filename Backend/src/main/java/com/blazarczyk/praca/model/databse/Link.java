@@ -12,8 +12,15 @@ public class Link {
     @Column
     private String address;
 
+    public Link(String address) {
+        this.address = address;
+    }
+
     @ManyToMany(mappedBy = "links")
     private Set<Project> projectEntries;
+
+    public Link() {
+    }
 
     public long getId() {
         return id;

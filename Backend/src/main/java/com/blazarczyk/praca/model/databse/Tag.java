@@ -13,8 +13,15 @@ public class Tag {
     @Column
     private String name;
 
+    public Tag(String name) {
+        this.name = name;
+    }
+
     @ManyToMany(mappedBy = "tags")
     private Set<Project> projectEntries;
+
+    public Tag() {
+    }
 
     public long getId() {
         return id;

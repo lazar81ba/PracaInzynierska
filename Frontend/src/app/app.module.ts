@@ -20,7 +20,6 @@ import {ProjectViewBoardComponent} from './content/project-view-board/project-vi
 import {UserAccountBoardComponent} from './content/user-account-board/user-account-board.component';
 import {UserService} from './shared/user.service';
 import {HttpClientModule} from '@angular/common/http';
-import {MaterializeModule} from 'angular2-materialize';
 import {ProjectObservedBoardComponent} from './content/project-observed-board/project-observed-board.component';
 import {ProjectService} from './shared/project.service';
 import {TagService} from './shared/tag.service';

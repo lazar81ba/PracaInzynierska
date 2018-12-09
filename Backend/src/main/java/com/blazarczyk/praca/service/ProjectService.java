@@ -12,4 +12,5 @@ public interface ProjectService {
     List<Project> getAllProjects();
     void addProjectToSubscribe(long projectId, String userEmail);
     void removeProjectFromSubscribe(long projectId, String userEmail);
+    void createProject(Project project);
 }

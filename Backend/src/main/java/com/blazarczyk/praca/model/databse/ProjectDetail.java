@@ -12,9 +12,16 @@ public class ProjectDetail {
     @Column
     private String content;
 
+    public ProjectDetail(String content) {
+        this.content = content;
+    }
+
     @ManyToOne
     @JoinColumn(name = "id_project")
     private Project project;
+
+    public ProjectDetail() {
+    }
 
     public long getId() {
         return id;
