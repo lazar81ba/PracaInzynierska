@@ -26,6 +26,33 @@ export class ProjectService {
       });
   }
 
+  public subscribeProject(projectId: number) {
+    this.httpClient.post(this.projectEndpoint + '/' + projectId + '/subscribe',
+      {email: this.userAuthService.getAuthorizedEmail()})
+      .subscribe(
+      res => {
+        this.getObservedProjects();
+        this.getCurrentObservedProjects();
+      },
+      err => {
+        console.log('Error occured');
+      }
+    );
+  }
+
+  public unsubscribeProject(projectId: number) {
+    this.httpClient.post(this.projectEndpoint + '/' + projectId + '/unsubscribe',
+      {email: this.userAuthService.getAuthorizedEmail()})
+      .subscribe(
+        res => {
+          this.getObservedProjects();
+        },
+        err => {
+          console.log('Error occured');
+        }
+      );
+  }
+
   public getCurrentObservedProjects() {
     this.observedProjectsSubject.next(this.observedProjects);
   }

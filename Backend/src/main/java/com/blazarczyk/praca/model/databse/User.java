@@ -58,6 +58,18 @@ public class User {
     )
     private Set<Project> observedProjects;
 
+    public void addObservedProject(Project project){
+        if(!observedProjects.contains(project)) {
+            observedProjects.add(project);
+        }
+    }
+
+    public void removeObservedProject(Project project){
+        if(observedProjects.contains(project)) {
+            observedProjects.remove(project);
+        }
+    }
+
     public void setId(long id) {
         this.id = id;
     }

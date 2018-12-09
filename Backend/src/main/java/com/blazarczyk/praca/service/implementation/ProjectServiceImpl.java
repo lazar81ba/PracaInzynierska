@@ -1,6 +1,7 @@
 package com.blazarczyk.praca.service.implementation;
 
 import com.blazarczyk.praca.model.databse.Project;
+import com.blazarczyk.praca.model.databse.User;
 import com.blazarczyk.praca.repository.ProjectDAO;
 import com.blazarczyk.praca.repository.UserDAO;
 import com.blazarczyk.praca.service.ProjectService;
@@ -35,5 +36,21 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public List<Project> getAllProjects() {
         return (List<Project>) projectDAO.findAll();
+    }
+
+    @Override
+    public void addProjectToSubscribe(long projectId, String userEmail) {
+        User user = userDAO.findByEmail(userEmail);
+        Project projectToSubscribe = projectDAO.findById(projectId);
+        user.addObservedProject(projectToSubscribe);
+        userDAO.save(user);
+    }
+
+    @Override
+    public void removeProjectFromSubscribe(long projectId, String userEmail) {
+        User user = userDAO.findByEmail(userEmail);
+        Project projectToSubscribe = projectDAO.findById(projectId);
+        user.removeObservedProject(projectToSubscribe);
+        userDAO.save(user);
     }
 }

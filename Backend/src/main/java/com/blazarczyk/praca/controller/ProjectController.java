@@ -1,6 +1,7 @@
 package com.blazarczyk.praca.controller;
 
 import com.blazarczyk.praca.model.json.*;
+import com.blazarczyk.praca.model.request.UserEmailRequest;
 import com.blazarczyk.praca.service.ProjectService;
 import com.blazarczyk.praca.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,20 @@ public class ProjectController {
     @ResponseBody
     public ProjectJson getProject(@PathVariable(value = "id") Long id){
         return new ProjectJson(projectService.getProjectWithId(id));
+    }
+
+    @RequestMapping(path = "/project/{id}/subscribe", method = RequestMethod.POST)
+    @ResponseBody
+    public void subscribeProject(@PathVariable(value = "id",required = false) Long projectId,
+                                 @RequestBody UserEmailRequest userEmailRequest){
+        projectService.addProjectToSubscribe(projectId, userEmailRequest.getEmail());
+    }
+
+    @RequestMapping(path = "/project/{id}/unsubscribe", method = RequestMethod.POST)
+    @ResponseBody
+    public void unsubscribeProject(@PathVariable(value = "id",required = false) Long projectId,
+                                 @RequestBody UserEmailRequest userEmailRequest){
+        projectService.removeProjectFromSubscribe(projectId, userEmailRequest.getEmail());
     }
 
     @RequestMapping(path = "/project", method = RequestMethod.GET)

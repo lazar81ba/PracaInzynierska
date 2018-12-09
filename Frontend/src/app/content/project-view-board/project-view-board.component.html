@@ -14,12 +14,12 @@
                 <span  *ngIf="currentProject.publicProject == false">Private Project</span>
               </div>
             </div>
-            <div class="center" style="padding-top: 25px">
+            <div class="center projectButtons" style="padding-top: 25px">
               <div *ngIf="!isProjectInObservable; else unsubscribe">
-                <a class="waves-effect waves-light btn"><i class="material-icons left">favorite_border</i>subscribe</a>
+                <a class="waves-effect waves-light btn" (click)="addProjectToObservedList()"><i class="material-icons left">favorite_border</i>subscribe</a>
               </div>
               <ng-template #unsubscribe>
-                <a class="waves-effect waves-light btn"><i class="material-icons left">favorite</i>unsubscribe</a>
+                <a class="waves-effect waves-light btn" (click)="removeProjectFromObservedList()"><i class="material-icons left">favorite</i>unsubscribe</a>
               </ng-template>
               <div *ngIf="!isCurrentUserParticipator && currentProject.publicProject==true" style="padding-top: 15px">
                 <a class="waves-effect waves-light btn"><i class="material-icons left">add</i>Join</a>

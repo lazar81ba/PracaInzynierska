@@ -4,6 +4,7 @@ import {Project} from '../../model/Project';
 import {ProjectGeneral} from '../../model/ProjectGeneral';
 import {UserService} from '../../shared/user.service';
 import {UserAuthService} from '../../shared/user-auth.service';
+import {Router} from '@angular/router';
 
 declare var $: any;
 
@@ -15,7 +16,7 @@ declare var $: any;
 })
 export class ProjectViewBoardComponent implements OnInit {
 
-  constructor(private projectService: ProjectService, private userService: UserService, private userAuthService: UserAuthService) { }
+  constructor(private projectService: ProjectService, private userService: UserService, private userAuthService: UserAuthService, private router: Router) { }
 
   public currentProject: Project;
   public observedProjects: ProjectGeneral[];
@@ -27,6 +28,7 @@ export class ProjectViewBoardComponent implements OnInit {
       $('.materialboxed').materialbox();
     });
   }
+
 
   ngOnInit() {
     this.projectService.projectToViewSubject.subscribe(
@@ -40,13 +42,15 @@ export class ProjectViewBoardComponent implements OnInit {
     this.projectService.observedProjectsSubject.subscribe(
       (data: ProjectGeneral[]) => {
         this.observedProjects = data;
+        this.isProjectInObservable = this.isProjectInUserObservedList();
+        this.router.initialNavigation();
       }
     );
     this.projectService.getCurrentObservedProjects();
   }
 
   isProjectInUserObservedList() {
-    if (this.observedProjects != null) {
+    if (this.observedProjects !== undefined && this.currentProject !== undefined) {
       const object = this.observedProjects.find( (x) => x.id === this.currentProject.id );
       if (object !== undefined) {
         return true;
@@ -63,6 +67,14 @@ export class ProjectViewBoardComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  addProjectToObservedList() {
+    this.projectService.subscribeProject(this.currentProject.id);
+  }
+
+  removeProjectFromObservedList() {
+    this.projectService.unsubscribeProject(this.currentProject.id);
   }
 
   showUser(email: string) {
