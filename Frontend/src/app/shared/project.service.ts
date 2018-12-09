@@ -15,13 +15,19 @@ export class ProjectService {
 
   public projectsGeneralSubject = new Subject<ProjectGeneral[]>();
   public observedProjectsSubject = new Subject<ProjectGeneral[]>();
+  private observedProjects: ProjectGeneral[] = [];
   public projectToViewSubject = new Subject<Project>();
 
   public getObservedProjects() {
     this.httpClient.get(this.observedProjectsEndpoint)
       .subscribe((data: ProjectGeneral[]) => {
+        this.observedProjects = data;
         this.observedProjectsSubject.next(data);
       });
+  }
+
+  public getCurrentObservedProjects() {
+    this.observedProjectsSubject.next(this.observedProjects);
   }
 
   public getProject(id: number) {

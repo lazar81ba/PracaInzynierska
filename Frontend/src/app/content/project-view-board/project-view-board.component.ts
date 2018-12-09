@@ -42,13 +42,13 @@ export class ProjectViewBoardComponent implements OnInit {
         this.observedProjects = data;
       }
     );
-    this.projectService.getObservedProjects();
+    this.projectService.getCurrentObservedProjects();
   }
 
   isProjectInUserObservedList() {
     if (this.observedProjects != null) {
       const object = this.observedProjects.find( (x) => x.id === this.currentProject.id );
-      if (object !== null) {
+      if (object !== undefined) {
         return true;
       }
     }
@@ -58,7 +58,7 @@ export class ProjectViewBoardComponent implements OnInit {
   isCurrentUserInParticipatorList() {
     if (this.currentProject != null) {
       const object = this.currentProject.participators.find((x) => x.email === this.userAuthService.getAuthorizedEmail());
-      if (object != null) {
+      if (object !== undefined) {
         return true;
       }
     }

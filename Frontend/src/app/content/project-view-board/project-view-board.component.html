@@ -21,7 +21,7 @@
               <ng-template #unsubscribe>
                 <a class="waves-effect waves-light btn"><i class="material-icons left">favorite</i>unsubscribe</a>
               </ng-template>
-              <div *ngIf="!isCurrentUserParticipator" style="padding-top: 15px">
+              <div *ngIf="!isCurrentUserParticipator && currentProject.publicProject==true" style="padding-top: 15px">
                 <a class="waves-effect waves-light btn"><i class="material-icons left">add</i>Join</a>
               </div>
             </div>
