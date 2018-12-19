@@ -21,9 +21,14 @@
               <ng-template #unsubscribe>
                 <a class="waves-effect waves-light btn" (click)="removeProjectFromObservedList()"><i class="material-icons left">favorite</i>unsubscribe</a>
               </ng-template>
-              <div *ngIf="!isCurrentUserParticipator && currentProject.publicProject==true" style="padding-top: 15px">
-                <a class="waves-effect waves-light btn"><i class="material-icons left">add</i>Join</a>
+              <div *ngIf="!isCurrentUserParticipator && currentProject.publicProject==true; else resign" style="padding-top: 15px">
+                <a class="waves-effect waves-light btn" (click)="addUserToParticipatorList()"><i class="material-icons left">add</i>Join</a>
               </div>
+              <ng-template #resign >
+                <div style="padding-top: 15px">
+                  <a class="waves-effect waves-light btn" (click)="removeUserFromParticipatorList()" ><i class="material-icons left">remove</i>Resign</a>
+                </div>
+              </ng-template>
             </div>
           </div>
         </div>

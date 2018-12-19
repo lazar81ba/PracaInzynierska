@@ -34,7 +34,7 @@ export class ProjectSearchBoardComponent implements OnInit {
     };
 
 
-    const chipData = this.convertTagListToChipbject();
+    const chipData = this.convertTagListToChipObject();
     $( document ).ready(function() {
       $('.chips-autocomplete').chips({
         placeholder: 'Enter a tag',
@@ -90,7 +90,7 @@ export class ProjectSearchBoardComponent implements OnInit {
   }
 
 
-  private convertTagListToChipbject() {
+  private convertTagListToChipObject() {
     const chip = {};
     this.tagList.map((x) =>
       chip[x.name] = null

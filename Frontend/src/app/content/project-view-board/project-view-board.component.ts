@@ -77,6 +77,16 @@ export class ProjectViewBoardComponent implements OnInit {
     this.projectService.unsubscribeProject(this.currentProject.id);
   }
 
+  addUserToParticipatorList() {
+    this.projectService.joinProject(this.currentProject.id);
+    this.router.initialNavigation();
+  }
+
+  removeUserFromParticipatorList() {
+    this.projectService.resignProject(this.currentProject.id);
+    this.router.initialNavigation();
+  }
+
   showUser(email: string) {
     this.userService.getUser(email);
   }

@@ -4,6 +4,7 @@ import {Link} from '../../model/Link';
 import {Tag} from '../../model/Tag';
 import {TagService} from '../../shared/tag.service';
 import {ProjectService} from '../../shared/project.service';
+import {CreateProjectRequest} from '../../model/request/CreateProjectRequest';
 declare var $: any;
 
 
@@ -17,8 +18,11 @@ export class ProjectCreateBoardComponent implements OnInit {
   public projectDetails: ProjectDetail[] = [];
   public projectLinks: Link[] = [];
   public tagList: Tag[];
-  public selectedTags: Tag[];
+  public selectedTags: Tag[] = [];
   public imageUrl = '';
+  public projectName = '';
+  public description = '';
+  public isPublic = true;
 
   constructor(private projectService: ProjectService, private tagService: TagService) { }
 
@@ -35,15 +39,19 @@ export class ProjectCreateBoardComponent implements OnInit {
     });
   }
 
-  autocomplete_chips_jquery() {
+  private autocomplete_chips_jquery() {
     const test = (x) => {
-      this.addToTagList(x[0].M_Chips.chipsData, this.tagList).forEach(
+      this.addToTagList(x[0].M_Chips.chipsData).forEach(
         (tag) => {
-          this.selectedTags.push(tag);
+          if (this.selectedTags.find( el => el.name == tag.name) === undefined ) {
+            this.selectedTags.push(tag);
+          }
         }
       );
     };
-    const chipData = this.convertTagListToChipbject();
+
+
+    const chipData = this.convertTagListToChipObject();
     $( document ).ready(function() {
       $('.chips-autocomplete').chips({
         placeholder: 'Enter a tag',
@@ -58,20 +66,25 @@ export class ProjectCreateBoardComponent implements OnInit {
 
   }
 
-  addToTagList(x, list): Tag[] {
+  addToTagList(x): Tag[] {
     const listTag: Tag[] = [];
     x.map((chip) => {
-      list.forEach((tag) => {
+      let isNewTag = true;
+      this.tagList.forEach((tag) => {
         if (tag.name === chip.tag) {
           listTag.push(tag);
+          isNewTag = false;
         }
       });
+      if (isNewTag) {
+        listTag.push(new Tag(0, chip.tag));
+      }
     });
     return listTag;
   }
 
 
-  private convertTagListToChipbject() {
+  private convertTagListToChipObject() {
     const chip = {};
     this.tagList.map((x) =>
       chip[x.name] = null
@@ -103,8 +116,15 @@ export class ProjectCreateBoardComponent implements OnInit {
     this.materialbox_jquery();
   }
 
-  onClickSubmit(data) {
-    const data1 = data;
+  onClickSubmit() {
+    this.projectService.createProject( new CreateProjectRequest(
+      this.projectName,
+      this.description,
+      this.imageUrl,
+      this.isPublic,
+      this.projectDetails,
+      this.projectLinks,
+      this.selectedTags));
   }
 
   resetCustomForm() {
@@ -112,6 +132,16 @@ export class ProjectCreateBoardComponent implements OnInit {
     this.projectLinks = [];
     this.selectedTags = [];
     this.imageUrl = '';
+    this.projectName = '';
+    this.description = '';
   }
 
+  validForm() {
+    return this.projectLinks.length !== 0
+      && this.projectDetails.length !== 0
+      && this.selectedTags.length !== 0
+      && this.imageUrl != ''
+      && this.projectName != ''
+      && this.description != '';
+  }
 }

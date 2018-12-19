@@ -2,7 +2,7 @@
   <div class="basicCard" style="background-color: #26a69a; padding: 5px ">
     <div class="basicCard left-space" style="margin: 0; box-shadow: 0 0 0 0">
       <div class="col s12">
-        <form #projectForm >
+        <form #f="ngForm" (ngSubmit)="onClickSubmit(this)" >
 
           <div class="col s12 m5">
             <div style="display: flex; justify-content: center; align-items: center; padding-top: 10px">
@@ -16,7 +16,7 @@
 
             <div class="row" style="padding-top: 20px">
               <div class="input-field col s12">
-                <input id="project_name" type="text" class="validate" data-length="255">
+                <input [(ngModel)]="projectName" id="project_name" name="projectName" type="text" class="validate" data-length="255">
                 <label for="project_name">Project Name</label>
               </div>
             </div>
@@ -25,7 +25,7 @@
               <form class="col s12">
                 <div class="row">
                   <div class="input-field col s12">
-                    <textarea #descriptionText id="description" class="materialize-textarea validate"  data-length="1024"></textarea>
+                    <textarea [(ngModel)]="description"  id="description"  name="description" class="materialize-textarea validate"  data-length="1024"></textarea>
                     <label for="description">Description</label>
                   </div>
                 </div>
@@ -45,7 +45,7 @@
             <div class="row">
               <p>
                 <label>
-                  <input type="checkbox" class="filled-in" checked="checked" />
+                  <input [(ngModel)]="isPublic" type="checkbox"  name="isPublic" class="filled-in" checked="checked" />
                   <span>Public</span>
                 </label>
               </p>
@@ -115,7 +115,7 @@
 
               <div class="row" style="display: flex">
                 <div class="col s6 center" >
-                  <input type="submit" class="waves-effect waves-light btn" value="CREATE" (click)="onClickSubmit(projectForm.value)">
+                  <button type="submit" class="waves-effect waves-light btn" [disabled]="!validForm()">CREATE</button>
                 </div>
                 <div class="col s6 center" >
                   <input type="reset" class="waves-effect waves-light btn" value="RESET" (click)="resetCustomForm(); descriptionText.value =''">

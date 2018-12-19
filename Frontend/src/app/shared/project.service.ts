@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {ProjectGeneral} from '../model/ProjectGeneral';
-import {User} from '../model/User';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {UserAuthService} from './user-auth.service';
 import {Project} from '../model/Project';
+import {CreateProjectRequest} from '../model/request/CreateProjectRequest';
 
 @Injectable()
 export class ProjectService {
@@ -24,6 +24,44 @@ export class ProjectService {
         this.observedProjects = data;
         this.observedProjectsSubject.next(data);
       });
+  }
+
+  public createProject(project: CreateProjectRequest) {
+    this.httpClient.post(this.projectEndpoint, project)
+      .subscribe(
+        res => {
+          console.log('success');
+        },
+        err => {
+          console.log('Error occured');
+        }
+      );
+  }
+
+  public joinProject(projectId: number) {
+    this.httpClient.post(this.projectEndpoint + '/' + projectId + '/join',
+      {email: this.userAuthService.getAuthorizedEmail()})
+      .subscribe(
+        res => {
+          this.getProject(projectId);
+        },
+        err => {
+          console.log('Error occured');
+        }
+      );
+  }
+
+  public resignProject(projectId: number) {
+    this.httpClient.post(this.projectEndpoint + '/' + projectId + '/resign',
+      {email: this.userAuthService.getAuthorizedEmail()})
+      .subscribe(
+        res => {
+          this.getProject(projectId);
+        },
+        err => {
+          console.log('Error occured');
+        }
+      );
   }
 
   public subscribeProject(projectId: number) {
@@ -66,6 +104,13 @@ export class ProjectService {
 
   public getAllProjects() {
     this.httpClient.get(this.projectEndpoint)
+      .subscribe((data: ProjectGeneral[]) => {
+        this.projectsGeneralSubject.next(data);
+      });
+  }
+
+  public getRecommendedProjects() {
+    this.httpClient.get('http://localhost:8080/user/' + this.userAuthService.getAuthorizedEmail() + '/recommendation')
       .subscribe((data: ProjectGeneral[]) => {
         this.projectsGeneralSubject.next(data);
       });

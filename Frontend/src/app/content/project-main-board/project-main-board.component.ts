@@ -30,7 +30,7 @@ export class ProjectMainBoardComponent implements OnInit {
         this.materialbox_jquery();
       }
     );
-    this.projectService.getAllProjects();
+    this.projectService.getRecommendedProjects();
   }
 
   showProject(id: number) {
