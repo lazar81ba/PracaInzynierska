@@ -1,6 +1,7 @@
 package com.blazarczyk.praca.model.databse;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -45,6 +46,8 @@ public class Project {
     @ManyToMany(mappedBy = "observedProjects")
     private Set<User> usersWhichObserveProject;
 
+
+
     public void removeTag(Tag tag){
         if(tags.contains(tag)) {
             tags.remove(tag);
@@ -55,6 +58,14 @@ public class Project {
         if(!tags.contains(tag)) {
             tags.add(tag);
         }
+    }
+
+    public Project() {
+        this.links = new HashSet<>();
+        this.projectDetails = new HashSet<>();
+        this.tags = new HashSet<>();
+        this.projectParticipants = new HashSet<>();
+        this.usersWhichObserveProject = new HashSet<>();
     }
 
     public Set<Link> getLinks() {

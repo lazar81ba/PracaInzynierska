@@ -70,6 +70,18 @@ public class User {
         }
     }
 
+    public void addParticipatedProject(Project project){
+        if(!participatedProjects.contains(project)) {
+            participatedProjects.add(project);
+        }
+    }
+
+    public void removeParticipatedProject(Project project){
+        if(participatedProjects.contains(project)) {
+            participatedProjects.remove(project);
+        }
+    }
+
     public void setId(long id) {
         this.id = id;
     }

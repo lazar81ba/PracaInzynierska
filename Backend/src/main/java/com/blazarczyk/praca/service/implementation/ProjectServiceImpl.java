@@ -3,6 +3,7 @@ package com.blazarczyk.praca.service.implementation;
 import com.blazarczyk.praca.model.databse.Project;
 import com.blazarczyk.praca.model.databse.Tag;
 import com.blazarczyk.praca.model.databse.User;
+import com.blazarczyk.praca.recommendation.ContentBasedRecommender;
 import com.blazarczyk.praca.repository.ProjectDAO;
 import com.blazarczyk.praca.repository.TagDAO;
 import com.blazarczyk.praca.repository.UserDAO;
@@ -10,6 +11,8 @@ import com.blazarczyk.praca.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -21,6 +24,8 @@ public class ProjectServiceImpl implements ProjectService {
     UserDAO userDAO;
     @Autowired
     TagDAO tagDAO;
+    @Autowired
+    private ContentBasedRecommender recommender;
 
     @Override
     public Project getProjectWithId(long id) {
@@ -40,6 +45,29 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public List<Project> getAllProjects() {
         return (List<Project>) projectDAO.findAll();
+    }
+
+    @Override
+    public List<Project> getRecommendedProjectsForUser(String email) {
+        recommender.prepareRecommendation();
+        return recommender.getUserRecommendation(email);
+    }
+
+
+    @Override
+    public void addUserToParticipator(long projectId, String userEmail) {
+        User user = userDAO.findByEmail(userEmail);
+        Project project = projectDAO.findById(projectId);
+        user.addParticipatedProject(project);
+        userDAO.save(user);
+    }
+
+    @Override
+    public void removeUserFromParticipator(long projectId, String userEmail) {
+        User user = userDAO.findByEmail(userEmail);
+        Project project = projectDAO.findById(projectId);
+        user.removeParticipatedProject(project);
+        userDAO.save(user);
     }
 
     @Override

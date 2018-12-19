@@ -40,6 +40,20 @@ public class ProjectController {
         projectService.removeProjectFromSubscribe(projectId, userEmailRequest.getEmail());
     }
 
+    @RequestMapping(path = "/project/{id}/join", method = RequestMethod.POST)
+    @ResponseBody
+    public void joinProject(@PathVariable(value = "id",required = false) Long projectId,
+                                 @RequestBody UserEmailRequest userEmailRequest){
+        projectService.addUserToParticipator(projectId, userEmailRequest.getEmail());
+    }
+
+    @RequestMapping(path = "/project/{id}/resign", method = RequestMethod.POST)
+    @ResponseBody
+    public void resignProject(@PathVariable(value = "id",required = false) Long projectId,
+                                   @RequestBody UserEmailRequest userEmailRequest){
+        projectService.removeUserFromParticipator(projectId, userEmailRequest.getEmail());
+    }
+
     @RequestMapping(path = "/project", method = RequestMethod.POST)
     @ResponseBody
     public void createProject(@RequestBody CreateProjectRequest createProjectRequest) {

@@ -2,6 +2,7 @@ package com.blazarczyk.praca.controller;
 
 import com.blazarczyk.praca.model.databse.Specialization;
 import com.blazarczyk.praca.model.json.*;
+import com.blazarczyk.praca.service.ProjectService;
 import com.blazarczyk.praca.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    ProjectService projectService;
+
     @RequestMapping(path = "/user/{email:.+}", method = RequestMethod.GET)
     @ResponseBody
     public UserJson getUser(@PathVariable(value = "email") String email){
@@ -25,6 +29,14 @@ public class UserController {
     @ResponseBody
     public UniversityGeneralJson getUserUniversity(@PathVariable(value = "email") String email){
         return (new UserJson(userService.getUserWithEmail(email))).getUniversity();
+    }
+
+    @RequestMapping(path = "/user/{email:.+}/recommendation", method = RequestMethod.GET)
+    @ResponseBody
+    public List<ProjectJson> getUserRecommendation(@PathVariable(value = "email") String email){
+        List<ProjectJson> response = new LinkedList<>();
+        projectService.getRecommendedProjectsForUser(email).forEach(x -> response.add(new ProjectJson(x)));
+        return response;
     }
 
     @RequestMapping(path = "/user/{email:.+}/faculty", method = RequestMethod.GET)
@@ -81,13 +93,5 @@ public class UserController {
         userService.getUsersWithNameAndSurname(name, surname).forEach(x -> users.add(new UserJson(x)));
         return users;
     }
-
-
-
-//    @RequestMapping(path = "/user", method = RequestMethod.POST)
-//    public void createUser(@RequestBody UserJson user){
-//        userService.createUser(user);
-//    }
-//
 
 }
