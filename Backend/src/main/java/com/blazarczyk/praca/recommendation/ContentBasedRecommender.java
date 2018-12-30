@@ -50,9 +50,13 @@ public class ContentBasedRecommender {
         }
         List<Project> response = new LinkedList<>();
         for(int i=0; i<predictions.length; i++){
-            if(predictions[i] > 0.70){
+            Project project = projects.get(i);
+            if(predictions[i] > 0.50 && !userToRecommend.getObservedProjects().contains(project)){
                 response.add(projects.get(i));
             }
+        }
+        if(response.size()>5){
+            response = response.subList(0,4);
         }
         return response;
     }

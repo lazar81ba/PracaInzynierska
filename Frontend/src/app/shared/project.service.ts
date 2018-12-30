@@ -10,8 +10,8 @@ import {CreateProjectRequest} from '../model/request/CreateProjectRequest';
 export class ProjectService {
   constructor(private httpClient: HttpClient, private userAuthService: UserAuthService) {}
 
-  private projectEndpoint = 'http://localhost:8080/project';
-  private observedProjectsEndpoint = 'http://localhost:8080/user/' + this.userAuthService.getAuthorizedEmail() + '/observedProjects';
+  private projectEndpoint = 'http://localhost:8080/projects';
+  private observedProjectsEndpoint = 'http://localhost:8080/users/' + this.userAuthService.getAuthorizedEmail() + '/observedProjects';
 
   public projectsGeneralSubject = new Subject<ProjectGeneral[]>();
   public observedProjectsSubject = new Subject<ProjectGeneral[]>();
@@ -110,7 +110,7 @@ export class ProjectService {
   }
 
   public getRecommendedProjects() {
-    this.httpClient.get('http://localhost:8080/user/' + this.userAuthService.getAuthorizedEmail() + '/recommendation')
+    this.httpClient.get('http://localhost:8080/users/' + this.userAuthService.getAuthorizedEmail() + '/recommendation')
       .subscribe((data: ProjectGeneral[]) => {
         this.projectsGeneralSubject.next(data);
       });

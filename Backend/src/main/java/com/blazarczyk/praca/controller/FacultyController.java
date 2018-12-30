@@ -18,7 +18,7 @@ public class FacultyController {
     @Autowired
     FacultyService facultyService;
 
-    @RequestMapping(path = "/faculty/{id}/users", method = RequestMethod.GET)
+    @RequestMapping(path = "/faculties/{id}/users", method = RequestMethod.GET)
     @ResponseBody
     public List<UserGeneralJson> getFacultyUsers(@PathVariable(value = "id") Long faculty_id){
         List<UserGeneralJson> users = new LinkedList<>();
@@ -26,20 +26,20 @@ public class FacultyController {
         return users;
     }
 
-    @RequestMapping(path = "/faculty/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/faculties/{id}", method = RequestMethod.GET)
     @ResponseBody
     public FacultyJson getFaculty(@PathVariable(value = "id") Long faculty_id){
         return new FacultyJson(facultyService.getFacultyWithId(faculty_id));
     }
 
 
-    @RequestMapping(path = "/faculty/{id}/specializations", method = RequestMethod.GET)
+    @RequestMapping(path = "/faculties/{id}/specializations", method = RequestMethod.GET)
     @ResponseBody
     public List<SpecializationGeneralJson> getFacultySpecializations(@PathVariable(value = "id") Long faculty_id){
         return new FacultyJson(facultyService.getFacultyWithId(faculty_id)).getSpecializations();
     }
 
-    @RequestMapping(path = "/faculty/{id}/specializations/{specialization_id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/faculties/{id}/specializations/{specialization_id}", method = RequestMethod.GET)
     @ResponseBody
     public SpecializationGeneralJson getFacultySpecialization(@PathVariable(value = "id") Long faculty_id,
                                                               @PathVariable(value = "specialization_id") Long specialization_id){
@@ -50,7 +50,7 @@ public class FacultyController {
                 .get();
     }
 
-    @RequestMapping(path = "/faculty", method = RequestMethod.GET)
+    @RequestMapping(path = "/faculties", method = RequestMethod.GET)
     @ResponseBody
     public List<FacultyGeneralJson> getUsersByNameAndSurname(@RequestParam(value = "name",required = false)String name,
                                                              @RequestParam(value = "university_id", required = false) Long university_id,

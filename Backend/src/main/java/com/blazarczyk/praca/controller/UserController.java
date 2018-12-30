@@ -19,19 +19,19 @@ public class UserController {
     @Autowired
     ProjectService projectService;
 
-    @RequestMapping(path = "/user/{email:.+}", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{email:.+}", method = RequestMethod.GET)
     @ResponseBody
     public UserJson getUser(@PathVariable(value = "email") String email){
         return new UserJson(userService.getUserWithEmail(email));
     }
 
-    @RequestMapping(path = "/user/{email:.+}/university", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{email:.+}/university", method = RequestMethod.GET)
     @ResponseBody
     public UniversityGeneralJson getUserUniversity(@PathVariable(value = "email") String email){
         return (new UserJson(userService.getUserWithEmail(email))).getUniversity();
     }
 
-    @RequestMapping(path = "/user/{email:.+}/recommendation", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{email:.+}/recommendation", method = RequestMethod.GET)
     @ResponseBody
     public List<ProjectJson> getUserRecommendation(@PathVariable(value = "email") String email){
         List<ProjectJson> response = new LinkedList<>();
@@ -39,25 +39,25 @@ public class UserController {
         return response;
     }
 
-    @RequestMapping(path = "/user/{email:.+}/faculty", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{email:.+}/faculty", method = RequestMethod.GET)
     @ResponseBody
     public FacultyGeneralJson getUserFaculty(@PathVariable(value = "email") String email){
         return (new UserJson(userService.getUserWithEmail(email))).getFaculty();
     }
 
-    @RequestMapping(path = "/user/{email:.+}/specialization", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{email:.+}/specialization", method = RequestMethod.GET)
     @ResponseBody
     public SpecializationGeneralJson getUserSpecialization(@PathVariable(value = "email") String email){
         return (new UserJson(userService.getUserWithEmail(email))).getSpecialization();
     }
 
-    @RequestMapping(path = "/user/{email:.+}/participatedProjects", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{email:.+}/participatedProjects", method = RequestMethod.GET)
     @ResponseBody
     public List<ProjectGeneralJson> getUserParticipatedProjects(@PathVariable(value = "email") String email){
         return (new UserJson(userService.getUserWithEmail(email))).getParticipatedProjects();
     }
 
-    @RequestMapping(path = "/user/{email:.+}/participatedProjects/{project_id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{email:.+}/participatedProjects/{project_id}", method = RequestMethod.GET)
     @ResponseBody
     public ProjectGeneralJson getUserParticipatedProject(@PathVariable(value = "email") String email,
                                                          @PathVariable(value = "project_id")Long id){
@@ -68,13 +68,13 @@ public class UserController {
                 .get();
     }
 
-    @RequestMapping(path = "/user/{email:.+}/observedProjects", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{email:.+}/observedProjects", method = RequestMethod.GET)
     @ResponseBody
     public List<ProjectGeneralJson> getUserObservedProjects(@PathVariable(value = "email") String email){
         return (new UserJson(userService.getUserWithEmail(email))).getObservedProjects();
     }
 
-    @RequestMapping(path = "/user/{email:.+}/observedProjects/{project_id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{email:.+}/observedProjects/{project_id}", method = RequestMethod.GET)
     @ResponseBody
     public ProjectGeneralJson getUserObservedProject(@PathVariable(value = "email") String email,
                                                      @PathVariable(value = "project_id")Long id){

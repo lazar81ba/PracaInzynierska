@@ -18,7 +18,7 @@ public class SpecializationController {
     @Autowired
     SpecializationService specializationService;
 
-    @RequestMapping(path = "/specialization/{id}/users", method = RequestMethod.GET)
+    @RequestMapping(path = "/specializations/{id}/users", method = RequestMethod.GET)
     @ResponseBody
     public List<UserGeneralJson> getSpecializationUsers(@PathVariable(value = "id") Long specialization_id){
         List<UserGeneralJson> users = new LinkedList<>();
@@ -26,14 +26,14 @@ public class SpecializationController {
         return users;
     }
 
-    @RequestMapping(path = "/specialization/{id}/faculties", method = RequestMethod.GET)
+    @RequestMapping(path = "/specializations/{id}/faculties", method = RequestMethod.GET)
     @ResponseBody
     public List<FacultyGeneralJson> getSpecializationFaculties(@PathVariable(value = "id") Long specialization_id){
         return new SpecializationJson(specializationService.getSpecializationWithId(specialization_id)).getFaculties();
 
     }
 
-    @RequestMapping(path = "/specialization/{id}/faculties/{faculty_id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/specializations/{id}/faculties/{faculty_id}", method = RequestMethod.GET)
     @ResponseBody
     public FacultyGeneralJson getSpecializationFaculties(@PathVariable(value = "id") Long specialization_id,
                                                          @PathVariable(value = "faculty_id") Long faculty_id){
@@ -44,13 +44,13 @@ public class SpecializationController {
                 .get();
     }
 
-    @RequestMapping(path = "/specialization/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/specializations/{id}", method = RequestMethod.GET)
     @ResponseBody
     public SpecializationJson getSpecialization(@PathVariable(value = "id") Long specialization_id){
         return new SpecializationJson(specializationService.getSpecializationWithId(specialization_id));
     }
 
-    @RequestMapping(path = "/specialization", method = RequestMethod.GET)
+    @RequestMapping(path = "/specializations", method = RequestMethod.GET)
     @ResponseBody
     public List<SpecializationGeneralJson> getSpecializationsByNameOrFaculty(@RequestParam(value = "name",required = false)String name,
                                                                              @RequestParam(value = "faculty_id", required = false) Long faculty_id){

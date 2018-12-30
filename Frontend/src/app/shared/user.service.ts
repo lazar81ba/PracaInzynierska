@@ -14,12 +14,11 @@ export class UserService {
 
 
   private endpointPrefix = 'http://localhost:8080';
-  private endpointUser = '/user';
   private endpointUsers = '/users';
 
 
   public getUser(userEmail: string) {
-    this.httpClient.get(this.endpointPrefix + this.endpointUser + '/' + userEmail)
+    this.httpClient.get(this.endpointPrefix + this.endpointUsers + '/' + userEmail)
       .subscribe((data: User) => {
         this.userSubject.next(data);
       });

@@ -57,16 +57,6 @@ CREATE TABLE IF NOT EXISTS public.university
   id_country integer not null
 );
 
-CREATE TABLE IF NOT EXISTS public.communicator
-(
-  id serial not null
-    constraint communicator_pkey
-    primary key,
-  id_from_user integer not null,
-  id_to_user integer not null,
-  message_date timestamp not null,
-  content text not null
-);
 
 CREATE TABLE IF NOT EXISTS public.project_tag
 (
@@ -146,8 +136,6 @@ ALTER TABLE public.faculty_specialization ADD CONSTRAINT specialization_fkey FOR
 ALTER TABLE public.faculty_specialization ADD CONSTRAINT faculty_fkey FOREIGN KEY (id_faculty) REFERENCES public.faculty(id) ;
 ALTER TABLE public.faculty ADD CONSTRAINT faculty_university_fkey FOREIGN KEY (id_university) REFERENCES public.university(id) ;
 ALTER TABLE public.university ADD CONSTRAINT university_country_fkey FOREIGN KEY (id_country) REFERENCES public.country(id) ;
-ALTER TABLE public.communicator ADD CONSTRAINT from_user_fkey FOREIGN KEY (id_from_user) REFERENCES public.user(id) ;
-ALTER TABLE public.communicator ADD CONSTRAINT to_user_fkey FOREIGN KEY (id_to_user) REFERENCES public.user(id) ;
 ALTER TABLE public.user ADD CONSTRAINT user_university_fkey FOREIGN KEY (id_university) REFERENCES public.university(id) ;
 ALTER TABLE public.user ADD CONSTRAINT user_faculty_fkey FOREIGN KEY (id_faculty) REFERENCES public.faculty(id) ;
 ALTER TABLE public.user ADD CONSTRAINT user_specialization_fkey FOREIGN KEY (id_specialization) REFERENCES public.specialization(id) ;

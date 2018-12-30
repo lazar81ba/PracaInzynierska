@@ -18,19 +18,19 @@ public class UniversityController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(path = "/university/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/universities/{id}", method = RequestMethod.GET)
     @ResponseBody
     public UniversityJson getUniversityById(@PathVariable(value = "id") Long university_id){
         return new UniversityJson(universityService.getUniversityWithId(university_id));
     }
 
-    @RequestMapping(path = "/university/{id}/faculties", method = RequestMethod.GET)
+    @RequestMapping(path = "/universities/{id}/faculties", method = RequestMethod.GET)
     @ResponseBody
     public List<FacultyJson> getUniversityFaculties(@PathVariable(value = "id") Long university_id){
         return (new UniversityJson(universityService.getUniversityWithId(university_id))).getFaculties();
     }
 
-    @RequestMapping(path = "/university/{id}/faculties/{faculty_id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/universities/{id}/faculties/{faculty_id}", method = RequestMethod.GET)
     @ResponseBody
     public FacultyJson getUniversityFaculties(@PathVariable(value = "id") Long university_id,
                                                     @PathVariable(value = "faculty_id") Long faculty_id){
@@ -41,7 +41,7 @@ public class UniversityController {
                 .get();
     }
 
-    @RequestMapping(path = "/university/{id}/faculties/{faculty_id}/specializations", method = RequestMethod.GET)
+    @RequestMapping(path = "/universities/{id}/faculties/{faculty_id}/specializations", method = RequestMethod.GET)
     @ResponseBody
     public List<SpecializationGeneralJson> getUniversityFacultySpecializations(@PathVariable(value = "id") Long university_id,
                                               @PathVariable(value = "faculty_id") Long faculty_id){
@@ -53,7 +53,7 @@ public class UniversityController {
                 .getSpecializations();
     }
 
-    @RequestMapping(path = "/university/{id}/faculties/{faculty_id}/specializations/{specialization_id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/universities/{id}/faculties/{faculty_id}/specializations/{specialization_id}", method = RequestMethod.GET)
     @ResponseBody
     public SpecializationGeneralJson getUniversityFacultySpecialization(@PathVariable(value = "id") Long university_id,
                                                                               @PathVariable(value = "faculty_id") Long faculty_id,
@@ -71,13 +71,13 @@ public class UniversityController {
     }
 
 
-    @RequestMapping(path = "/university/{id}/country", method = RequestMethod.GET)
+    @RequestMapping(path = "/universities/{id}/country", method = RequestMethod.GET)
     @ResponseBody
     public CountryJson getUniversityCountry(@PathVariable(value = "id") Long university_id){
         return (new UniversityJson(universityService.getUniversityWithId(university_id))).getCountry();
     }
 
-    @RequestMapping(path = "/university/{id}/users", method = RequestMethod.GET)
+    @RequestMapping(path = "/universities/{id}/users", method = RequestMethod.GET)
     @ResponseBody
     public List<UserGeneralJson> getUniversityUsersById(@PathVariable(value = "id") Long university_id){
         List<UserGeneralJson> users = new LinkedList<>();
@@ -85,7 +85,7 @@ public class UniversityController {
         return users;
     }
 
-    @RequestMapping(path = "/university", method = RequestMethod.GET)
+    @RequestMapping(path = "/universities", method = RequestMethod.GET)
     @ResponseBody
     public List<UniversityGeneralJson> getUniversitiesByStudentOrCountry(@RequestParam(value = "country_id", required = false) Long country_id){
         List<UniversityGeneralJson> response = new LinkedList<>();

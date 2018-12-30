@@ -20,41 +20,41 @@ public class ProjectController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(path = "/project/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/projects/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ProjectJson getProject(@PathVariable(value = "id") Long id){
         return new ProjectJson(projectService.getProjectWithId(id));
     }
 
-    @RequestMapping(path = "/project/{id}/subscribe", method = RequestMethod.POST)
+    @RequestMapping(path = "/projects/{id}/subscribe", method = RequestMethod.POST)
     @ResponseBody
     public void subscribeProject(@PathVariable(value = "id",required = false) Long projectId,
                                  @RequestBody UserEmailRequest userEmailRequest){
         projectService.addProjectToSubscribe(projectId, userEmailRequest.getEmail());
     }
 
-    @RequestMapping(path = "/project/{id}/unsubscribe", method = RequestMethod.POST)
+    @RequestMapping(path = "/projects/{id}/unsubscribe", method = RequestMethod.POST)
     @ResponseBody
     public void unsubscribeProject(@PathVariable(value = "id",required = false) Long projectId,
                                  @RequestBody UserEmailRequest userEmailRequest){
         projectService.removeProjectFromSubscribe(projectId, userEmailRequest.getEmail());
     }
 
-    @RequestMapping(path = "/project/{id}/join", method = RequestMethod.POST)
+    @RequestMapping(path = "/projects/{id}/join", method = RequestMethod.POST)
     @ResponseBody
     public void joinProject(@PathVariable(value = "id",required = false) Long projectId,
                                  @RequestBody UserEmailRequest userEmailRequest){
         projectService.addUserToParticipator(projectId, userEmailRequest.getEmail());
     }
 
-    @RequestMapping(path = "/project/{id}/resign", method = RequestMethod.POST)
+    @RequestMapping(path = "/projects/{id}/resign", method = RequestMethod.POST)
     @ResponseBody
     public void resignProject(@PathVariable(value = "id",required = false) Long projectId,
                                    @RequestBody UserEmailRequest userEmailRequest){
         projectService.removeUserFromParticipator(projectId, userEmailRequest.getEmail());
     }
 
-    @RequestMapping(path = "/project", method = RequestMethod.POST)
+    @RequestMapping(path = "/projects", method = RequestMethod.POST)
     @ResponseBody
     public void createProject(@RequestBody CreateProjectRequest createProjectRequest) {
         projectService.createProject(
@@ -62,7 +62,7 @@ public class ProjectController {
         );
     }
 
-    @RequestMapping(path = "/project", method = RequestMethod.GET)
+    @RequestMapping(path = "/projects", method = RequestMethod.GET)
     @ResponseBody
     public List<ProjectJson> getProjects(@RequestParam(value = "participant_id",required = false) Long id,
                                          @RequestParam(value = "name", required = false)String name){
@@ -77,25 +77,25 @@ public class ProjectController {
         return response;
     }
 
-    @RequestMapping(path = "/project/{id}/projectDetails", method = RequestMethod.GET)
+    @RequestMapping(path = "/projects/{id}/projectDetails", method = RequestMethod.GET)
     @ResponseBody
     public List<ProjectDetailJson> getProjectDetails(@PathVariable(value = "id") Long id){
         return (new ProjectJson(projectService.getProjectWithId(id))).getProjectDetails();
     }
 
-    @RequestMapping(path = "/project/{id}/links", method = RequestMethod.GET)
+    @RequestMapping(path = "/projects/{id}/links", method = RequestMethod.GET)
     @ResponseBody
     public List<LinkJson> getProjectLinks(@PathVariable(value = "id") Long id){
         return (new ProjectJson(projectService.getProjectWithId(id))).getLinks();
     }
 
-    @RequestMapping(path = "/project/{id}/tags", method = RequestMethod.GET)
+    @RequestMapping(path = "/projects/{id}/tags", method = RequestMethod.GET)
     @ResponseBody
     public List<TagJson> getProjectTags(@PathVariable(value = "id") Long id){
         return (new ProjectJson(projectService.getProjectWithId(id))).getTags();
     }
 
-    @RequestMapping(path = "/project/{id}/participators", method = RequestMethod.GET)
+    @RequestMapping(path = "/projects/{id}/participators", method = RequestMethod.GET)
     @ResponseBody
     public List<UserGeneralJson> getUsersByProjectId(@PathVariable(value = "id") Long project_id){
         List<UserGeneralJson> users = new LinkedList<>();

@@ -6,7 +6,9 @@ import {Subject} from 'rxjs/Subject';
 export class UserAuthService {
 
   authorization: AuthorizationData[] = [
-    new AuthorizationData('test@gmail.com', 'test')
+    new AuthorizationData('test@gmail.com', 'test'),
+    new AuthorizationData('test1@gmail.com', 'test'),
+    new AuthorizationData('test2@gmail.com', 'test'),
   ];
 
   private authorizedData: AuthorizationData;
