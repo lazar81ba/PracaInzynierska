@@ -1,0 +1,235 @@
+\chapter{System rekomendacji}
+
+\section{Idea stojąca za użyciem systemu rekomendacji}
+
+Jednym z problemów występujących przy projektowaniu wygodnej oraz intuicyjnej aplikacji internetowej jest ogromna ilość danych, które trafiają do końcowego użytkownika. W najbardziej popularnych  serwisach internetowych zjawisko to przejawia się w kilku formach np. bardzo duża ilość postów w serwisie Facebook, filmów na YouTube itd. Ogrom informacji docierających do użytkownika sprawia, że jest On przytłoczony oraz ma problem z poruszaniem się po serwisie. Dodatkowo bardzo trudno jest mu w tej sytuacji znaleźć wartościową informację, ponieważ przekazywana mu treść najczęściej nie jest dostosowana do osobistych preferencji, zainteresowań. W celu wyeliminowania tych problemów powstały odpowiednie narzędzia pod ogólną nazwą systemów rekomendacji. Ich głównym zadaniem jest wyszukiwanie i określanie danych o jak największej wartości dla konkretnego zainteresowanego. Spersonalizowana zawartość jest określana na podstawie informacji użytkownika oraz jego akcji wykonanych w przeszłości. Cały proces przygotowania odpowiednich sugestii powinien być w całości zautomatyzowany oraz dawać jak najlepsze efekty w jak najkrótszym czasie. Niestety nie istnieje jedno uniwersalne rozwiązanie, które spełniałoby wyżej wymienione wymagania. Aplikacje różnią się strukturą danych, ilością użytkowników oraz każdy z nich jest nastawiony na uzyskanie innego rezultatu.
+
+
+Aby sprostać wymagającym oczekiwaniom, powstały odpowiednie metody analityczne pozwalające określić prawdopodobieństwo, z którym dana informacja może być przydatna dla użytkownika. Można je podzielić na trzy główne podejścia:
+
+\begin{itemize}
+	\item Content-based filtering
+	\item Collaborative filtering
+	\item Hybrid filtering
+\end{itemize}
+
+\newpage
+
+
+\section{Content-based filtering}
+
+Filtrowanie typu Content-based opiera się na rekomendowaniu danych, które są podobne do tych, które użytkownik oznaczył już wcześniej jako interesujące. Innymi słowy służy do nauczenia się preferencji użytkownika, a następnie określeniu informacji jak najlepiej spełniających te preferencję. W podejściu tym można określić, które aspekty mają być brane pod uwagę w procesie filtrowania. Aby, skutecznie zaimplementować tą metodę, dane muszą zostać odpowiednio oznaczone w postaci wektora cech \textit{y}. Wektory te są następnie wykorzystywane do określenia preferencji użytkownika.
+
+Istnieje kilka technik stosowanych przy procesie określania modelu do rekomendacji. Jedną z nich jest użycie Term Frequency oraz Inverse Document Frequency w systemach służących do wyszukiwania informacji. Inne techniki wykorzystują najczęściej metody probabilistyczne w połączeniu z uczeniem maszynowym np. naiwny klasyfikator Bayesa lub drzewa decyzyjne.
+
+\subsection{Term-Frequency, Inverse Document Frequency}
+Techniki TF-IDF używane są do określenia, jak ważne jest dane słowo. Stopień ważności jest ściśle powiązane z liczbą występowań słowa w danym tekście, jednak jego wartość maleje wraz z liczbą występowań danego słowa we wszystkich analizowanych dokumentach. Jako przykład niech posłuży słowo \textit{człowiek}. W artykule o zjawiskach biologicznych może zostać użyte dosyć często, dlatego jego wartość wzrasta. Jednak jeżeli dany tekst rozpatrywany jest w kontekście bazy z artykułami o procesach zachodzących w ludzkim ciele, jego wartość powinna mocno zmaleć, ponieważ nie jest ono kluczowe dla użytkownika. Z drugiej strony istnieje inny przypadek, gdy dany tekst występuje w bazie artykułów o różnej tematyce. Ilość występowań tego słowa we wszystkich artykułach jest mała, dlatego jego wartość nie maleje, ponieważ może ono być uznane w tym wypadku za kluczowe.
+
+Term-Frequency może być przedstawione za pomocą poniższego wzoru:
+\begin{equation}
+ TF_{i,j} = \frac{f_{i,j}}{n_j}
+\end{equation}
+gdzie:
+\begin{itemize}
+	\item[] $f_{i,j}$ - częstotliwość występowania słowa $k_i$ w dokumencie $d_j$
+	\item[] $n_j$ - liczba wszystkich słów w dokumencie $d_j$
+\end{itemize}
+
+W celu określenia popularności słowa we wszystkich dokumentach stosuje się Inverse Document Frequency, wyrażone wzorem:
+\begin{equation}
+IDF_i = \log{\frac{N}{n_i}}
+\end{equation}
+gdzie:
+\begin{itemize}
+	\item[] $N$ - liczba wszystkich dokumentów
+	\item[] $n_i$ - liczba dokumentów, w których występuje słowo $k_i$
+\end{itemize}
+
+Mając obydwa współczynniki można określić stopień ważności TF-IDF dla słowa $k_i$ w dokumencie $d_j$ określony jako:
+\begin{equation}
+w_{i,j} = TF_{i,j} \times IDF_i
+\end{equation}
+
+Jako przykład rozważmy tekst zawierający 100 słów, w którym słowo \textit{człowiek} pojawia się 3 razy. Współczynnik $TF = \frac{3}{100} = 0,03$. Zakładając, że tekst ten znajduje się w bazie zawierającej 10 milionów artykułów oraz, że słowo \textit{człowiek} występuje w 1000 z nich można obliczyć $IDF = \log{\frac{10000000}{1000}} = 4$. W takim wypadku stopień ważności słowa wynosi $0.12$.
+
+\subsection{Metody probabilistyczne}
+Stosowane są w celu określenia prawdopodobieństwa zainteresowania użytkownika $u_i$ danymi $p_j$. Estymacja prawdopodobieństwa opiera się na macierzy \textit{S} w postaci użytkownik-dane. Pośród metod wyliczających prawdopodobieństwo warto wspomnieć o takich jak klasyfikator Bayesa, drzewa decyzyjne oraz sieci neuronowe.  Dodatkowo można też użyć algorytmów uczących w celu rozszerzenia specyfiki rekomendacji np. z określenia co w danej chwili rekomendować do określenia kiedy to rekomendować. Służą do tego algorytmy Association rule, klasteryzacji, drzewa decyzyjne, sieci neuronowe.  
+
+\subsection{Wady i zalety}
+
+Algorytm Content-based filtering posiada kilka wad i zalet ,dzięki którym można określić, czy jest on odpowiedni do danej sytuacji. 
+
+Jedną z jego niewątpliwych zalet jest rozwiązanie problemu tak zwanego ``zimnego startu`` tzn. nie potrzebuje on sporej ilości ocen bezpośrednio od użytkowników aplikacji, aby stworzyć rekomendację. Dzięki temu nadaje się do systemów z małą liczbą użytkowników bądź w przypadku, gdy nie ma potrzeby dzielenia się informacjami między użytkownikami. Inną zaletą jest jego zdolność do uczenia się oraz tworzenia rekomendacji w krótkim czasie. Kolejną z nich jest rozwiązanie problemu stronniczości względem popularności, ponieważ premiuje on dane, które nie są bardzo często używane. 
+
+Jednakże technika ta nie jest idealna i ma swoje wady. Najważniejszą z nich jest zależność od meta danych, co wymusza pewną strukturyzację zawartości. Z tego powodu trudno jest rekomendować niektóre dane np. muzykę. Problem ten znany jest również pod nazwą ograniczonej analizy zawartości, ponieważ ogranicza możliwość wykorzystania nowego typu danych. Innym znanym problemem jest nadmierna specjalizacja zawartości. Oznacza to, że użytkownik może otrzymać rekomendacje bardzo mocno powiązane ze sobą np. w aplikacji rekomendującej filmy mogą zostać wyświetlone wszystkie trzy części Władcy Pierścieni, zamiast jednej oraz dwóch innych pozycji.
+
+\newpage
+
+\section{Collaborative filtering}
+
+Algorytm Collaborative filtering opiera się na założeniu, że jeżeli dwóch użytkowników ma podobne upodobania w obecnym momencie to istnieje duże prawdopodobieństwo, że będą oni również podobne upodobania w przyszłości. Jako przykład można podać dwóch użytkowników systemu oceniającego filmy, który dotychczas byli zgodni w ocenach filmów. Jeżeli pierwszy użytkownik dobrze ocenił nowy film, to prawdopodobnie drugi użytkownik również oceni go dobrze. Technika ta jest bardzo przydatna w przypadku, gdy rekomendacja nie powinna być na podstawie dodatkowych informacji o danych bądź użytkownikach. Collaborative filtering dzieli się w zależności od tego czy zastosowano w nim podejście Memory-based bądź Model-based. 
+
+Dla zobrazowania działania tego algorytmu załóżmy kolekcje użytkowników $u_i$ oraz kolekcję filmów $m_j$ gdzie $i = 1,\dots,n$ oraz $j = 1,\dots,m$. Dane muszą zostać zorganizowane w postaci $n \times m$ macierzy $V$, która zawiera oceny filmów przez użytkowników zapisane jako $v_{i,j}$. Gdy użytkownik nie ocenił filmu pole to pozostaje puste.  
+$$
+V= \left[
+\begin{array}{cccc}
+	v_{11} & v_{12} & \cdots & v_{1m} \\
+	v_{21} &   &   &   \\
+	\vdots &   & \ddots  &  \vdots \\
+	v_{n1} &   &  \cdots &  v_{nm}  \\
+	
+\end{array}
+\right]
+$$
+
+\subsection{Techniki Memory-based}
+
+Można je podzielić na dwie kategorie: User-based lub Item-based. W przypadku User-based szukani są użytkownicy podobni do wybranego użytkownika $u_i$ bazując na podobieństwie w ocenach. Jako rekomendację wysyłane są produkty oznaczone jako interesujące przez wyszukanych użytkowników. Natomiast w podejściu Item-based najpierw szukani są użytkownicy, którzy polubili produkt $m_j$. Jako rekomendowane zostają określone inne produkty polubione przez tych użytkowników.
+\newline
+\newline
+
+
+\textbf{User-based Collaborative Filtering}
+
+Jej głównym zadaniem jest identyfikacja osób, które podobnie oceniają te same produkty i zarekomendowanie im nowych pozycji, które zostały dobrze ocenione przez innych użytkowników. Do obliczenia podobieństwa można użyć kilka technik, z czego najpopularniejsze to odległość kosinusowa(\ref{CosineSimilarity}) oraz współczynnik korelacji Pearsona(\ref{PearsonCorrelation}), gdzie $v_ij$ to ocena którą użytkownik $u_i$ dał produktowi $m_j$.
+
+\begin{equation}
+\label{CosineSimilarity}
+cos(u_i,u_k) = \frac{
+\sum_{j=1}^{m} v_{ij}v_{kj}
+}{
+\sqrt{
+\sum_{j=1}^{m}{v^2}_{ij} \sum_{j=1}^{m}{v^2}_{kj} 
+}
+}
+\end{equation}
+
+\begin{equation}
+\label{PearsonCorrelation}
+S(i,k) = \frac{
+	\sum_{j} (v_{ij} - \overline{v_i}) (v_{kj} - \overline{v_k})
+}{
+	\sqrt{
+		\sum_{j} (v_{ij} - \overline{v_i})^2 (v_{kj} - \overline{v_k})^2
+	}
+}
+\end{equation}
+
+Mając już obliczony współczynnik korelacji Pearsona można porównać każdego użytkownika za pomocą poniższej macierzy $n \times n$.
+
+$$
+S= \left[
+\begin{array}{cccc}
+1 & S(1,2) & \cdots & S(1,n) \\
+ &  \ddots &   &  S(2,n) \\
+ &   & \ddots  &  \vdots \\
+ &   &   & 1  \\
+
+\end{array}
+\right]
+$$
+
+Następnym krokiem jest określenie najbardziej podobnych użytkowników do wybranego użytkownika ($u_i$), które polega na wybraniu $k$-najbliższych sąsiadów, którzy mają najbardziej prawdopodobny współczynnik Pearsona. W następnej kolejności należy zidentyfikować produkty polubione przez tych użytkowników, usunąć z listy produkty, które $u_i$ już widział oraz określić wagę pozostałych produktów. Ostateczna predykcja bazuje na odchyleniu od średniej ocen uzyskanych od najbliższych sąsiadów(\ref{deviation}).
+
+\begin{equation}
+\label{deviation}
+p(i,k) = \overline{v_i} + 
+\frac{
+	\sum_{i=1}^{n} (v_{ij} - \overline{v_k}) \times S(i,k)
+}{
+	\sum_{i=1}^{n} S(i,k)
+}
+\end{equation}
+ 
+
+\textbf{Item-based Collaborative Filtering}
+
+Algorytm ten w swoim działaniu jest zupełnie różny od opisanego wcześniej User-based Collaborative Filtering, ponieważ jego zadaniem jest określenie podobieństwa dwóch produktów $m_j$ oraz $m_i$. Podobieństwo jest wyliczane na podstawie odległości kosinusowej bądź współczynnika korelacji Pearsona.
+
+W przypadku odległości kosunusowej(\ref{CosineSimilarity}), dwa produkty są określano jako wektory w n wymiarowej przestrzeni użytkowników, gdzie różnica między ocenami użytkowników nie jest brana pod uwagę. 
+
+Natomiast biorąc współczynnik korelacji Pearsona(\ref{PearsonCorrelationSecond}), ważnym krokiem jest wyizolowanie przypadku, gdzie użytkownicy ocenili jednocześnie produkty $m_j$ oraz $m_l$. W poniższym równaniu $U$ oznacza użytkowników, którzy ocenili obydwa produkty. 
+
+\begin{equation}
+\label{PearsonCorrelationSecond}
+S(i,k) = \frac{
+	\sum_{i \in U} (v_{ij} - \overline{v_j}) (v_{il} - \overline{v_l})
+}{
+	\sqrt{
+		\sum_{i \in U} (v_{ij} - \overline{v_j})^2 
+	}
+	\sqrt{
+	\sum_{i \in U} (v_{il} - \overline{v_l})^2
+	}
+}
+\end{equation}
+
+Analogicznie do techniki User-based otrzymujemy macierz o wymiarach $m \times m$, która pokazuje podobieństwo między wszystkimi produktami. Na podstawie pozycji, które dany użytkownik wcześniej ocenił wybierane są nowe, które mają największy współczynnik podobieństwa oraz nie zostały wcześniej wybrane przez użytkownika.
+
+\newpage
+
+\subsection{Techniki Model-based}
+
+Służą do budowania modelu przeznaczonego dla algorytmów uczenia maszynowego oraz eksploracji danych. W swoim działaniu bazują na bardzo popularnej metodzie uczenia nienadzorowanego tzn. faktoryzacji macierzy. Pozwala na redukcję wymiaru macierzy oraz nauczenie się preferencji użytkownika na podstawie ocen tak, aby określić predykcję na temat oceny innych przedmiotów przez niego. Obecnie trzy najpopularniejsze techniki to Principal Component Analysis, Probabilistic Matrix Factorization, Singular Value Decomposition. 
+
+\bigskip
+
+\textbf{Principal Component Analysis}
+
+Używa transformacji ortogonalnej w celu redukcji wymiarów danych. Głównym jej celem jest transformacja zestawu zmiennych, które mogą być ze sobą powiązane w zestaw nowych, niepowiązanych wektorów tzw. głównych komponentów. Wiąże się to z pewną stratą informacji, ponieważ zestaw głównych komponentów jest mniejszy niż wejściowy zestaw zmiennych. Jednakże konstrukcja tej metodologii pozwala zachować maksymalną wariancję oraz sprawia, że metoda najmniejszych kwadratów jest bardziej precyzyjna. Każdy komponent zawiera procentową wartość wariancji. Dzięki temu można zredukować wymiary poprzez wybranie jaką wariancję należy rozpatrywać.
+
+\bigskip
+
+
+\textbf{Probabilistic Matrix Factorization}
+
+
+Jest metodą probabilistyczną, używającą obserwacji szumu Gaussa. Macierz przedmiotów użytkownika składa się z dwóch macierzy niskiego rzędu, jedna dla użytkowników, a druga dla przedmiotów. Biorąc ponownie przykład z filmami załóżmy, że $n$ oznacza liczbę użytkowników, $m$ liczbę filmów, $v_{i,j}$ oznacza ocenę dla filmu $p_j$ wystawioną przez użytkownika $u_i$, a $U_i$ oraz $P_j$ reprezentują zbiór wektorów cech odpowiednio dla użytkowników oraz filmów. Następnie definiując przestrzeń obserwowanych ocen jako $V \in R^{n \times m}$, a dystrybucję użytkowników oraz filmów jako $U \in R^{d \times n}$ oraz $P \in R^{d \times m}$ możemy określić warunkową dystrybucję wzorem:
+
+\begin{equation}
+p(V|U,V, \sigma^2) = \prod_{i=1}^{n} \prod_{j=1}^{m} [\eta(V_{ij} | U^{T}_i P_j \sigma^2) ]^{I_{ij}}
+\end{equation}
+\begin{equation}
+p(U|\sigma^2) = \prod_{i=1}^{n} \eta (U_i | 0, \sigma^{2}_U I)
+\end{equation}
+\begin{equation}
+p(P|\sigma^2) = \prod_{j=1}^{m} \eta (V_j | 0, \sigma^{2}_P I)
+\end{equation}
+
+gdzie:
+\begin{itemize}
+	\item[] $\eta(x|\mu, \sigma^2)$ - oznacza dystrybucję Gaussa ze średnią $\mu$ oraz wariancją $\sigma^2$
+	\item[] $I_{ij}$ - jest wskaźnikiem wynoszącym 1, gdy użytkownik $u_i$ ocenił film $p_j$ lub 0 w przeciwnym wypadku
+\end{itemize}
+\newpage
+
+\textbf{Singular Value Decomposition}
+
+
+Podejście to jest najczęściej wykorzystywane i może zostać wyrażone ogólnym równaniem $ X = U \times S \times V^t$. $X$ to macierz użytkownik-przedmiot o wymiarach $n \times m$, $U$ to macierz o wymiarach $n \times r$ reprezentująca wektory cech dotyczące użytkowników, $V^t$ oznacza macierz ortogonalną o wymiarach $r \times m$ reprezentującą wektory cech dotyczące przedmiotów, a macierz diagonalna $S$ o wymiarach $r \times r$ zawiera nie ujemne wartości na przekątnej i jest znana jako. Predykcja wykonana poprzez iloczyn wszystkich wymienionych macierzy(\ref{svd}).
+
+\begin{equation}
+\label{svd}
+	 X_{n \times m} = U_{n \times r} \times S_{r \times r} \times V^{t}_{r \times m}
+\end{equation}
+
+\subsection{Wady i zalety}
+
+Rozpatrując wady i zalety podejścia Collaborative Filtering należy najpierw osobno rozpatrzeć techniki Memory-based oraz Model-based. 
+
+Algorytmy User-based oraz Item-based Collaborative Filtering są bardzo użyteczne w większości wypadków, ponieważ są stosunkowo proste w implementacji, a rezultaty mogą być w większości zadowalające. Jednakże istnieją dwa poważne ograniczenia, które dotyczą każdej z nich. Pierwsze ograniczenie dotyczy minimalnej ilości ocen przedmiotu. Jeden z możliwych scenariuszy zakłada, że oceniany przedmiot jest nowy lub mało popularny, w wyniku czego posiada nie wiele ocen. Powoduje to sporą trudność w określeniu rekomendacji przez algorytm najbliższego sąsiada, jego dokładność mocno maleje. Innym problemem jest skalowalność algorytmu w obliczu coraz to większej ilości danych, ponieważ zapotrzebowanie na moc obliczeniową mocno wzrasta.
+
+Z drugiej strony istnieją techniki Model-based, które radzą sobie znacznie lepiej z wyżej wymienionymi ograniczeniami. Starają się one znaleźć relację pomiędzy przedmiotami-użytkownikami, a następnie stworzyć rekomendację poprzez porównanie tych relacji. Ich wadami z kolei są słaba wydajność, złożoność obliczeniowa oraz wysoka podatność na zjawisko nadmiernego dopasowania przez stosowanie algorytmu faktoryzacji macierzy. 
+
+Istnieją również inne ograniczenia Collaborative Filtering takie jak problem zimnego startu. Polega on na braku odpowiedniej ilości informacji o nowym użytkowniku, co nie pozwala stworzyć dla niego rekomendacji. Problem ten może się również pojawić w przypadku braku odpowiedniej ilości danych, za pomocą następuje porównanie. W takim wypadku lepszym wyjściem byłoby zastosowanie jednego z podejść hybrydowych. 
+
+\section{Hybrid filtering}
+
+
+Metody hybrydowe polegają na połączeniu metod Content-based filtering oraz Collaborative filtering tak, aby wyeliminować większość wad pojawiających się podczas używania tylko jednej z nich. Istnieje kilka kombinacji metod hybrydowych, które mogą być podzielone na 4 grupy:
+\begin{itemize}
+	\item osobna implementacja Content-based oraz Collaborative, a następnie połączenie ich predykcji 
+	\item dodanie charakterystyki Content-based do modelu Collaborative poprzez użycie wszystkich technik w obrębie Collaborative Filtering z tą różnicą, że każdy użytkownik jest brany pod uwagę
+	\item dodanie charakterystyki Collaborative do modelu Content-based poprzez użycie np. techniki faktoryzacji macierzy w profilu użytkownika utworzonego przez Content-based
+	\item opracowanie jednego systemu rekomendacji, który używa charakterystyki zarówno Content-based oraz Collaborative w różnym stopniu
+\end{itemize}
