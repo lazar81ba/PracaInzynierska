@@ -296,6 +296,40 @@ Ostatnim widokiem jest widok użytkownika. Za jego pomocą można sprawdzić z j
 
 \section{Implementacja algorytmu rekomendacji}
 
+Do stworzenia systemu rekomendacji wykorzystano opisywany wcześniej algorytm Content-based filtering oraz dostosowano go do dziedziny używanej w aplikacji  \mbox{\textit{ProjectSHARE}}. Algorytm wykorzystuje listę projektów obserwowanych przez użytkownika do stworzenia predykcji jak również tagi, którymi projekt jest opisany. Pozwoliło to na małą modyfikację algorytmu tzn. stworzenie binarnej reprezentacji atrybutów projektu. Aby przedstawić działanie systemu oraz wykonywane obliczenia posłużono się podzbiorem danych testowych w postaci 5 projektów. Wyniki przedstawiono w formie tabeli z odpowiednio opisanymi kolumnami.
+
+Pierwszym krokiem jaki należy wykonać jest stworzenie już wspomnianej binarnej reprezentacji. Następnie obliczono podstawowe dane takie jak liczbę wszystkich atrybutów w projekcie oraz parametr \textit{Tag Frequency}, oznaczający liczbę występowań danego taga we wszystkich rozpatrywanych projektach. Aby obliczyć predykcję wybrano 3 z 5 projektów jako obserwowane. Poniżej zamieszczona jest tabela, w której występowanie taga w projekcie oznaczono za pomocą wartości 1, a jego brak jako 0. Poniżej znajdują się kolumny z wyliczonymi parametrami oraz kolumna \textit{User}, w której oznaczono projekty obserwowane przez użytkownika.   
+
+\begin{figure}[h!]
+	\makebox[\textwidth][c]{\includegraphics[scale=0.5]{firstStep}
+	}
+	\caption{Tabele pokazująca wyliczenia powstałe w kroku pierwszym}
+	\centering
+\end{figure}
+
+Kolejnym krokiem, który wykonano była normalizacja atrybutów poprzez podzielenie ich przez pierwiastek z sumy atrybutów w projekcie. Następnie wykonano obliczenia związane z profilem danego użytkownika. W uproszczeniu oznacza on zainteresowanie użytkownika danym tagiem. Oblicza się go poprzez sumę iloczynów wektora wartości atrybutu po normalizacji dla taga oraz wektora projektów obserwowanych.
+
+\begin{figure}[h!]
+	\makebox[\textwidth][c]{\includegraphics[scale=0.42]{secondStep}
+	}
+	\caption{Tabele pokazująca wyliczenia powstałe w kroku drugim}
+	\centering
+\end{figure}
+
+\bigskip
+\bigskip
+
+W ostatnim kroku obliczono parametr \textit{Inverse Document Frequency}, którego wartość jest równa logarytmowi dziesiętnemu z liczby wszystkich projektów podzielonej przez liczbę występowań danego taga. Mając już wyliczone wszystkie parametry przystąpiono do przygotowania predykcji dla użytkownika. Obliczono ją poprzez sumę iloczynów wektora wartości atrybutu po normalizacji dla projektu, wektora profilu użytkownika oraz \textit{Inverse Document Frequency}. Na podstawie tak przygotowanej predykcji użytkownikowi wyświetla się pięć projektów z najlepszym wynikiem. 
+
+\begin{figure}[h!]
+	\makebox[\textwidth][c]{\includegraphics[scale=0.42]{thirdStep}
+	}
+	\caption{Tabele pokazująca wyliczenia powstałe w kroku trzecim}
+	\centering
+\end{figure}
+
+\clearpage
+
 \section{Testy systemu rekomendacji}
 
 W celu przetestowania działania systemu rekomendacji w praktyce przygotowano specjalny zestaw danych testowych. Stworzono trzech użytkowników reprezentujących trzy osobne dziedziny zainteresowań: programowanie, mechanika, biologia. Każdy z użytkowników zaobserwował 5 projektów zgodnych z jego zainteresowaniami. Na potrzeby testu stworzono ich łącznie 30, po 10 na każdą przewidzianą dziedzinę. 
@@ -305,14 +339,14 @@ Głównym celem testu było sprawdzenie, czy na panelu projektów polecanych poj
 Poniżej umieszczone są wyniki przeprowadzonego testu, postaci tabel porównawczych
 
 \begin{figure}[h!]
-	\makebox[\textwidth][c]{\includegraphics[scale=0.6]{tabelaprog1}
+	\makebox[\textwidth][c]{\includegraphics[scale=0.48]{tabelaprog1}
 	}
 	\caption{Projekty zaobserwowane przez użytkownika o zainteresowaniach programistycznych wraz z tagami}
 	\centering
 \end{figure}
 
 \begin{figure}[h!]
-	\makebox[\textwidth][c]{\includegraphics[scale=0.6]{tabelaprog2}
+	\makebox[\textwidth][c]{\includegraphics[scale=0.48]{tabelaprog2}
 	}
 	\caption{Projekty polecone użytkownikowi o zainteresowaniach programistycznych wraz z tagami oraz wyliczonym współczynnikiem zgodności}
 	\centering
@@ -323,14 +357,14 @@ Poniżej umieszczone są wyniki przeprowadzonego testu, postaci tabel porównawc
 
 
 \begin{figure}[h!]
-	\makebox[\textwidth][c]{\includegraphics[scale=0.6]{tabelamech1}
+	\makebox[\textwidth][c]{\includegraphics[scale=0.5]{tabelamech1}
 	}
 	\caption{Projekty zaobserwowane przez użytkownika o zainteresowaniach mechanicznych wraz z tagami}
 	\centering
 \end{figure}
 
 \begin{figure}[h!]
-	\makebox[\textwidth][c]{\includegraphics[scale=0.6]{tabelamech2}
+	\makebox[\textwidth][c]{\includegraphics[scale=0.5]{tabelamech2}
 	}
 	\caption{Projekty polecone użytkownikowi o zainteresowaniach mechanicznych wraz z tagami oraz wyliczonym współczynnikiem zgodności}
 	\centering
@@ -341,14 +375,14 @@ Poniżej umieszczone są wyniki przeprowadzonego testu, postaci tabel porównawc
 
 
 \begin{figure}[h!]
-	\makebox[\textwidth][c]{\includegraphics[scale=0.6]{tabelabiol1}
+	\makebox[\textwidth][c]{\includegraphics[scale=0.5]{tabelabiol1}
 	}
 	\caption{Projekty zaobserwowane przez użytkownika o zainteresowaniach biologicznych wraz z tagami}
 	\centering
 \end{figure}
 
 \begin{figure}[h!]
-	\makebox[\textwidth][c]{\includegraphics[scale=0.6]{tabelabiol2}
+	\makebox[\textwidth][c]{\includegraphics[scale=0.5]{tabelabiol2}
 	}
 	\caption{Projekty polecone użytkownikowi o zainteresowaniach biologicznych wraz z tagami oraz wyliczonym współczynnikiem zgodności}
 	\centering

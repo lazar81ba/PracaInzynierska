@@ -37,7 +37,7 @@
 \contentsline {subsection}{\numberline {4.5.2}Architektura aplikacji internetowej}{34}
 \contentsline {section}{\numberline {4.6}Interfejs u\IeC {\.z}ytkownika}{35}
 \contentsline {section}{\numberline {4.7}Implementacja algorytmu rekomendacji}{40}
-\contentsline {section}{\numberline {4.8}Testy systemu rekomendacji}{40}
+\contentsline {section}{\numberline {4.8}Testy systemu rekomendacji}{42}
 \contentsline {chapter}{\numberline {5}Podsumowanie}{45}
 \babel@toc {english}{}
 \babel@toc {polish}{}
