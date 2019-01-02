@@ -1,14 +1,14 @@
 [0] Config.pm:302> INFO - This is Biber 2.9
 [0] Config.pm:305> INFO - Logfile is 'praca.blg'
-[26] biber:313> INFO - === nie lis  4, 2018, 14:50:18
+[27] biber:313> INFO - === śro sty  2, 2019, 18:41:35
 [54] Biber.pm:371> INFO - Reading 'praca.bcf'
-[117] Biber.pm:854> INFO - Using all citekeys in bib section 0
-[129] Biber.pm:3981> INFO - Processing section 0
-[138] Biber.pm:4154> INFO - Looking for bibtex format file 'bibliografia.bib' for section 0
-[139] bibtex.pm:1468> INFO - LaTeX decoding ...
-[149] bibtex.pm:1294> INFO - Found BibTeX data source 'bibliografia.bib'
-[197] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[197] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[197] Biber.pm:3809> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'pl-PL'
-[203] bbl.pm:617> INFO - Writing 'praca.bbl' with encoding 'UTF-8'
-[206] bbl.pm:720> INFO - Output to praca.bbl
+[125] Biber.pm:857> INFO - Found 16 citekeys in bib section 0
+[139] Biber.pm:3981> INFO - Processing section 0
+[155] Biber.pm:4154> INFO - Looking for bibtex format file 'bibliografia.bib' for section 0
+[156] bibtex.pm:1468> INFO - LaTeX decoding ...
+[172] bibtex.pm:1294> INFO - Found BibTeX data source 'bibliografia.bib'
+[251] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[251] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[251] Biber.pm:3809> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'pl-PL'
+[271] bbl.pm:617> INFO - Writing 'praca.bbl' with encoding 'UTF-8'
+[276] bbl.pm:720> INFO - Output to praca.bbl

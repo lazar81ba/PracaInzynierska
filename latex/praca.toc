@@ -11,36 +11,36 @@
 \contentsline {section}{\numberline {2.2}Dob\IeC {\'o}r odpowiednich technik wytwarzania oprogramowania}{10}
 \contentsline {subsection}{\numberline {2.2.1}Kr\IeC {\'o}tkie iteracje}{11}
 \contentsline {subsection}{\numberline {2.2.2}Faza projektowania i ustalenia wymaga\IeC {\'n}}{11}
-\contentsline {subsection}{\numberline {2.2.3}Planning poker}{12}
-\contentsline {section}{\numberline {2.3}Wykorzystywane oprogramowanie}{13}
-\contentsline {subsection}{\numberline {2.3.1}Spring framework}{13}
-\contentsline {subsection}{\numberline {2.3.2}Angular 6 framework}{15}
-\contentsline {subsection}{\numberline {2.3.3}PostgreSQL}{17}
-\contentsline {chapter}{\numberline {3}System rekomendacji}{19}
-\contentsline {section}{\numberline {3.1}Idea stoj\IeC {\k a}ca za u\IeC {\.z}yciem systemu rekomendacji}{19}
-\contentsline {section}{\numberline {3.2}Content-based filtering}{20}
-\contentsline {subsection}{\numberline {3.2.1}Term-Frequency, Inverse Document Frequency}{20}
-\contentsline {subsection}{\numberline {3.2.2}Metody probabilistyczne}{21}
-\contentsline {subsection}{\numberline {3.2.3}Wady i zalety}{21}
-\contentsline {section}{\numberline {3.3}Collaborative filtering}{22}
-\contentsline {subsection}{\numberline {3.3.1}Techniki Memory-based}{22}
-\contentsline {subsection}{\numberline {3.3.2}Techniki Model-based}{24}
-\contentsline {subsection}{\numberline {3.3.3}Wady i zalety}{25}
-\contentsline {section}{\numberline {3.4}Hybrid filtering}{25}
-\contentsline {chapter}{\numberline {4}Projekt aplikacji}{27}
-\contentsline {section}{\numberline {4.1}Za\IeC {\l }o\IeC {\.z}enia}{27}
-\contentsline {section}{\numberline {4.2}Specyfikacja wymaga\IeC {\'n}}{28}
-\contentsline {section}{\numberline {4.3}Realizacja aplikacji}{29}
-\contentsline {section}{\numberline {4.4}Model bazy danych}{31}
-\contentsline {section}{\numberline {4.5}Architektura systemu}{32}
-\contentsline {subsection}{\numberline {4.5.1}Struktura REST API}{32}
-\contentsline {subsection}{\numberline {4.5.2}Architektura aplikacji internetowej}{34}
-\contentsline {section}{\numberline {4.6}Interfejs u\IeC {\.z}ytkownika}{35}
-\contentsline {section}{\numberline {4.7}Implementacja algorytmu rekomendacji}{40}
-\contentsline {section}{\numberline {4.8}Testy systemu rekomendacji}{42}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{45}
-\babel@toc {english}{}
-\babel@toc {polish}{}
+\contentsline {subsection}{\numberline {2.2.3}Test-Driven Development}{11}
+\contentsline {subsection}{\numberline {2.2.4}Planning poker}{13}
+\contentsline {section}{\numberline {2.3}Wykorzystywane oprogramowanie}{14}
+\contentsline {subsection}{\numberline {2.3.1}Spring framework}{15}
+\contentsline {subsection}{\numberline {2.3.2}Angular 6 framework}{17}
+\contentsline {subsection}{\numberline {2.3.3}PostgreSQL}{19}
+\contentsline {chapter}{\numberline {3}System rekomendacji}{21}
+\contentsline {section}{\numberline {3.1}Content-based filtering}{21}
+\contentsline {subsection}{\numberline {3.1.1}Term-Frequency, Inverse Document Frequency}{22}
+\contentsline {subsection}{\numberline {3.1.2}Metody probabilistyczne}{23}
+\contentsline {subsection}{\numberline {3.1.3}Wady i zalety}{23}
+\contentsline {section}{\numberline {3.2}Collaborative filtering}{24}
+\contentsline {subsection}{\numberline {3.2.1}Techniki Memory-based}{24}
+\contentsline {subsection}{\numberline {3.2.2}Techniki Model-based}{26}
+\contentsline {subsection}{\numberline {3.2.3}Wady i zalety}{27}
+\contentsline {section}{\numberline {3.3}Hybrid filtering}{27}
+\contentsline {chapter}{\numberline {4}Projekt aplikacji}{29}
+\contentsline {section}{\numberline {4.1}Za\IeC {\l }o\IeC {\.z}enia}{29}
+\contentsline {section}{\numberline {4.2}Specyfikacja wymaga\IeC {\'n}}{30}
+\contentsline {section}{\numberline {4.3}Realizacja aplikacji}{31}
+\contentsline {section}{\numberline {4.4}Model bazy danych}{33}
+\contentsline {section}{\numberline {4.5}Architektura systemu}{34}
+\contentsline {subsection}{\numberline {4.5.1}Struktura REST API}{34}
+\contentsline {subsection}{\numberline {4.5.2}Architektura aplikacji internetowej}{36}
+\contentsline {section}{\numberline {4.6}Interfejs u\IeC {\.z}ytkownika}{37}
+\contentsline {section}{\numberline {4.7}Implementacja algorytmu rekomendacji}{42}
+\contentsline {section}{\numberline {4.8}Testy systemu rekomendacji}{44}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{47}
+\contentsline {section}{\numberline {5.1}Perspektywy rozwoju}{47}
+\contentsline {section}{\numberline {5.2}Ocena systemu rekomendacji}{47}
 \babel@toc {english}{}
 \babel@toc {polish}{}
 \babel@toc {english}{}

@@ -1,7 +1,5 @@
 \chapter{System rekomendacji}
 
-\section{Idea stojąca za użyciem systemu rekomendacji}
-
 Jednym z problemów występujących przy projektowaniu wygodnej oraz intuicyjnej aplikacji internetowej jest ogromna ilość danych, które trafiają do końcowego użytkownika. W najbardziej popularnych  serwisach internetowych zjawisko to przejawia się w kilku formach np. bardzo duża ilość postów w serwisie Facebook, filmów na YouTube itd. Ogrom informacji docierających do użytkownika sprawia, że jest On przytłoczony oraz ma problem z poruszaniem się po serwisie. Dodatkowo bardzo trudno jest mu w tej sytuacji znaleźć wartościową informację, ponieważ przekazywana mu treść najczęściej nie jest dostosowana do osobistych preferencji, zainteresowań. W celu wyeliminowania tych problemów powstały odpowiednie narzędzia pod ogólną nazwą systemów rekomendacji. Ich głównym zadaniem jest wyszukiwanie i określanie danych o jak największej wartości dla konkretnego zainteresowanego. Spersonalizowana zawartość jest określana na podstawie informacji użytkownika oraz jego akcji wykonanych w przeszłości. Cały proces przygotowania odpowiednich sugestii powinien być w całości zautomatyzowany oraz dawać jak najlepsze efekty w jak najkrótszym czasie. Niestety nie istnieje jedno uniwersalne rozwiązanie, które spełniałoby wyżej wymienione wymagania. Aplikacje różnią się strukturą danych, ilością użytkowników oraz każdy z nich jest nastawiony na uzyskanie innego rezultatu.
 
 
@@ -13,14 +11,14 @@ Aby sprostać wymagającym oczekiwaniom, powstały odpowiednie metody analityczn
 	\item Hybrid filtering
 \end{itemize}
 
-\newpage
+
 
 
 \section{Content-based filtering}
 
-Filtrowanie typu Content-based opiera się na rekomendowaniu danych, które są podobne do tych, które użytkownik oznaczył już wcześniej jako interesujące. Innymi słowy służy do nauczenia się preferencji użytkownika, a następnie określeniu informacji jak najlepiej spełniających te preferencję. W podejściu tym można określić, które aspekty mają być brane pod uwagę w procesie filtrowania. Aby, skutecznie zaimplementować tą metodę, dane muszą zostać odpowiednio oznaczone w postaci wektora cech \textit{y}. Wektory te są następnie wykorzystywane do określenia preferencji użytkownika.
+Filtrowanie typu Content-based opiera się na rekomendowaniu danych, które są podobne do tych, które użytkownik oznaczył już wcześniej jako interesujące\cite{REC01}. Innymi słowy służy do nauczenia się preferencji użytkownika, a następnie określeniu informacji jak najlepiej spełniających te preferencję. W podejściu tym można określić, które aspekty mają być brane pod uwagę w procesie filtrowania. Aby, skutecznie zaimplementować tą metodę, dane muszą zostać odpowiednio oznaczone w postaci wektora cech \textit{y}. Wektory te są następnie wykorzystywane do określenia preferencji użytkownika.
 
-Istnieje kilka technik stosowanych przy procesie określania modelu do rekomendacji. Jedną z nich jest użycie Term Frequency oraz Inverse Document Frequency w systemach służących do wyszukiwania informacji. Inne techniki wykorzystują najczęściej metody probabilistyczne w połączeniu z uczeniem maszynowym np. naiwny klasyfikator Bayesa lub drzewa decyzyjne.
+Istnieje kilka technik stosowanych przy procesie określania modelu do rekomendacji. Jedną z nich jest użycie \textit{Term Frequency} oraz \textit{Inverse Document Frequency} w systemach służących do wyszukiwania informacji. Inne techniki wykorzystują najczęściej metody probabilistyczne w połączeniu z uczeniem maszynowym np. naiwny klasyfikator Bayesa lub drzewa decyzyjne.
 
 \subsection{Term-Frequency, Inverse Document Frequency}
 Techniki TF-IDF używane są do określenia, jak ważne jest dane słowo. Stopień ważności jest ściśle powiązane z liczbą występowań słowa w danym tekście, jednak jego wartość maleje wraz z liczbą występowań danego słowa we wszystkich analizowanych dokumentach. Jako przykład niech posłuży słowo \textit{człowiek}. W artykule o zjawiskach biologicznych może zostać użyte dosyć często, dlatego jego wartość wzrasta. Jednak jeżeli dany tekst rozpatrywany jest w kontekście bazy z artykułami o procesach zachodzących w ludzkim ciele, jego wartość powinna mocno zmaleć, ponieważ nie jest ono kluczowe dla użytkownika. Z drugiej strony istnieje inny przypadek, gdy dany tekst występuje w bazie artykułów o różnej tematyce. Ilość występowań tego słowa we wszystkich artykułach jest mała, dlatego jego wartość nie maleje, ponieważ może ono być uznane w tym wypadku za kluczowe.
@@ -67,7 +65,7 @@ Jednakże technika ta nie jest idealna i ma swoje wady. Najważniejszą z nich j
 
 \section{Collaborative filtering}
 
-Algorytm Collaborative filtering opiera się na założeniu, że jeżeli dwóch użytkowników ma podobne upodobania w obecnym momencie to istnieje duże prawdopodobieństwo, że będą oni również podobne upodobania w przyszłości. Jako przykład można podać dwóch użytkowników systemu oceniającego filmy, który dotychczas byli zgodni w ocenach filmów. Jeżeli pierwszy użytkownik dobrze ocenił nowy film, to prawdopodobnie drugi użytkownik również oceni go dobrze. Technika ta jest bardzo przydatna w przypadku, gdy rekomendacja nie powinna być na podstawie dodatkowych informacji o danych bądź użytkownikach. Collaborative filtering dzieli się w zależności od tego czy zastosowano w nim podejście Memory-based bądź Model-based. 
+Algorytm Collaborative filtering opiera się na założeniu, że jeżeli dwóch użytkowników ma podobne upodobania w obecnym momencie to istnieje duże prawdopodobieństwo, że będą oni również podobne upodobania w przyszłości\cite{REC01}. Jako przykład można podać dwóch użytkowników systemu oceniającego filmy, który dotychczas byli zgodni w ocenach filmów. Jeżeli pierwszy użytkownik dobrze ocenił nowy film, to prawdopodobnie drugi użytkownik również oceni go dobrze. Technika ta jest bardzo przydatna w przypadku, gdy rekomendacja nie powinna być na podstawie dodatkowych informacji o danych bądź użytkownikach. Collaborative filtering dzieli się w zależności od tego czy zastosowano w nim podejście Memory-based bądź Model-based. 
 
 Dla zobrazowania działania tego algorytmu załóżmy kolekcje użytkowników $u_i$ oraz kolekcję filmów $m_j$ gdzie $i = 1,\dots,n$ oraz $j = 1,\dots,m$. Dane muszą zostać zorganizowane w postaci $n \times m$ macierzy $V$, która zawiera oceny filmów przez użytkowników zapisane jako $v_{i,j}$. Gdy użytkownik nie ocenił filmu pole to pozostaje puste.  
 $$
@@ -226,7 +224,7 @@ Istnieją również inne ograniczenia Collaborative Filtering takie jak problem 
 \section{Hybrid filtering}
 
 
-Metody hybrydowe polegają na połączeniu metod Content-based filtering oraz Collaborative filtering tak, aby wyeliminować większość wad pojawiających się podczas używania tylko jednej z nich. Istnieje kilka kombinacji metod hybrydowych, które mogą być podzielone na 4 grupy:
+Metody hybrydowe polegają na połączeniu metod Content-based filtering oraz Collaborative filtering tak, aby wyeliminować większość wad pojawiających się podczas używania tylko jednej z nich \cite{REC01}. Istnieje kilka kombinacji metod hybrydowych, które mogą być podzielone na 4 grupy:
 \begin{itemize}
 	\item osobna implementacja Content-based oraz Collaborative, a następnie połączenie ich predykcji 
 	\item dodanie charakterystyki Content-based do modelu Collaborative poprzez użycie wszystkich technik w obrębie Collaborative Filtering z tą różnicą, że każdy użytkownik jest brany pod uwagę

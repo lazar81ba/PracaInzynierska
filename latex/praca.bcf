@@ -1923,9 +1923,31 @@
     <bcf:datasource type="file" datatype="bibtex">bibliografia.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="0">*</bcf:citekey>
-    <bcf:citekey order="1">AGI01</bcf:citekey>
+    <bcf:citekey order="1">MAN01</bcf:citekey>
     <bcf:citekey order="2">AGI01</bcf:citekey>
+    <bcf:citekey order="3">AGI01</bcf:citekey>
+    <bcf:citekey order="4">TDD01</bcf:citekey>
+    <bcf:citekey order="5">AGI01</bcf:citekey>
+    <bcf:citekey order="6">TDD04</bcf:citekey>
+    <bcf:citekey order="7">TDD02</bcf:citekey>
+    <bcf:citekey order="8">TDD01</bcf:citekey>
+    <bcf:citekey order="9">TDD03</bcf:citekey>
+    <bcf:citekey order="10">TDD01</bcf:citekey>
+    <bcf:citekey order="11">AGI01</bcf:citekey>
+    <bcf:citekey order="12">SPR03</bcf:citekey>
+    <bcf:citekey order="13">SPR02</bcf:citekey>
+    <bcf:citekey order="14">SPR01</bcf:citekey>
+    <bcf:citekey order="15">ANG01</bcf:citekey>
+    <bcf:citekey order="16">ANG02</bcf:citekey>
+    <bcf:citekey order="17">ANG02</bcf:citekey>
+    <bcf:citekey order="18">ANG03</bcf:citekey>
+    <bcf:citekey order="19">POS01</bcf:citekey>
+    <bcf:citekey order="20">REC01</bcf:citekey>
+    <bcf:citekey order="21">REC01</bcf:citekey>
+    <bcf:citekey order="22">REC01</bcf:citekey>
+    <bcf:citekey order="23">AGI01</bcf:citekey>
+    <bcf:citekey order="24">DPT01</bcf:citekey>
+    <bcf:citekey order="25">REC02</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

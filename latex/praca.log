@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.29)  31 DEC 2018 00:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.29)  2 JAN 2019 21:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1653,71 +1653,78 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[11]
+<FazyTDD.png, id=45, 743.77875pt x 573.14125pt>
+File: FazyTDD.png Graphic file (type png)
+<use FazyTDD.png>
+Package pdftex.def Info: FazyTDD.png  used on input line 141.
+(pdftex.def)             Requested size: 455.24411pt x 350.81377pt.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 142.
 
- [11]
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+Underfull \vbox (badness 5696) has occurred while \output is active []
+
+ [12 <./FazyTDD.png>] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
 []\T1/ptm/m/n/10.95 Najcz¦±ciej wy-bie-ra-nym ci¡-giem liczb jest ci¡g Fi-bo-na
 c-ciego, czyli war-to-±ci
  []
 
-[12]
-<SpringStructure.png, id=48, 1159.33125pt x 868.24374pt>
+[14]
+<SpringStructure.png, id=58, 1159.33125pt x 868.24374pt>
 File: SpringStructure.png Graphic file (type png)
 <use SpringStructure.png>
-Package pdftex.def Info: SpringStructure.png  used on input line 161.
+Package pdftex.def Info: SpringStructure.png  used on input line 225.
 (pdftex.def)             Requested size: 455.24411pt x 340.93214pt.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 162.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[13]
-<SpringDiagram1.jpg, id=54, 409.53pt x 429.605pt>
+[15]
+<SpringDiagram1.jpg, id=62, 409.53pt x 429.605pt>
 File: SpringDiagram1.jpg Graphic file (type jpg)
 <use SpringDiagram1.jpg>
-Package pdftex.def Info: SpringDiagram1.jpg  used on input line 178.
+Package pdftex.def Info: SpringDiagram1.jpg  used on input line 243.
 (pdftex.def)             Requested size: 250.38564pt x 262.66174pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \vbox (badness 2435) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14 <./SpringStructure.png>]
-Underfull \vbox (badness 2781) has occurred while \output is active []
+ [16 <./SpringStructure.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15 <./SpringDiagram1.jpg>]
-Underfull \vbox (badness 2846) has occurred while \output is active []
+ [17 <./SpringDiagram1.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16]
-Underfull \hbox (badness 2608) in paragraph at lines 210--211
+ [18]
+Underfull \hbox (badness 2608) in paragraph at lines 275--276
 []\T1/ptm/m/n/10.95 Do prze-cho-wa-nia in-for-ma-cji o u»yt-kow-ni-kach oraz pr
 o-jek-tach zo-staªa u»yta baza da-nych
  []
 
-) [17] [18]
+) [19]
 \openout2 = `systemRekomendacji.aux'.
 
- (./systemRekomendacji.tex
+ (./systemRekomendacji.tex [20
+
+
+
+]
 Rozdzia\l  3.
-[19
-
-
-
-] [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
+[21] [22] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 85--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
+Underfull \hbox (badness 10000) in paragraph at lines 85--88
 
  []
 
-[22] [23] [24] [25]) [26]
+[24] [25] [26] [27]) [28]
 \openout2 = `projektAplikacji.aux'.
 
  (./projektAplikacji.tex
@@ -1725,13 +1732,13 @@ Rozdzia\l  4.
 
 Underfull \vbox (badness 1616) has occurred while \output is active []
 
- [27
+ [29
 
 
 
 ]
-[28]
-<UserStories.png, id=111, 465.74pt x 420.57124pt>
+[30]
+<UserStories.png, id=119, 465.74pt x 420.57124pt>
 File: UserStories.png Graphic file (type png)
 <use UserStories.png>
 Package pdftex.def Info: UserStories.png  used on input line 74.
@@ -1740,25 +1747,25 @@ Package pdftex.def Info: UserStories.png  used on input line 74.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[29]
-<Iteracje.png, id=115, 482.80376pt x 343.2825pt>
+[31]
+<Iteracje.png, id=124, 482.80376pt x 343.2825pt>
 File: Iteracje.png Graphic file (type png)
 <use Iteracje.png>
 Package pdftex.def Info: Iteracje.png  used on input line 84.
 (pdftex.def)             Requested size: 289.6845pt x 205.97107pt.
- [30 <./UserStories.png> <./Iteracje.png>]
-<Database.png, id=121, 784.9325pt x 1041.8925pt>
+ [32 <./UserStories.png> <./Iteracje.png>]
+<Database.png, id=130, 784.9325pt x 1041.8925pt>
 File: Database.png Graphic file (type png)
 <use Database.png>
 Package pdftex.def Info: Database.png  used on input line 93.
 (pdftex.def)             Requested size: 392.46529pt x 520.94498pt.
- [31 <./Database.png>]
-<SimpleArchitecture.png, id=127, 643.40375pt x 61.22874pt>
+ [33 <./Database.png>]
+<SimpleArchitecture.png, id=135, 643.40375pt x 61.22874pt>
 File: SimpleArchitecture.png Graphic file (type png)
 <use SimpleArchitecture.png>
 Package pdftex.def Info: SimpleArchitecture.png  used on input line 106.
 (pdftex.def)             Requested size: 386.04523pt x 36.73752pt.
-<TagsEndpoints.png, id=128, 172.645pt x 62.2325pt>
+<TagsEndpoints.png, id=136, 172.645pt x 62.2325pt>
 File: TagsEndpoints.png Graphic file (type png)
 <use TagsEndpoints.png>
 Package pdftex.def Info: TagsEndpoints.png  used on input line 136.
@@ -1766,18 +1773,18 @@ Package pdftex.def Info: TagsEndpoints.png  used on input line 136.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32 <./SimpleArchitecture.png>]
-<UserEndpoints.png, id=133, 721.69624pt x 413.545pt>
+ [34 <./SimpleArchitecture.png>]
+<UserEndpoints.png, id=141, 721.69624pt x 413.545pt>
 File: UserEndpoints.png Graphic file (type png)
 <use UserEndpoints.png>
 Package pdftex.def Info: UserEndpoints.png  used on input line 145.
 (pdftex.def)             Requested size: 396.93416pt x 227.45044pt.
-<ProjectsEndpoints.png, id=134, 455.7025pt x 403.5075pt>
+<ProjectsEndpoints.png, id=142, 455.7025pt x 403.5075pt>
 File: ProjectsEndpoints.png Graphic file (type png)
 <use ProjectsEndpoints.png>
 Package pdftex.def Info: ProjectsEndpoints.png  used on input line 153.
 (pdftex.def)             Requested size: 273.4236pt x 242.10637pt.
-<FacultiesEndpoints.png, id=135, 714.67pt x 132.495pt>
+<FacultiesEndpoints.png, id=143, 714.67pt x 132.495pt>
 File: FacultiesEndpoints.png Graphic file (type png)
 <use FacultiesEndpoints.png>
 Package pdftex.def Info: FacultiesEndpoints.png  used on input line 161.
@@ -1786,7 +1793,7 @@ Package pdftex.def Info: FacultiesEndpoints.png  used on input line 161.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<UniversitiesEndpoints.png, id=136, 805.0075pt x 202.7575pt>
+<UniversitiesEndpoints.png, id=144, 805.0075pt x 202.7575pt>
 File: UniversitiesEndpoints.png Graphic file (type png)
 <use UniversitiesEndpoints.png>
 Package pdftex.def Info: UniversitiesEndpoints.png  used on input line 168.
@@ -1794,7 +1801,7 @@ Package pdftex.def Info: UniversitiesEndpoints.png  used on input line 168.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<SpecializationsEndpoints.png, id=137, 714.67pt x 132.495pt>
+<SpecializationsEndpoints.png, id=145, 714.67pt x 132.495pt>
 File: SpecializationsEndpoints.png Graphic file (type png)
 <use SpecializationsEndpoints.png>
 Package pdftex.def Info: SpecializationsEndpoints.png  used on input line 175.
@@ -1805,90 +1812,87 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33 <./TagsEndpoints.png> <./UserEndpoints.png> <./ProjectsEndpoints.png>]
-<SPAStructure.png, id=144, 797.98125pt x 293.095pt>
+ [35 <./TagsEndpoints.png> <./UserEndpoints.png> <./ProjectsEndpoints.png>]
+<SPAStructure.png, id=152, 797.98125pt x 293.095pt>
 File: SPAStructure.png Graphic file (type png)
 <use SPAStructure.png>
-Package pdftex.def Info: SPAStructure.png  used on input line 190.
+Package pdftex.def Info: SPAStructure.png  used on input line 192.
 (pdftex.def)             Requested size: 398.98964pt x 146.54713pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [34 <./FacultiesEndpoints.png> <./UniversitiesEndpoints.png> <./Specialization
-sEndpoints.png>]
-<screenLogin.png, id=151, 1036.87375pt x 766.865pt>
+[36 <./FacultiesEndpoints.png> <./UniversitiesEndpoints.png> <./Specializations
+Endpoints.png>]
+<screenLogin.png, id=159, 1036.87375pt x 766.865pt>
 File: screenLogin.png Graphic file (type png)
 <use screenLogin.png>
-Package pdftex.def Info: screenLogin.png  used on input line 206.
+Package pdftex.def Info: screenLogin.png  used on input line 208.
 (pdftex.def)             Requested size: 311.06451pt x 230.06128pt.
- [35 <./SPAStructure.png> <./screenLogin.png>]
-<screenMainBoard.png, id=157, 1040.88875pt x 768.8725pt>
+ [37 <./SPAStructure.png> <./screenLogin.png>]
+<screenMainBoard.png, id=166, 1040.88875pt x 768.8725pt>
 File: screenMainBoard.png Graphic file (type png)
 <use screenMainBoard.png>
-Package pdftex.def Info: screenMainBoard.png  used on input line 216.
+Package pdftex.def Info: screenMainBoard.png  used on input line 218.
 (pdftex.def)             Requested size: 364.31653pt x 269.1094pt.
-<screenProject1.png, id=158, 1040.88875pt x 771.88374pt>
+<screenProject1.png, id=167, 1040.88875pt x 771.88374pt>
 File: screenProject1.png Graphic file (type png)
 <use screenProject1.png>
-Package pdftex.def Info: screenProject1.png  used on input line 225.
+Package pdftex.def Info: screenProject1.png  used on input line 227.
 (pdftex.def)             Requested size: 364.31653pt x 270.16335pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<screenProject2.png, id=159, 1036.87375pt x 771.88374pt>
+<screenProject2.png, id=168, 1036.87375pt x 771.88374pt>
 File: screenProject2.png Graphic file (type png)
 <use screenProject2.png>
-Package pdftex.def Info: screenProject2.png  used on input line 232.
+Package pdftex.def Info: screenProject2.png  used on input line 234.
 (pdftex.def)             Requested size: 362.91124pt x 270.16335pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<screenSearch.png, id=160, 1039.885pt x 771.88374pt>
+<screenSearch.png, id=169, 1039.885pt x 771.88374pt>
 File: screenSearch.png Graphic file (type png)
 <use screenSearch.png>
-Package pdftex.def Info: screenSearch.png  used on input line 260.
+Package pdftex.def Info: screenSearch.png  used on input line 262.
 (pdftex.def)             Requested size: 311.96791pt x 231.56691pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [36 <./screenMainBoard.png>]
+ [38 <./screenMainBoard.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[37 <./screenProject1.png> <./screenProject2.png>]
-<screenCreate1.png, id=171, 1041.8925pt x 768.8725pt>
+[39 <./screenProject1.png> <./screenProject2.png>]
+<screenCreate1.png, id=179, 1041.8925pt x 768.8725pt>
 File: screenCreate1.png Graphic file (type png)
 <use screenCreate1.png>
-Package pdftex.def Info: screenCreate1.png  used on input line 271.
+Package pdftex.def Info: screenCreate1.png  used on input line 273.
 (pdftex.def)             Requested size: 312.57016pt x 230.66353pt.
- [38 <./screenSearch.png> <./screenCreate1.png>]
-<screenCreate2.png, id=177, 1038.88126pt x 767.86874pt>
+ [40 <./screenSearch.png> <./screenCreate1.png>]
+<screenCreate2.png, id=185, 1038.88126pt x 767.86874pt>
 File: screenCreate2.png Graphic file (type png)
 <use screenCreate2.png>
-Package pdftex.def Info: screenCreate2.png  used on input line 280.
+Package pdftex.def Info: screenCreate2.png  used on input line 282.
 (pdftex.def)             Requested size: 311.66678pt x 230.3624pt.
-<screenUser.png, id=178, 1040.88875pt x 768.8725pt>
+<screenUser.png, id=186, 1040.88875pt x 768.8725pt>
 File: screenUser.png Graphic file (type png)
 <use screenUser.png>
-Package pdftex.def Info: screenUser.png  used on input line 290.
+Package pdftex.def Info: screenUser.png  used on input line 292.
 (pdftex.def)             Requested size: 312.26903pt x 230.66353pt.
- [39
+ [41
 
  <./screenCreate2.png> <./screenUser.png>]
-<firstStep.png, id=184, 828.09375pt x 433.62pt>
+<firstStep.png, id=192, 828.09375pt x 433.62pt>
 File: firstStep.png Graphic file (type png)
 <use firstStep.png>
-Package pdftex.def Info: firstStep.png  used on input line 305.
+Package pdftex.def Info: firstStep.png  used on input line 307.
 (pdftex.def)             Requested size: 414.04587pt x 216.80946pt.
-<secondStep.png, id=185, 1029.8475pt x 459.7175pt>
+<secondStep.png, id=193, 1029.8475pt x 459.7175pt>
 File: secondStep.png Graphic file (type png)
 <use secondStep.png>
-Package pdftex.def Info: secondStep.png  used on input line 314.
+Package pdftex.def Info: secondStep.png  used on input line 316.
 (pdftex.def)             Requested size: 432.533pt x 193.08003pt.
 
 
@@ -1897,87 +1901,87 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [40
+ [42
 
  <./firstStep.png>]
-<thirdStep.png, id=190, 1030.85126pt x 461.725pt>
+<thirdStep.png, id=198, 1030.85126pt x 461.725pt>
 File: thirdStep.png Graphic file (type png)
 <use thirdStep.png>
-Package pdftex.def Info: thirdStep.png  used on input line 326.
+Package pdftex.def Info: thirdStep.png  used on input line 328.
 (pdftex.def)             Requested size: 432.95457pt x 193.92317pt.
- [41 <./secondStep.png> <./thirdStep.png>]
-<tabelaprog1.png, id=196, 607.26875pt x 354.32375pt>
+ [43 <./secondStep.png> <./thirdStep.png>]
+<tabelaprog1.png, id=205, 607.26875pt x 354.32375pt>
 File: tabelaprog1.png Graphic file (type png)
 <use tabelaprog1.png>
-Package pdftex.def Info: tabelaprog1.png  used on input line 343.
+Package pdftex.def Info: tabelaprog1.png  used on input line 345.
 (pdftex.def)             Requested size: 291.48569pt x 170.07346pt.
-<tabelaprog2.png, id=197, 646.415pt x 392.46625pt>
+<tabelaprog2.png, id=206, 646.415pt x 392.46625pt>
 File: tabelaprog2.png Graphic file (type png)
 <use tabelaprog2.png>
-Package pdftex.def Info: tabelaprog2.png  used on input line 350.
+Package pdftex.def Info: tabelaprog2.png  used on input line 352.
 (pdftex.def)             Requested size: 310.27568pt x 188.38165pt.
-<tabelamech1.png, id=198, 623.32875pt x 355.3275pt>
+<tabelamech1.png, id=207, 623.32875pt x 355.3275pt>
 File: tabelamech1.png Graphic file (type png)
 <use tabelamech1.png>
-Package pdftex.def Info: tabelamech1.png  used on input line 361.
+Package pdftex.def Info: tabelamech1.png  used on input line 363.
 (pdftex.def)             Requested size: 311.6636pt x 177.6633pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<tabelamech2.png, id=199, 640.3925pt x 393.47pt>
+<tabelamech2.png, id=208, 640.3925pt x 393.47pt>
 File: tabelamech2.png Graphic file (type png)
 <use tabelamech2.png>
-Package pdftex.def Info: tabelamech2.png  used on input line 368.
+Package pdftex.def Info: tabelamech2.png  used on input line 370.
 (pdftex.def)             Requested size: 320.19547pt x 196.73451pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<tabelabiol1.png, id=200, 568.1225pt x 371.3875pt>
+<tabelabiol1.png, id=209, 568.1225pt x 371.3875pt>
 File: tabelabiol1.png Graphic file (type png)
 <use tabelabiol1.png>
-Package pdftex.def Info: tabelabiol1.png  used on input line 379.
+Package pdftex.def Info: tabelabiol1.png  used on input line 381.
 (pdftex.def)             Requested size: 284.06055pt x 185.69328pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<tabelabiol2.png, id=201, 611.28375pt x 408.52625pt>
+<tabelabiol2.png, id=210, 611.28375pt x 408.52625pt>
 File: tabelabiol2.png Graphic file (type png)
 <use tabelabiol2.png>
-Package pdftex.def Info: tabelabiol2.png  used on input line 386.
+Package pdftex.def Info: tabelabiol2.png  used on input line 388.
 (pdftex.def)             Requested size: 305.64113pt x 204.26262pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [42
+) [44
 
- <./tabelaprog1.png> <./tabelaprog2.png>] [43 <./tabelamech1.png> <./tabelamech
-2.png>] [44 <./tabelabiol1.png> <./tabelabiol2.png>]
+ <./tabelaprog1.png> <./tabelaprog2.png>] [45 <./tabelamech1.png> <./tabelamech
+2.png>] [46 <./tabelabiol1.png> <./tabelabiol2.png>]
 \openout2 = `podsumowanie.aux'.
 
  (./podsumowanie.tex
 Rozdzia\l  5.
-) [45
+) [47
 
 
 
-] [46
+] [48] [49
 
 
-] [47] (./praca.aux (./wstep.aux) (./wprowadzenieTeoretyczne.aux)
-(./systemRekomendacji.aux) (./projektAplikacji.aux) (./podsumowanie.aux))
+] [50] (./praca.aux (./wstep.aux) (./wprowadzenieTeoretyczne.aux) (./systemReko
+mendacji.aux) (./projektAplikacji.aux) (./podsumowanie.aux))
 Package logreq Info: Writing requests to 'praca.run.xml'.
 \openout1 = `praca.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26623 strings out of 494815
- 497318 string characters out of 6178283
- 909278 words of memory out of 5000000
- 29551 multiletter control sequences out of 15000+600000
- 602670 words of font info for 91 fonts, out of 8000000 for 9000
+ 26636 strings out of 494815
+ 497692 string characters out of 6178283
+ 909630 words of memory out of 5000000
+ 29561 multiletter control sequences out of 15000+600000
+ 607886 words of font info for 93 fonts, out of 8000000 for 9000
  79 hyphenation exceptions out of 8191
- 45i,12n,45p,10383b,2675s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,12n,45p,10383b,2671s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -1992,10 +1996,10 @@ ve/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on praca.pdf (47 pages, 2011920 bytes).
+Output written on praca.pdf (50 pages, 2072566 bytes).
 PDF statistics:
- 279 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
+ 291 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

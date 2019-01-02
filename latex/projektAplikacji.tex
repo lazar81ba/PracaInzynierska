@@ -1,6 +1,6 @@
 \chapter{Projekt aplikacji}
 
-W ramach części praktycznie pracy wykonano aplikację internetową \mbox{\textit{ProjectSHARE}}. Podczas implementacji skupiono się głównie nad stworzeniem prostego, wygodnego interfejsu użytkownika oraz nad dostosowaniem wyświetlanej treści do użytkownika. Aby osiągnąć zamierzone rezultaty, w procesie wytwarzania aplikacji wykorzystano metodologię zwinną oraz związane z nią krótkie iteracje, ustalenie wymagań na podstawie tzw. \textit{User Stories} oraz estymację kosztów wytworzenia funkcjonalności za pomocą techniki \textit{Planning Poker}.
+W ramach części praktycznej pracy wykonano aplikację internetową \mbox{\textit{ProjectSHARE}}. Podczas implementacji skupiono się głównie nad stworzeniem prostego, wygodnego interfejsu użytkownika oraz nad dostosowaniem wyświetlanej treści do użytkownika. Aby osiągnąć zamierzone rezultaty, w procesie wytwarzania aplikacji wykorzystano metodologię zwinną oraz związane z nią krótkie iteracje, ustalenie wymagań na podstawie tzw. \textit{User Stories} oraz estymację kosztów wytworzenia funkcjonalności za pomocą techniki \textit{Planning Poker}.
 
 \section{Założenia}
 
@@ -9,7 +9,7 @@ użytkownika, łatwe wyszukiwanie projektów, rekomendacja projektów wykorzystu
 ograniczenie ilości udostępnianych informacji o projekcie. Część aplikacji wzorowana jest na kilku
 rozwiązaniach wykorzystywanych w bardzo popularnych serwisach, np. ograniczona liczba
 znaków stosowana w aplikacji Twitter oraz prosta mechanika oznaczania jako obserwowane. W systemie
-rekomendacji wykorzystywany jest algorytm uczenia Content-based filtering, który na podstawie tagów projektów oznaczonych jako obserwowane, wyszuka w bazie danych odpowiednie przedsięwzięcia.
+rekomendacji wykorzystywany jest algorytm uczenia Content-based filtering, który na podstawie tagów projektów oznaczonych jako obserwowane, wyszukuje odpowiednie przedsięwzięcia.
 
 Wyżej wymienione założenia pozwalają na stworzenie platformy nadającej się dla
 każdego, ponieważ wyświetlane projekty są dostosowane do użytkownika. Dodatkowo autor ukrywa całą implementacje i szczegóły
@@ -28,7 +28,7 @@ je wedle upodobań autora.
 
 \section{Specyfikacja wymagań}
 
-Wymagania zostały podzielone na dwie kategorie: biznesowe oraz technicznie. Biznesowe oznaczają wymaganie sprecyzowane przez klienta w postaci historyjek użytkownika. Są one krótkim opisem cech i właściwości systemu z perspektywy potrzeb użytkownika. Mają one ujednoliconą strukturę w postaci ,,Jako ... chcę ..., ponieważ ...''.  Ustala się je we współpracy z klientem tak, aby uwzględnić w nich najważniejsze aspekty np. łatwość oszacowania kosztu wytworzenia, wartość biznesowa, określenie kryteriów akceptacji, możliwość wykonania w obrębie jednej iteracji. Ich największą zaletą jest uspójnienie wizji, określenie pożądanego efektu oraz minimalizacja ryzyka wystąpienia nieporozumienia. Techniczne wymagania są natomiast ustalane przez zespół programistów na podstawie wymagań biznesowych. Z reguły nie są one prezentowane klientowi, ponieważ są one zrozumiałe dla konkretnej grupy osób. Ich zadaniem jest określenie konkretnych elementów systemu, które należy wykonać. W przypadku metodyki agile powinny one być uzupełnieniem wymagań biznesowych oraz podlegać ciągłej zmianie \cite{AGI01}. Ich niewątpliwą zaletą jest możliwość pokazania większej abstrakcji systemu, niż w przypadku historyjki użytkownika. Jedno wymaganie techniczne może odnosić się do kilku scenariuszy wynikających z historyjek biznesowych, dzięki czemu koszt jest mocno redukowany. Inną zaletą ich stosowania jest większa przejrzystość dla programisty. 
+Wymagania zostały podzielone na dwie kategorie: biznesowe oraz technicznie. Biznesowe oznaczają wymagania sprecyzowane przez klienta w postaci historyjek użytkownika. Są one krótkim opisem cech i właściwości systemu z perspektywy potrzeb użytkownika. Mają one ujednoliconą strukturę w postaci ,,Jako ... chcę ..., ponieważ ...''.  Ustala się je we współpracy z klientem tak, aby uwzględnić w nich najważniejsze aspekty np. łatwość oszacowania kosztu wytworzenia, wartość biznesową, określenie kryteriów akceptacji, możliwość wykonania w obrębie jednej iteracji. Ich największą zaletą jest uspójnienie wizji, określenie pożądanego efektu oraz minimalizacja ryzyka wystąpienia nieporozumienia. Techniczne wymagania są natomiast ustalane przez zespół programistów na podstawie wymagań biznesowych. Z reguły prezentuje się ich klientowi, ponieważ są one zrozumiałe dla konkretnej grupy osób. Ich zadaniem jest określenie konkretnych elementów systemu, które należy wykonać. W przypadku metodyki agile powinny one być uzupełnieniem wymagań biznesowych oraz podlegać ciągłej zmianie \cite{AGI01}. Ich niewątpliwą zaletą jest możliwość pokazania większej abstrakcji systemu, niż w przypadku historyjki użytkownika. Jedno wymaganie techniczne może odnosić się do kilku scenariuszy wynikających z historyjek biznesowych, dzięki czemu koszt jest mocno redukowany. Inną zaletą ich stosowania jest większa przejrzystość dla programisty. 
 
 \bigskip
 
@@ -183,7 +183,9 @@ REST API do wykonania operacji na odpowiednim zasobie wykorzystuje strukturę dr
 
 \subsection{Architektura aplikacji internetowej}
 
-Aplikacja internetowa \mbox{\textit{ProjectSHARE}} składa się z kilku komponentów wydzielających logikę związaną z konkretną funkcjonalnością. Każdy komponent jest dynamicznie wstrzykiwany w zależności od przypisanej do niego ścieżki URL, co zwiększa wydajność aplikacji oraz poprawia komfort użytkowania. Za poruszanie się po ścieżkach oraz dobór odpowiednich komponentów odpowiedzialny jest specjalny \textit{router}, będący wbudowanym narzędziem szkieletu Angular. Informację o tym, który komponent jest przypisany do jakiej ścieżki oraz czy może zostać w danym momencie wyświetlony są przechowywane w wydzielonym module \textit{app-route}. Za komunikację z REST API odpowiedzialne są następujące serwisy: \textit{UserService, ProjectService, TagService, UserAuthService}. Każdy serwis oznaczone adnotacją \textit{@Injectable()} może zostać wstrzyknięty do komponentu poprzez konstruktor. Ich głównym zadaniem jest implementacja odpowiednich metod wywołujący określone operacje na zasobach REST API. Serwisy te również przekazują asynchronicznie dane do konkretnych komponentów korzystając z modelu komunikacji Publisher-Subscriber. Dodatkowo istnieje jeszcze jeden serwis \textit{AuthGuardService} implementujący interfejs \textit{CanActivate}. Pozwala on na zdefiniowanie metody zwracającej informację o tym, czy dany komponent może zostać wyświetlony w zależności od tego, czy użytkownik jest zalogowany czy też nie. Jest on stosowany tylko we wspomnianym wyżej wymienionym module \textit{app-route}.
+Aplikacja internetowa \mbox{\textit{ProjectSHARE}} składa się z kilku komponentów wydzielających logikę związaną z konkretną funkcjonalnością. Każdy komponent jest dynamicznie wstrzykiwany w zależności od przypisanej do niego ścieżki URL, co zwiększa wydajność aplikacji oraz poprawia komfort użytkowania. Za poruszanie się po ścieżkach oraz dobór odpowiednich komponentów odpowiedzialny jest specjalny \textit{router}, będący wbudowanym narzędziem szkieletu Angular. Informację o tym, który komponent jest przypisany do jakiej ścieżki oraz czy może zostać w danym momencie wyświetlony są przechowywane w wydzielonym module \textit{app-route}. 
+
+Za komunikację z REST API odpowiedzialne są następujące serwisy: \textit{UserService, ProjectService, TagService, UserAuthService}. Każdy serwis oznaczone adnotacją \textit{@Injectable()} może zostać wstrzyknięty do komponentu poprzez konstruktor. Ich głównym zadaniem jest implementacja odpowiednich metod wywołujący określone operacje na zasobach REST API. Serwisy te również przekazują asynchronicznie dane do konkretnych komponentów korzystając z modelu komunikacji publish-subscribe\cite{DPT01}. Dodatkowo istnieje jeszcze jeden serwis \textit{AuthGuardService} implementujący interfejs \textit{CanActivate}. Pozwala on na zdefiniowanie metody zwracającej informację o tym, czy dany komponent może zostać wyświetlony w zależności od tego, czy użytkownik jest zalogowany czy też nie. Jest on stosowany tylko we wspomnianym wyżej wymienionym module \textit{app-route}.
 
 \begin{figure}[h!]
 	\makebox[\textwidth][c]{\includegraphics[scale=0.5]{SPAStructure}
@@ -209,7 +211,7 @@ Po wejściu na główną stronę aplikacji można zalogować się do systemu pop
 \end{figure}
 
 
-Po zalogowaniu następuje przekierowanie na główny panel z projektami. Jest to widok zawierający 5 najbardziej polecanych projektów dla danego użytkownika, wybranych przez system rekomendacji. Użytkownik aplikacji może przeczytać skrócony opis danego projektu, powiększyć zdjęcie go reprezentujące oraz przejść do rozszerzonego opisu projektu. Od momentu zalogowania, po lewej stronie umieszczona została lista z projektami obserwowanymi, na której widać nazwy wraz ze zdjęciami. Po kliknięciu na dany projekt wysuwa się krótkie zdanie opisujące oraz przekierowanie do rozszerzonego opisu. Jest on zawsze dostępny tak, aby spełnić wymagania klienta i szybkim dostępie do projektów obserwowanych.
+Po zalogowaniu następuje przekierowanie na główny panel z projektami. Jest to widok zawierający 5 najbardziej polecanych projektów dla danego użytkownika wybranych przez system rekomendacji. Użytkownik aplikacji może przeczytać skrócony opis danego projektu, powiększyć zdjęcie go reprezentujące oraz przejść do rozszerzonego opisu projektu. Od momentu zalogowania, po lewej stronie umieszczona została lista z projektami obserwowanymi, na której widać nazwy wraz ze zdjęciami. Po kliknięciu na dany projekt wysuwa się krótkie zdanie opisujące oraz przekierowanie do rozszerzonego opisu. Jest on zawsze dostępny tak, aby spełnić wymagania klienta i szybkim dostępie do projektów obserwowanych.
 
 \begin{figure}[h!]
 	\makebox[\textwidth][c]{\includegraphics[scale=0.35]{screenMainBoard}
@@ -264,7 +266,7 @@ Kolejnym elementem aplikacji jest widok wyszukiwarki projektów. Podając nazwę
 
 
 
-Do stworzenia projektu został zaprojektowany specjalny widok \textit{CreateProject}. Ułożenie poszczególnych elementów jest podobne jak przy widoku wyświetlania rozszerzonego opisu, ponieważ użytkownik może mieć wtedy wstępne wyobrażenie jaki będzie widok końcowy. Przy tworzeniu projektu należy podać jego nazwę, opis, adres URL do zdjęcia, zaznaczyć czy jest to projekt publiczny czy prywatny, uzupełnić detale, linki oraz oznaczyć go tagami. Po pomyślnym wypełnieniu formularza odblokowany zostaje przycisk \textit{Create}, a użytkownik może stworzyć projekt.
+Do stworzenia projektu został zaprojektowany specjalny widok \textit{CreateProject}. Ułożenie poszczególnych elementów jest podobne jak przy widoku wyświetlania rozszerzonego opisu, ponieważ mając taki widok użytkownik posiada wstępne wyobrażenie jaki będzie efekt końcowy. Przy tworzeniu projektu należy podać jego nazwę, opis, adres URL do zdjęcia, zaznaczyć czy jest to projekt publiczny bądź prywatny, uzupełnić detale, linki oraz oznaczyć go tagami. Po pomyślnym wypełnieniu formularza odblokowany zostaje przycisk \textit{Create}, a użytkownik może stworzyć projekt.
 
 \begin{figure}[h!]
 	\makebox[\textwidth][c]{\includegraphics[scale=0.30]{screenCreate1}
@@ -283,7 +285,7 @@ Do stworzenia projektu został zaprojektowany specjalny widok \textit{CreateProj
 \end{figure}
 
 
-Ostatnim widokiem jest widok użytkownika. Za jego pomocą można sprawdzić z jakiego kraju pochodzi, na jaką uczelnię oraz wydział uczęszczał oraz jaką specjalizacje skończył. Dodatkowo poniżej imienia oraz nazwiska widnieje adres email pozwalający na kontakt z użytkownikiem. Zgodnie z wymaganiami klienta zmieszczono również listę projektów, w których dany użytkownik bierze udział. Ma to na celu zapewnienie możliwości sprawdzenia m.in. czy jest szansa, że będzie On posiadał interesujące informacje, czy posiada odpowiednie kompetencje w danym zakresie.
+Ostatnim widokiem jest widok użytkownika. Za jego pomocą można sprawdzić z jakiego kraju pochodzi, na jaką uczelnię oraz wydział uczęszczał, a także jaką specjalizacje ukończył. Dodatkowo poniżej imienia oraz nazwiska widnieje adres email pozwalający na kontakt z użytkownikiem. Zgodnie z wymaganiami klienta zmieszczono również listę projektów, w których dany użytkownik bierze udział. Ma to na celu zapewnienie możliwości sprawdzenia m.in. czy jest szansa, że będzie On posiadał interesujące informacje, czy posiada odpowiednie kompetencje w danym zakresie.
 
 \begin{figure}[h!]
 	\makebox[\textwidth][c]{\includegraphics[scale=0.30]{screenUser}
@@ -296,14 +298,14 @@ Ostatnim widokiem jest widok użytkownika. Za jego pomocą można sprawdzić z j
 
 \section{Implementacja algorytmu rekomendacji}
 
-Do stworzenia systemu rekomendacji wykorzystano opisywany wcześniej algorytm Content-based filtering oraz dostosowano go do dziedziny używanej w aplikacji  \mbox{\textit{ProjectSHARE}}. Algorytm wykorzystuje listę projektów obserwowanych przez użytkownika do stworzenia predykcji jak również tagi, którymi projekt jest opisany. Pozwoliło to na małą modyfikację algorytmu tzn. stworzenie binarnej reprezentacji atrybutów projektu. Aby przedstawić działanie systemu oraz wykonywane obliczenia posłużono się podzbiorem danych testowych w postaci 5 projektów. Wyniki przedstawiono w formie tabeli z odpowiednio opisanymi kolumnami.
+Do stworzenia systemu rekomendacji wykorzystano opisywany wcześniej algorytm Content-based filtering oraz dostosowano go do domeny używanej w aplikacji  \mbox{\textit{ProjectSHARE}}. Algorytm wykorzystuje listę projektów obserwowanych przez użytkownika do stworzenia predykcji jak również tagi, którymi projekt jest opisany. Pozwoliło to na małą modyfikację algorytmu tzn. stworzenie binarnej reprezentacji atrybutów projektu\cite{REC02}. Aby przedstawić działanie systemu oraz wykonywane obliczenia posłużono się podzbiorem danych testowych w postaci 5 projektów. Wyniki przedstawiono w formie tabeli z odpowiednio opisanymi kolumnami.
 
 Pierwszym krokiem jaki należy wykonać jest stworzenie już wspomnianej binarnej reprezentacji. Następnie obliczono podstawowe dane takie jak liczbę wszystkich atrybutów w projekcie oraz parametr \textit{Tag Frequency}, oznaczający liczbę występowań danego taga we wszystkich rozpatrywanych projektach. Aby obliczyć predykcję wybrano 3 z 5 projektów jako obserwowane. Poniżej zamieszczona jest tabela, w której występowanie taga w projekcie oznaczono za pomocą wartości 1, a jego brak jako 0. Poniżej znajdują się kolumny z wyliczonymi parametrami oraz kolumna \textit{User}, w której oznaczono projekty obserwowane przez użytkownika.   
 
 \begin{figure}[h!]
 	\makebox[\textwidth][c]{\includegraphics[scale=0.5]{firstStep}
 	}
-	\caption{Tabele pokazująca wyliczenia powstałe w kroku pierwszym}
+	\caption{Tabela pokazująca wyliczenia powstałe w kroku pierwszym}
 	\centering
 \end{figure}
 
@@ -312,7 +314,7 @@ Kolejnym krokiem, który wykonano była normalizacja atrybutów poprzez podziele
 \begin{figure}[h!]
 	\makebox[\textwidth][c]{\includegraphics[scale=0.42]{secondStep}
 	}
-	\caption{Tabele pokazująca wyliczenia powstałe w kroku drugim}
+	\caption{Tabela pokazująca wyliczenia powstałe w kroku drugim}
 	\centering
 \end{figure}
 
@@ -324,7 +326,7 @@ W ostatnim kroku obliczono parametr \textit{Inverse Document Frequency}, któreg
 \begin{figure}[h!]
 	\makebox[\textwidth][c]{\includegraphics[scale=0.42]{thirdStep}
 	}
-	\caption{Tabele pokazująca wyliczenia powstałe w kroku trzecim}
+	\caption{Tabela pokazująca wyliczenia powstałe w kroku trzecim}
 	\centering
 \end{figure}
 

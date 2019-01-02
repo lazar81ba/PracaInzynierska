@@ -19,30 +19,18 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
-    \entry{TDD01}{book}{}
-      \name{author}{1}{}{%
-        {{hash=9d2878faeaf23c0f3b43faa893d88fd4}{%
-           family={Madeyski},
-           familyi={M\bibinitperiod},
-           given={L.},
-           giveni={L\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer-Verlag Berlin Heidelberg}%
-      }
-      \strng{namehash}{9d2878faeaf23c0f3b43faa893d88fd4}
-      \strng{fullhash}{9d2878faeaf23c0f3b43faa893d88fd4}
-      \strng{bibnamehash}{9d2878faeaf23c0f3b43faa893d88fd4}
-      \strng{authorbibnamehash}{9d2878faeaf23c0f3b43faa893d88fd4}
-      \strng{authornamehash}{9d2878faeaf23c0f3b43faa893d88fd4}
-      \strng{authorfullhash}{9d2878faeaf23c0f3b43faa893d88fd4}
+    \entry{MAN01}{online}{}
       \field{sortinit}{1}
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
-      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Test-Driven Development. An Empirical Evaluation of Agile Practice}
-      \field{year}{2010}
+      \field{title}{Manifesto for Agile Software Development}
+      \field{year}{2001}
+      \verb{urlraw}
+      \verb http://agilemanifesto.org/
+      \endverb
+      \verb{url}
+      \verb http://agilemanifesto.org/
+      \endverb
     \endentry
     \entry{AGI01}{book}{}
       \name{author}{1}{}{%
@@ -66,28 +54,46 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Agile! The Good, the Hupe and the Ugly}
+      \field{title}{Agile! The Good, the Hype and the Ugly}
       \field{year}{2014}
     \endentry
-    \entry{SPR01}{manual}{}
-      \list{organization}{1}{%
-        {Pivotal Software}%
+    \entry{TDD01}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9d2878faeaf23c0f3b43faa893d88fd4}{%
+           family={Madeyski},
+           familyi={M\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
       }
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labeltitlesource}{title}
-      \field{title}{Spring framework Reference Documentation, Spring Core}
-      \field{year}{2018}
-    \endentry
-    \entry{ANG01}{manual}{}
-      \list{organization}{1}{%
-        {Google}%
+      \list{publisher}{1}{%
+        {Springer-Verlag Berlin Heidelberg}%
       }
+      \strng{namehash}{9d2878faeaf23c0f3b43faa893d88fd4}
+      \strng{fullhash}{9d2878faeaf23c0f3b43faa893d88fd4}
+      \strng{bibnamehash}{9d2878faeaf23c0f3b43faa893d88fd4}
+      \strng{authorbibnamehash}{9d2878faeaf23c0f3b43faa893d88fd4}
+      \strng{authornamehash}{9d2878faeaf23c0f3b43faa893d88fd4}
+      \strng{authorfullhash}{9d2878faeaf23c0f3b43faa893d88fd4}
       \field{sortinit}{4}
       \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Angular framework Reference Documentation, Fundamentals}
+      \field{langid}{english}
+      \field{title}{Test-Driven Development. An Empirical Evaluation of Agile Practice}
+      \field{year}{2010}
+    \endentry
+    \entry{TDD04}{online}{}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labeltitlesource}{title}
+      \field{title}{Test-driven development definition}
       \field{year}{2018}
+      \verb{urlraw}
+      \verb https://pl.wikipedia.org/wiki/Test-driven_development
+      \endverb
+      \verb{url}
+      \verb https://pl.wikipedia.org/wiki/Test-driven_development
+      \endverb
     \endentry
     \entry{TDD02}{article}{}
       \name{author}{2}{}{%
@@ -108,8 +114,8 @@
       \strng{authorbibnamehash}{be3cc984dfb326add352fbcd117072f3}
       \strng{authornamehash}{be3cc984dfb326add352fbcd117072f3}
       \strng{authorfullhash}{be3cc984dfb326add352fbcd117072f3}
-      \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Software}
@@ -144,13 +150,38 @@
       \strng{authorbibnamehash}{734d743975e2c69d86da909e383a6fb0}
       \strng{authornamehash}{734d743975e2c69d86da909e383a6fb0}
       \strng{authorfullhash}{734d743975e2c69d86da909e383a6fb0}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Test First, Code Later: Educating for Test Driven Development}
       \field{type}{techreport}
       \field{year}{2018}
+    \endentry
+    \entry{SPR03}{book}{}
+      \name{author}{1}{}{%
+        {{hash=8cda8b0d560ccb02cc3a00ee2ff46573}{%
+           family={Dhrubojyoti},
+           familyi={D\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Apress Media}%
+      }
+      \strng{namehash}{8cda8b0d560ccb02cc3a00ee2ff46573}
+      \strng{fullhash}{8cda8b0d560ccb02cc3a00ee2ff46573}
+      \strng{bibnamehash}{8cda8b0d560ccb02cc3a00ee2ff46573}
+      \strng{authorbibnamehash}{8cda8b0d560ccb02cc3a00ee2ff46573}
+      \strng{authornamehash}{8cda8b0d560ccb02cc3a00ee2ff46573}
+      \strng{authorfullhash}{8cda8b0d560ccb02cc3a00ee2ff46573}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Pro Java EE Spring Patterns. Best Practices and Design Strategies Implementing Java EE Patterns with the Spring Framework}
+      \field{year}{2008}
     \endentry
     \entry{SPR02}{book}{}
       \name{author}{3}{}{%
@@ -179,63 +210,33 @@
       \strng{authorbibnamehash}{ce2ec56ab54afe5090ffbb2afbc236d1}
       \strng{authornamehash}{ce2ec56ab54afe5090ffbb2afbc236d1}
       \strng{authorfullhash}{ce2ec56ab54afe5090ffbb2afbc236d1}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{title}{Spring 5 Recipes. A Problem-Solution Approach Fourth Edition}
       \field{year}{2017}
     \endentry
-    \entry{SPR03}{book}{}
-      \name{author}{1}{}{%
-        {{hash=8cda8b0d560ccb02cc3a00ee2ff46573}{%
-           family={Dhrubojyoti},
-           familyi={D\bibinitperiod},
-           given={K.},
-           giveni={K\bibinitperiod}}}%
+    \entry{SPR01}{manual}{}
+      \list{organization}{1}{%
+        {Pivotal Software}%
       }
-      \list{publisher}{1}{%
-        {Apress Media}%
-      }
-      \strng{namehash}{8cda8b0d560ccb02cc3a00ee2ff46573}
-      \strng{fullhash}{8cda8b0d560ccb02cc3a00ee2ff46573}
-      \strng{bibnamehash}{8cda8b0d560ccb02cc3a00ee2ff46573}
-      \strng{authorbibnamehash}{8cda8b0d560ccb02cc3a00ee2ff46573}
-      \strng{authornamehash}{8cda8b0d560ccb02cc3a00ee2ff46573}
-      \strng{authorfullhash}{8cda8b0d560ccb02cc3a00ee2ff46573}
-      \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
-      \field{labelnamesource}{author}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Pro Java EE Spring Patterns. Best Practices and Design Strategies Implementing Java EE Patterns with the Spring Framework}
-      \field{year}{2008}
+      \field{title}{Spring framework Reference Documentation, Spring Core}
+      \field{year}{2018}
     \endentry
-    \entry{DPT01}{book}{}
-      \name{author}{1}{}{%
-        {{hash=ddef9866fca3569e7c5659f80dd0da71}{%
-           family={Vaskaran},
-           familyi={V\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod}}}%
+    \entry{ANG01}{manual}{}
+      \list{organization}{1}{%
+        {Google}%
       }
-      \list{publisher}{1}{%
-        {Apress Media}%
-      }
-      \strng{namehash}{ddef9866fca3569e7c5659f80dd0da71}
-      \strng{fullhash}{ddef9866fca3569e7c5659f80dd0da71}
-      \strng{bibnamehash}{ddef9866fca3569e7c5659f80dd0da71}
-      \strng{authorbibnamehash}{ddef9866fca3569e7c5659f80dd0da71}
-      \strng{authornamehash}{ddef9866fca3569e7c5659f80dd0da71}
-      \strng{authorfullhash}{ddef9866fca3569e7c5659f80dd0da71}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
-      \field{labelnamesource}{author}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Java Design Patterns. A Tour of 23 Gang of Four Design Patterns in Java}
-      \field{year}{2016}
+      \field{title}{Angular framework Reference Documentation, Fundamentals}
+      \field{year}{2018}
     \endentry
     \entry{ANG02}{book}{}
       \name{author}{1}{}{%
@@ -287,30 +288,79 @@
       \field{title}{Reactive Programming with Angular and ngrx. Learn to Harness the Power of Reactive Programming with RxJS and ngrx Extensions}
       \field{year}{2017}
     \endentry
-    \entry{ANG04}{book}{}
+    \entry{POS01}{manual}{}
+      \list{organization}{1}{%
+        {The PostgreSQL Global Development Group}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labeltitlesource}{title}
+      \field{title}{PostgreSQL 9.3.25 Documentation}
+      \field{year}{2018}
+    \endentry
+    \entry{REC01}{report}{}
       \name{author}{1}{}{%
-        {{hash=8a06d4c4605753410c2946e702870932}{%
-           family={Gross},
-           familyi={G\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod}}}%
+        {{hash=ddf6a0ff726d7d6894b69aabf644f67b}{%
+           family={Fernandez},
+           familyi={F\bibinitperiod},
+           given={Leidy\bibnamedelimb Esperanza\bibnamedelima Molina},
+           giveni={L\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Apress Media}%
+      \list{institution}{1}{%
+        {Vrije Universiteit Amsterdam}%
       }
-      \strng{namehash}{8a06d4c4605753410c2946e702870932}
-      \strng{fullhash}{8a06d4c4605753410c2946e702870932}
-      \strng{bibnamehash}{8a06d4c4605753410c2946e702870932}
-      \strng{authorbibnamehash}{8a06d4c4605753410c2946e702870932}
-      \strng{authornamehash}{8a06d4c4605753410c2946e702870932}
-      \strng{authorfullhash}{8a06d4c4605753410c2946e702870932}
+      \strng{namehash}{ddf6a0ff726d7d6894b69aabf644f67b}
+      \strng{fullhash}{ddf6a0ff726d7d6894b69aabf644f67b}
+      \strng{bibnamehash}{ddf6a0ff726d7d6894b69aabf644f67b}
+      \strng{authorbibnamehash}{ddf6a0ff726d7d6894b69aabf644f67b}
+      \strng{authornamehash}{ddf6a0ff726d7d6894b69aabf644f67b}
+      \strng{authorfullhash}{ddf6a0ff726d7d6894b69aabf644f67b}
       \field{sortinit}{1}
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{Recommendation System for Netflix}
+      \field{type}{techreport}
+      \field{year}{2018}
+    \endentry
+    \entry{DPT01}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ddef9866fca3569e7c5659f80dd0da71}{%
+           family={Vaskaran},
+           familyi={V\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Apress Media}%
+      }
+      \strng{namehash}{ddef9866fca3569e7c5659f80dd0da71}
+      \strng{fullhash}{ddef9866fca3569e7c5659f80dd0da71}
+      \strng{bibnamehash}{ddef9866fca3569e7c5659f80dd0da71}
+      \strng{authorbibnamehash}{ddef9866fca3569e7c5659f80dd0da71}
+      \strng{authornamehash}{ddef9866fca3569e7c5659f80dd0da71}
+      \strng{authorfullhash}{ddef9866fca3569e7c5659f80dd0da71}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Ajax Patterns and Best Practices}
-      \field{year}{2006}
+      \field{title}{Java Design Patterns. A Tour of 23 Gang of Four Design Patterns in Java}
+      \field{year}{2016}
+    \endentry
+    \entry{REC02}{online}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labeltitlesource}{title}
+      \field{title}{Beginners Guide to learn about Content Based Recommender Engines}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://www.analyticsvidhya.com/blog/2015/08/beginners-guide-learn-content-based-recommender-systems/
+      \endverb
+      \verb{url}
+      \verb https://www.analyticsvidhya.com/blog/2015/08/beginners-guide-learn-content-based-recommender-systems/
+      \endverb
     \endentry
   \enddatalist
 \endrefsection
